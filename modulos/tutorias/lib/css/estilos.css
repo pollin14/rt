@@ -32,7 +32,7 @@
   border-style: solid;
   overflow:auto;
   color:black;
-  background-color:#66839A;
+  background-color:#CCCCCC;
 }
 
 .nick{
@@ -58,7 +58,7 @@
 
 #listaDePendientes{
   height: 350px;
-  width: 288px; /* 12px padding */
+  width: 300px;
   border-width: 2px;
   border-color: black;
   border-style: solid;

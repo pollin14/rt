@@ -2,7 +2,7 @@
 /* CSS Document */
 
 .azul1 {
-	background-color:#FFF4E8;
+	background-color:#EDE1CB;
 }
 .footer {
 	background-color:#FFF4E8;
@@ -15,6 +15,19 @@ a {
 .azul1_0 {
 	color: #845F11;
 }
+.shadow {
+	background-color:#eeeeee;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 8px 7px 4px #666;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	padding: 10px;
+}
+
 .azul2 {
 	background-color:#001F5E;
 	color:#D0E0E6

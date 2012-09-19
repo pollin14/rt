@@ -20,11 +20,12 @@ $len = 4;
 //exit();
 for($i=0; $i< $len;$i++){
 	$bar = new bar_value(0 + $v[$i] );
+    $bar->set_colour( "#".dechex(rand(10000,16777215)) );
 	$bar ->set_tooltip($n[$i] . "<br>" . $v[$i]);	
 	array_push($d, $bar);
 }
 
-$graph = new bar_3d();
+$graph = new bar_glass();
 $graph->set_alpha( 0.75 );
 $graph->set_values( $d );
 $graph->set_on_click("muestra_tabla_usuarios");
@@ -32,9 +33,9 @@ $graph->set_on_click("muestra_tabla_usuarios");
 $x_axis = new x_axis();
 $x_axis->set_3d(5);
 
-$y_axis = new x_axis();
-$y_axis->set_range(0, 
- max( array($e->cuantosHombresHay(),$e->cuantasMujeresHay()))+5, $pas);
+$y_axis = new y_axis();
+$alto=max( array($e->cuantosHombresHay(),$e->cuantasMujeresHay()))+5;
+$y_axis->set_range(0,$alto,5);
 
 $chart = new open_flash_chart();
 $chart->set_x_axis($x_axis);

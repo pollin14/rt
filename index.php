@@ -15,7 +15,6 @@
 
 <body>
 <p align="center"><img src="lib/img/eimle.png"alt="logo ESVIAP" /></p>
-<p align="center"><img src="lib/img/tured.png" width="680" height="32" border="0" /></p>
 
 <table height="429" align="center" width="600px">
   <tr>
@@ -25,7 +24,7 @@
     <p class="azul1_0">TURed es una Plataforma de apoyo a las tutorías a distancia, ofreciendo herramientas de comunicación a tutores e interesados en adquirir conocimientos por medio de tutorías</p>
     <p></p>
 <form id="form1">
-    <table width="352" border="0" cellspacing="0" align="center" class="azul1">
+    <table width="352" border="0" cellspacing="0" align="center" class="shadow">
       <tr>
         <td colspan="2" align="center"><p><strong>Ingreso a la plataforma</strong></p>
           <br />

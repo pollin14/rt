@@ -32,6 +32,7 @@ $cont = 0;
 while($row = $result -> fetch_assoc()){
 	$cont += $row['cuantos'];
 	$slice = new pie_value(0+$row['cuantos'], $row['asignatura']);
+    $slice->set_colour( "#".dechex(rand(1000000,16777215)) );	
 	$slice->on_click('muestra_tabla_temas');
 	array_push($d, $slice);
 }
@@ -58,7 +59,7 @@ $pie->set_values( $d );
 $chart = new open_flash_chart();
 //Si se activa title tira un error.
 //$chart->set_title('Temas');
-$chart->set_title(new title("Catalogos (" . $totalDeTemas . ")"));
+$chart->set_title(new title("Catálogos"));
 
 $chart->add_element( $pie );
 

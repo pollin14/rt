@@ -24,11 +24,12 @@ $m = array();
 while($row = $result -> fetch_assoc()){
 	array_push($m, $row['cuantos']);
 	$bar = new bar_value(0+$row['cuantos']);
+	$bar->set_colour( "#".dechex(rand(100000,16777215)) );	
 	$bar ->set_tooltip($row['entidad']);
 	array_push($d, $bar);
 }
 
-$graph = new bar_3d();
+$graph = new bar_round();
 $graph->set_alpha( 0.75 );
 $graph->set_values( $d );
 $graph->set_on_click("muestra_tabla_entidades");
