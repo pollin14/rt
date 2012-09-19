@@ -26,7 +26,7 @@ asigna('idModalidad');
         <script type="text/javascript" src="lib/js/cct.js"></script>
         <title>Documento sin t&iacute;tulo</title>
         <link rel="stylesheet" type="text/css" href="lib/css/cct.css" />
-        <link rel="stylesheet" type="text/css" href="lib/css/esviap.css" />
+        <link rel="stylesheet" type="text/css" href="../../lib/css/esviap.css" />
         <!-- InstanceParam name="id" type="text" value="center" -->
     </head>
 
@@ -39,7 +39,7 @@ asigna('idModalidad');
                 //	alert(cad.value);
                 //	alert(cad1);
                 if (cad.value != cad1)
-                {alert("las contrase�as deben ser iguales");}
+                {alert("las contraseñas deben ser iguales");}
             }
 
             function validaForm() { 
@@ -73,7 +73,7 @@ asigna('idModalidad');
         </script>
 
         <div id="center">
-            <div class="anuncio" style="background:#E3E8EE">Alta de usuario en el Espacio Virtual de Aprendizaje</div>
+  <div class="anuncio" >Alta de usuario</div>
             <div class="anuncio" style=" width:400px; height:246px; padding-top:100px; text-align:justify">
                 <form action="ingreso5.php" method="POST" name="form" id="form" onsubmit="return validaForm()">
                     <p>Ingresa tus datos  laborales (Clave de Centro de Trabajo y el turno):</p>

@@ -16,9 +16,9 @@ asigna('idTurno');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/template1.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Documento sin t&iacute;tulo</title>
-<link rel="stylesheet" type="text/css" href="lib/css/esviap.css" />
+<link rel="stylesheet" type="text/css" href="../../lib/css/esviap.css" />
 <!-- InstanceParam name="id" type="text" value="center" -->
 </head>
 
@@ -80,7 +80,7 @@ else{
 </script>
 
 <div id="center">
-  <div class="anuncio" style="background:#E3E8EE">Alta de usuario en la plataforma EIMLE</div>
+  <div class="anuncio" >Alta de usuario</div>
   <div class="anuncio" style=" width:400px; height:246px; padding-top:100px; text-align:justify">
     <form action="alta.php" method="POST" name="form" id="form" onsubmit="return validaForm()">
       <p>Por &uacute;ltimo, define un  nombre de usuario y una contrase&ntilde;a para tu ingreso seguro a la plataforma:</p>

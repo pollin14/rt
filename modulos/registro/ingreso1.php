@@ -5,9 +5,9 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/template1.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Ingreso</title>
-<link rel="stylesheet" type="text/css" href="lib/css/esviap.css" />
+<link rel="stylesheet" type="text/css" href="../../lib/css/esviap.css" />
 <!-- InstanceParam name="id" type="text" value="center" -->
 </head>
 
@@ -43,7 +43,7 @@ errors += 'Sexo es obligatorio '; }
 
 </script>
 <div id="center">
-  <div class="anuncio" style="background:#E3E8EE">Alta de usuario en el Espacio Virtual de Aprendizaje</div>
+  <div class="anuncio" >Alta de usuario</div>
   <div class="anuncio" style=" width:400px; height:246px; padding-top:100px; text-align:justify">
     <!---form action="ingreso2.php" method="get" name="form" id="form" onsubmit="MM_validateForm('Sexo','','R','Apellidos','','R','Nombre','','R');return document.MM_returnValue"--->
     <form action="ingreso2.php" method="POST" name="form" id="form" onsubmit="return validaForm();">

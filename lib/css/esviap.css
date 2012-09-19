@@ -4,10 +4,6 @@
 .azul1 {
 	background-color:#EDE1CB;
 }
-.footer {
-	background-color:#FFF4E8;
-	color: #66C;
-}
 
 a {
 	color: #E3AA33;
@@ -57,12 +53,9 @@ body{
 	width:800px; 
 	margin:0 auto 0 auto; 
 }
-#footer {
-	height:inherit;
-	width:800px;
-	margin:0 auto 0 auto;
-	font-family: Arial, Helvetica, sans-serif;
-	color: #36C;
-	background-color:#F1F7F8;
-	font-size: 12px;
+
+
+#pieDePagina{
+    font-family:Verdana, Geneva, sans-serif;
+    color:#E6B54A;
 }

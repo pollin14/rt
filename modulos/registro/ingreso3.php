@@ -94,9 +94,9 @@ $totalRows_rs_nodos = mysql_num_rows($rs_nodos);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/template1.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Ingreso</title>
-<link rel="stylesheet" type="text/css" href="lib/css/esviap.css" />
+<link rel="stylesheet" type="text/css" href="../../lib/css/esviap.css" />
 
 <script type="text/javascript">
 
@@ -132,7 +132,7 @@ function toggleNivel(event){
 <?php include "../../lib/php/encabezado.php"?>
 
 <div id="center">
-  <div class="anuncio" style="background:#E3E8EE">Alta de usuario en el Espacio Virtual de Aprendizaje</div>
+  <div class="anuncio" >Alta de usuario</div>
   <div class="anuncio" style=" width:400px; height:246px; padding-top:100px; text-align:justify">
     <form action="ingreso4.php" method="POST" name="form" id="form">
       <p>Ingresa tus datos sobre el lugar  donde vives:</p>
