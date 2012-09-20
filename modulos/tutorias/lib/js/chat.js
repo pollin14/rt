@@ -10,36 +10,25 @@ var autorizacion = 1;
 var mensaje = "";
 var idUltimoMensaje = 0;
 
-//Para la sincronizacion de la peticiones AJAX
+//Para la sincronizacion de la peticiones AJAX (Todavia no implementadas.)
 var hayPeticionAjax = false;
 var cancelarPeticion = false;
-
 
 //Etapas
 var DEMOSTRACION = 5;
 var BUSQUEDA_DE_SINODALES = 4;
 
-/* Temporalizadores
- * 
- * Estos temporalizadores se usaran de la siguiente forma.
- * temporalizador[TEMPO_CHAT]
- * 
- * Así se podra hacer paso de parametros por referencia.
- * 
- * Ver la funcion reiniciaTemporalizador.
- */
-
+//Variables para los ciclos
 var TEMPO_CHAT = 0;
 var TEMPO_SUBIR_ARCHIVO = 1;
-var TEMPO_PENDIENTES = 2;
-var temporalizadores = new Array(0,0,0);
 
 var INTERVALO_CHAT = 3000;
-var intervaloSubirArchivo = 2500;
+var INTERVALO_SUBIR_ARCHIVO = 2500;
 
 var tempoChat;
 var tempoSubirArchivo;
-var tempoPendientes;
+//Fin de variables para los ciclos.
+
 
 var winSubir = null // referencia a la ventana subir archivos. 
 var winSubirArchivo = null;
@@ -50,16 +39,7 @@ var esUrl = false;
 
 //Variables para la etapa de Demostracion.
 var numeroDeBoton=0; 
-var ultimaVerificacionDePendientes = "0"; 
-var ultimoMiliPendientes = "0"; // usada para distiguir fechas guardada en la misma fecha ( o segundo); 
-var intervaloPendientes = 2902; // intrevalo de actualizacion  
 var numeroDeProductos = 0;
-
-// Variables para el reloj. Posiblemente inutiles.
-var hora; 
-var h=1; 
-var m=0; 
-var s=0; 
 
 var player = "";
 var rutaDelAudio = "lib/audio/mensaje_nuevo";
@@ -70,7 +50,7 @@ var rutaDelAudio = "lib/audio/mensaje_nuevo";
 descargaMensajesPrevios = function(){
     $.ajax({
         type: "POST",
-        url: "mensajesPrevios.php",
+        url: "lib/php/mensajesPrevios.php",
         data: {
             idTutoria : idTutoria,
 			tipoDeUsuario: tipoDeUsuario
@@ -170,7 +150,9 @@ actualizaConversacion = function(xml){
 		numeroDeProductos = tmp;
 		actualizaListaDeProductos();
 	}
-    reiniciaTemporalizador(TEMPO_CHAT,descargaMensajesNuevos,INTERVALO_CHAT);
+    
+    window.clearInterval(tempoChat);
+    tempoChat = window.setInterval(descargaMensajesNuevos,INTERVALO_CHAT);
 }
 
 /*
@@ -179,11 +161,11 @@ actualizaConversacion = function(xml){
  */
 descargaMensajesNuevos= function(){ 
     
-    window.clearInterval(temporalizadores[TEMPO_CHAT]);
+    window.clearInterval(tempoChat);
 
     $.ajax({
     type: "POST",
-    url: "chat.php",
+    url: "lib/php/chat.php",
     data: 
         {idTutoria : idTutoria, 
         mensaje: mensaje,
@@ -238,13 +220,13 @@ inicializaChat = function(){
     //internet explorer
     winSubirArchivo = window.open(url, "SubirArchivo", params);
 
-    reiniciaTemporalizador(
-    TEMPO_SUBIR_ARCHIVO,
+    window.clearInterval(tempoSubirArchivo);
+    tempoSubirArchivo = window.setInterval(
     function(){
         if (winSubirArchivo.closed && urlDelArchivo !=""){
             // Una vez que la ventana ah sido cerrada, ya no necesitamos
             // el temporalizador para subir archivos.
-            window.clearInterval(temporalizadores[TEMPO_SUBIR_ARCHIVO]);
+            window.clearInterval(tempoSubirArchivo);
 
             //todo conseguir nombre del urlDelArchivo
             // En el chat solo se puden eviar archivos. Urls no.
@@ -258,7 +240,8 @@ inicializaChat = function(){
             $('#enviarMensaje').click();
         }
     }, 
-    intervaloSubirArchivo);
+    INTERVALO_SUBIR_ARCHIVO);
+    
     });
 	
 	$('#sonidoOnOff').click(function(){
@@ -295,17 +278,17 @@ inicializaRecursos = function (){
     //internet explorer
     winSubirRecurso = window.open("subirArchivo.html" + url, "SubirArchivo", params);
 
-    reiniciaTemporalizador(
-    TEMPO_SUBIR_ARCHIVO,
+    window.clearInterval(tempoSubirArchivo);
+    tempoSubirArchvio = window.setInterval(
     function(){
         if (winSubirRecurso.closed){
             // Una vez que la ventana ah sido cerrada, ya no necesitamos
             // el temporalizador para subir archivos.
-            window.clearInterval(temporalizadores[TEMPO_SUBIR_ARCHIVO]);
+            window.clearInterval(tempoSubirArchivo);
             actualizaListaDeRecursos();
         }
     }, 
-    intervaloSubirArchivo);
+    INTERVALO_SUBIR_ARCHIVO);
   });
   
 }
@@ -352,7 +335,7 @@ actualizaListaDeRecursos = function(){
                     
                     $.ajax({
                         type:"POST",
-                        url:"borraArchivo.php",
+                        url:"lib/php/borraArchivo.php",
                         context: this,
                         dataType: "text",
                         data:{
@@ -408,7 +391,7 @@ actualizaListaDeProductos = function(){
                 
                 $.ajax({
                     type:"POST",
-                    url:"borraArchivo.php",
+                    url:"lib/php/borraArchivo.php",
                     context: this,
                     dataType: "text",
                     data:{
@@ -454,9 +437,8 @@ inicializaProductos = function(){
 
 cambiaADemostracion = function(){
     
-    window.clearInterval(temporalizadores[TEMPO_CHAT]);
-    window.clearInterval(temporalizadores[TEMPO_SUBIR_ARCHIVO]);
-    window.clearInterval(temporalizadores[TEMPO_PENDIENTES]);
+    window.clearInterval(tempoChat);
+    window.clearInterval(tempoSubirArchivo);
    
 
 //var fun = function(){
@@ -486,11 +468,12 @@ cambiaADemostracion = function(){
 buscaSinodales = function(){   
     $.ajax({
         type:"POST",
-        url: "buscaSinodales.php",
+        url: "lib/php/buscaSinodales.php",
         data:{idTutoria:idTutoria},
         error: error
     });
 }
+
 agregaTemaDeCatalogo = function(nombreDelTema){
 
 		$.ajax({
@@ -508,6 +491,7 @@ agregaTemaDeCatalogo = function(nombreDelTema){
 				}
 			});
 	}
+    
 inicializaAgregarTemaDeCatalogo = function(){
 	$('#añadirTemaDeCatalogo').show('slow');
 	$('#añadirTemaDeCatalogo').click( function(){
@@ -538,14 +522,11 @@ inicializaAgregarTemaDeCatalogo = function(){
 	
 }
 
+
 /*
  * Inicializa variables y eventos.
  */
 $(document).ready(function(){
-
-  window.clearInterval(temporalizadores[TEMPO_CHAT]);
-  window.clearInterval(temporalizadores[TEMPO_SUBIR_ARCHIVO]);
-  window.clearInterval(temporalizadores[TEMPO_PENDIENTES]);
   
   tipoDeUsuario = getUrlVars()['tipoDeUsuario'];
   idTutoria = getUrlVars()['idTutoria'];
@@ -602,17 +583,17 @@ $(document).ready(function(){
           });
 		  
 		  $('#buscaSinodales').click(function(){
-				$.ajax({
-					type:'POST',
-					url:'buscaSinodales.php',
-					data:{idTutoria:idTutoria},
-					typedata:"html",
-					error: error
-				});
-
+				buscaSinodales();
+                //la linea de arriba deberia ser equivalente.
+//                $.ajax({
+//					type:'POST',
+//					url:'lib/php/buscaSinodales.php',
+//					data:{idTutoria:idTutoria},
+//					typedata:"html",
+//					error: error
+//				});
 				$('#mensaje').val("Buscando Sinodales...");
 				$('#enviarMensaje').click();
-				
 			}).hide();
 		  
           break;
@@ -667,7 +648,8 @@ $(document).ready(function(){
          break;
   }
   
-  reiniciaTemporalizador(TEMPO_CHAT,descargaMensajesNuevos,INTERVALO_CHAT);
+  window.clearInterval(tempoChat);
+  tempoChat = window.setInterval(descargaMensajesNuevos,INTERVALO_CHAT);
 });
 
 

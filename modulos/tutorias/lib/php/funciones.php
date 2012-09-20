@@ -32,7 +32,7 @@ function fetchMensajesNuevos(
 			where 
 				m.idTutoria = %d and 
 				u.idUsuario = m.idUsuario and
-				m.idEtapa = %d and
+				m.idEtapa >= %d and
 				m.idMensaje > %d;',
 					$idTutoria,$idEtapa, $idUltimoMensaje);
 	}else{ //Etapa 5
@@ -127,7 +127,6 @@ function fetchNumProductos($idTutoria, $db){
 	
 	return $xml;
 }
-
 
 function saveMensaje($idTutoria,$idUsuario,$idEtapa,$autorizacion,$mensaje,$db){
 	// The sended message.

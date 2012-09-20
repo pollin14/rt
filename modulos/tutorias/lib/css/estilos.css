@@ -1,11 +1,3 @@
-/* 
-    Document   : style.css
-    Created on : 9/07/2012, 12:58:14 PM
-    Author     : Victor Aguilar
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
 #chat{
     width: 450px;
     min-height:350px;
@@ -17,43 +9,13 @@
 	width:100%;
 }
 
-.mensaje{
-}
-
 #subirArchivo{
     display:block;
     float:left;
 }
 
-#ventanaDeConversacion { 
-  height: 350px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  overflow:auto;
-  color:black;
-  background-color:#CCCCCC;
-}
-
-.nick{
-  color:blue;
-}
-
-.fecha{
-    font-style: italic;
-}
-
-.filaPar{
-    background-color: gainsboro;
-}
-
-.filaImpar{
-    background-color: gray;
-}
-
-
 /* 
-    Solo para la ventana del MODERADOR
+ Solo para la ventana del MODERADOR
 */
 
 #listaDePendientes{
@@ -71,8 +33,6 @@
 	margin: 5px auto 5px auto;
 	padding:6px;
 }
-
-
 
 /* 
     Solo para la ventana del TUTOR 
@@ -120,6 +80,42 @@
 	float:left;
 }
 
+/* 
+    Estos estilos se utilizan en la ventana tutorias.
+*/
+
+#ventanaDeConversacion { 
+  height: 350px;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  overflow:auto;
+  color:black;
+  background-color:#CCCCCC;
+}
+
+.nick{
+  color:blue;
+}
+
+.fecha{
+    font-style: italic;
+}
+
+.filaPar{
+    background-color: gainsboro;
+}
+
+.filaImpar{
+    background-color: gray;
+}
+
+
+
+
+
+
+
 .bordeRojo{
 	border:red solid thin;
 }
@@ -140,3 +136,22 @@
 	display:block;
 	width: 100%;
 }
+
+.character { 
+	margin-top: 6px;
+	margin-right:6px;
+	vertical-align:middle;
+	width:90px;}
+
+.sbl { background: url('../img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; text-align: center; min-width: 100px; }
+.sbr { background: url('../img/br.gif') bottom right no-repeat; }
+.stl { background: url('../img/tl.gif') top left no-repeat; }
+.str { background: url('../img/tr.gif') top right no-repeat; padding: 10px; } 
+.sb { padding: 2px 0px 10px 50px; background: url('../img/b.gif') 30px top no-repeat; }
+
+.container { background: #FFFFFF;  width: 80%; padding: 10px; }
+.sbl2 { background: url('lib/img/bl2.gif') bottom left no-repeat #E9E9E9; width: 90%; text-align: center;  min-width: 100px; }
+.sbr2 { background: url('lib/img/br2.gif') bottom right no-repeat; }
+.stl2 { background: url('lib/img/tl2.gif') top left no-repeat; }
+.str2 { background: url('lib/img/tr2.gif') top right no-repeat; padding: 10px; } 
+.sb2 { padding: 2px 0px 10px 50px; background: url('lib/img/b2.gif') 30px top no-repeat; }

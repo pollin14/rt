@@ -1,10 +1,10 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8');
+header('Content-Type: text/xml; charset=UTF-8');
 session_start();
 
-include "../../configuracion.php";
-include "../../lib/php/utils.php";
-include "lib/php/funciones.php";
+include "../../../../configuracion.php";
+include "../../../../lib/php/utils.php";
+include "funciones.php";
 
 administraSesion();
 $db = dameConexion();
@@ -12,14 +12,13 @@ $db = dameConexion();
 //Datos enviados por el usuario.
 $idTutoria = $_POST['idTutoria'];
 $idUsuario = $_SESSION['idUsuario'];
-$mensaje = $db->real_escape_string($_POST['mensaje']);
+$mensaje = $db->real_escape_string($_POST['mensaje']); //sql injection
 $idEtapa = $_POST['idEtapa'];
 $tipoDeUsuario = $_POST['tipoDeUsuario'];
 $idUltimoMensaje = $_POST['idUltimoMensaje'];
 
 
 //$borrar = "1"; //minutos
-$error = "";
 $autorizacion = ($tipoDeUsuario === "sinodal")? 0: 1;
 
 saveMensaje($idTutoria,$idUsuario,$idEtapa,$autorizacion,$mensaje,$db);

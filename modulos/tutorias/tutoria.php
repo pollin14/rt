@@ -40,9 +40,8 @@ switch($_GET['tipoDeUsuario']){
     
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="StyleSheet" href="lib/css/estilos.css" type="text/css"/>
-	<link rel="StyleSheet" href="lib/css/chat.css" type="text/css"/>
     <link rel="StyleSheet" href="../../lib/css/esviap.css" type="text/css"/>
+    <link rel="StyleSheet" href="lib/css/estilos.css" type="text/css"/>
     
     <script type="text/javascript" src="../../lib/js/jquery.js"></script>
     <script type="text/javascript" src="../../lib/js/funciones.js"></script>

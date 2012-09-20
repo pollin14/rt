@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+.azul1 {
+	background-color:#E3E8EE;
+}
+.azul1_0 {
+	color: #36C;
+}
+.azul2 {
+	background-color:#001F5E;
+	color:#D0E0E6
+}
+.anuncio {
+	text-align:center;
+	/*background-color: #E8F2FF;*/
+	height: 20px;
+	margin: auto;
+	width: 100%;
+}
+body{ 
+	font-family:Verdana, Geneva, sans-serif;
+	color: #36C;
+ 	background: transparent url(../img/bg1.jpg) no-repeat center top;
+	background-attachment: fixed;
+  }
+#up {
+	height:20px;
+	width:800px; 
+	margin:0 auto 0 auto; 
+}
+#center {
+	height:550px;
+	width:800px; 
+	margin:0 auto 0 auto; 
+}
+#footer {
+	height:inherit;
+	width:800px;
+	margin:0 auto 0 auto;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #36C;
+	background-color:#F1F7F8;
+	font-size: 12px;
+}
+
+#botonMail img{
+    height:30px;
+    width:40px;
+    right: auto;
+}

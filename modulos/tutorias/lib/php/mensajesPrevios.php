@@ -1,9 +1,10 @@
 <?php
 header('Content-Type: text/xml; charset=UTF-8');
 
-include "../../configuracion.php";
-include "../../lib/php/utils.php";
-include "lib/php/funciones.php";
+include "../../../../configuracion.php";
+include "../../../../lib/php/utils.php";
+include "funciones.php";
+
 
 $idTutoria = $_POST['idTutoria'];
 $tipoDeUsuario = $_POST['tipoDeUsuario'];

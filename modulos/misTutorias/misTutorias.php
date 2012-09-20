@@ -10,9 +10,9 @@ administraSesion();
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="StyleSheet" href="lib/css/estilos.css" type="text/css"/>
-		<link rel="StyleSheet" href="../loged/loged.css" type="text/css"/>
 		<link rel="stylesheet" type="text/css" href="../../lib/css/esviap.css"/>
+        <link rel="StyleSheet" href="misTutorias.css" type="text/css"/>
+        <link rel="StyleSheet" href="../loged/loged.css" type="text/css"/>
         <script type="text/javascript" src="../../lib/js/jquery.js"></script>
         <script type="text/javascript" src="../../lib/js/funciones.js"></script>
         <script type="text/javascript" src="misTutorias.js"></script>
