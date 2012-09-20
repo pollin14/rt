@@ -4,7 +4,7 @@ var idTutoria   = 0;
 var idUsuario   = 0;
 var tipoDeUsuario = "alumno";
 var idEtapa = -1;
-var etapas = new Array("cero","uno","dos","tres","Busqueda De Sinodales","Demostración","Aprobado");
+var etapas = new Array("cero","uno","dos","tres","Busqueda De Observadores","Demostración","Aprobado");
 
 var autorizacion = 1;
 var mensaje = "";
@@ -592,7 +592,7 @@ $(document).ready(function(){
 //					typedata:"html",
 //					error: error
 //				});
-				$('#mensaje').val("Buscando Sinodales...");
+				$('#mensaje').val("Buscando Observadores...");
 				$('#enviarMensaje').click();
 			}).hide();
 		  
