@@ -27,39 +27,48 @@ function fetchMensajesNuevos(
 	$error = "";
 	if ($idEtapa < DEMOSTRACION ){
 		$query = sprintf('
+                    select * from (
 			select m.*, u.nick 
 			from '.$tabla .' as m natural join Usuarios as u
 			where 
-				m.idTutoria = %d and 
-				u.idUsuario = m.idUsuario and
-				m.idEtapa >= %d and
-				m.idMensaje > %d
-                limit %d;',
+                            m.idTutoria = %d and 
+                            u.idUsuario = m.idUsuario and
+                            m.idEtapa >= %d and
+                            m.idMensaje > %d
+                            order by idMensaje desc
+                        limit %d)
+                        as tmp order by idMensaje asc;',
 					$idTutoria,$idEtapa, $idUltimoMensaje,$limite);
 	}else{ //Etapa 5
 		if($tipoDeUsuario == "moderador"){
 			//descargamos todos los mensajes incluyendo los que no estan 
 			//autorizado, es decir los pendientes.
 			$query = sprintf('
+                            select * from (
 				select m.*, u.nick 
 				from ' . $tabla . ' as m natural join usuarios as u
 				where 
-					m.idTutoria = %d and 
-					u.idUsuario = m.idUsuario and
-					m.idEtapa = %d and
-					m.idMensaje > %d
-                    limit %d;',
+                                    m.idTutoria = %d and 
+                                    u.idUsuario = m.idUsuario and
+                                    m.idEtapa = %d and
+                                    m.idMensaje > %d
+                                    order by idMensaje desc
+                        limit %d)
+                        as tmp order by idMensaje asc;',
 						$idTutoria, $idEtapa,$idUltimoMensaje,$limite);
 		}else{
 			$query = sprintf('
-			select m.*, u.nick 
-			from MensajesPlus as m natural join usuarios as u
-			where 
-				m.idTutoria = %d and 
-				u.idUsuario = m.idUsuario and
-				m.autorizacion = true and
-				m.idMensaje > %d
-                limit %d;',
+                            select * from (
+                                select m.*, u.nick 
+                                from MensajesPlus as m natural join usuarios as u
+                                where 
+                                    m.idTutoria = %d and 
+                                    u.idUsuario = m.idUsuario and
+                                    m.autorizacion = true and
+                                    m.idMensaje > %d
+                                    order by idMensaje desc
+                                limit %d)
+                        as tmp order by idMensaje asc;',
 					$idTutoria, $idUltimoMensaje,$limite);
 		}
 	}
