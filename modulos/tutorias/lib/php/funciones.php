@@ -22,7 +22,7 @@ function fetchUltimaEtapa($idTutoria,$db){
 }
 
 function fetchMensajesNuevos(
-		$idTutoria,$idUltimoMensaje,$idEtapa,$tipoDeUsuario,$tabla,$db){
+		$idTutoria,$idUltimoMensaje,$idEtapa,$tipoDeUsuario,$tabla,$db,$limite=20){
 	$tabla = ($tabla == "historial")? 'HistorialPlus':'MensajesPlus';
 	$error = "";
 	if ($idEtapa < DEMOSTRACION ){
@@ -33,8 +33,9 @@ function fetchMensajesNuevos(
 				m.idTutoria = %d and 
 				u.idUsuario = m.idUsuario and
 				m.idEtapa >= %d and
-				m.idMensaje > %d;',
-					$idTutoria,$idEtapa, $idUltimoMensaje);
+				m.idMensaje > %d
+                limit %d;',
+					$idTutoria,$idEtapa, $idUltimoMensaje,$limite);
 	}else{ //Etapa 5
 		if($tipoDeUsuario == "moderador"){
 			//descargamos todos los mensajes incluyendo los que no estan 
@@ -46,8 +47,9 @@ function fetchMensajesNuevos(
 					m.idTutoria = %d and 
 					u.idUsuario = m.idUsuario and
 					m.idEtapa = %d and
-					m.idMensaje > %d;',
-						$idTutoria, $idEtapa,$idUltimoMensaje);
+					m.idMensaje > %d
+                    limit %d;',
+						$idTutoria, $idEtapa,$idUltimoMensaje,$limite);
 		}else{
 			$query = sprintf('
 			select m.*, u.nick 
@@ -56,8 +58,9 @@ function fetchMensajesNuevos(
 				m.idTutoria = %d and 
 				u.idUsuario = m.idUsuario and
 				m.autorizacion = true and
-				m.idMensaje > %d;',
-					$idTutoria, $idUltimoMensaje);
+				m.idMensaje > %d
+                limit %d;',
+					$idTutoria, $idUltimoMensaje,$limite);
 		}
 	}
 

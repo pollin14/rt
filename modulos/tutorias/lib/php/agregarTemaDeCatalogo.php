@@ -23,10 +23,13 @@ include "../../../../lib/php/queries.php";
 
 $db = dameConexion();
 $nombreDelTema = $db->real_escape_string($_POST['nombre']);
+$autorizado = 0; // no
 
 $tmp = dameIdTemaIdAlumnoDeTutoria($_POST['idTutoria'], $db);
 $idTema = $tmp[0];
 $idAlumno = $tmp[1];
+
+$nombreDelAlumno = dameNombreDelUsuario($idAlumno,$db);
 
 $query = sprintf('
 	select * from Temas 
@@ -36,14 +39,16 @@ $query = sprintf('
 $result = $db -> query($query);
 
 if(!$result ) die ("Error. Tema repetido. ");
-if($result -> num_rows != 0) die ("Error. Ya agregaste un tema al alumno actual. ");
-
-$nombreDelAlumno = dameNombreDelUsuario($idAlumno,$db);
-
+if($result -> num_rows != 0){
+    $row = $result->fetch_assoc();
+    echo "El tema con el nombre " . $row['nombre'];
+    echo " fue agregado a los Temas de Catalogo de " . $nombreDelAlumno . ".";
+    exit();
+}
 
 $insert = sprintf('
-	insert into Temas (nombre,idUsuario,temaPadre) 
-	values ("%s",%d,%d);',$nombreDelTema,$idAlumno,$idTema);
+	insert into Temas (nombre,idUsuario,temaPadre,autorizado) 
+	values ("%s",%d,%d,%d);',$nombreDelTema,$idAlumno,$idTema,$autorizado);
 
 $db -> query($insert);
 
