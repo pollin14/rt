@@ -48,7 +48,7 @@ $(document).ready(function(){
 	});
 
 	//subir avatar;
-	$('#misDatos img').click(function(){
+	$('#misDatos').children('img').click(function(){
 		var params = "directories=no,height=150px,";
 		params += "width=500px,location=no,menubar=no,resizable=no,";
 		params += "titlebar=no,toolbar=no";

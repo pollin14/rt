@@ -66,6 +66,8 @@ a:hover {
 	float:left;
 	width:500px;
 	min-height:400px;
+	padding-left:10px;
+	padding-bottom:12px;
 	}
 #footer {
 	clear:both;
@@ -126,22 +128,26 @@ a:hover {
 	}
 
 /* Sidebar */
-	
+#sidebar-top {
+	height:50px;
+	background:url(images/bg-sidebar-top.gif) no-repeat top center;
+	text-align:center;
+	}	
 #sidebar-bottom {
 	height:20px;
 	background:url(images/bg-sidebar-bottom.gif) no-repeat top center;
 	}
 
-#sidebar .misDatos{		
+#sidebar #misDatos{		
 		margin-right:auto;
 		margin-left:auto;
 	}
-#sidebar .misDatos img{
+#sidebar #misDatos img{
 		display:block;
 		margin-right:auto;
 		margin-left:auto;
 	}
-#sidebar .misDatos p{
+#sidebar #misDatos p{
 		text-align:center;
 		display:block;
 		margin-right:auto;
