@@ -70,7 +70,7 @@ a:hover {
 #footer {
 	clear:both;
 	height:100px;
-	background:url(images/bg-footer.jpg) no-repeat;
+	background:url(images/bg-footer.png) no-repeat;
 	}
 
 /* Entries */
@@ -152,7 +152,7 @@ a:hover {
 
 #footer-valid {
 	float:left;
-	padding-top:55px;
+	padding-top:68px;
 	padding-left:20px;
 	cursor:default;
 	color:#ffffff;

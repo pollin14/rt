@@ -25,30 +25,14 @@ $(document).ready(function(){
 
 	$('#menu').find('li').click(function(){
 		
-		var v = this.getAttribute('value');
-		var nd = v; //nombre del modulo
-		switch(v){
-			case ('bandejaDeEntrada'):
-				nd = 'mensajesPrivados';
-				v += ".php";
-				break;
-			default:
-				if (v.substr(0,5) == 'index'){
-					nd = 'alta_en_arbol';
-				}else{
-					v = v + ".php";
-				}
-		}
-		window.location = '../' + nd + '/' + v;
+		window.location = this.getAttribute('value');
+		
 	});
 
 	$('#menu').find('li').mouseenter(function(){
 		//bug de jquery
 		//$('#descripcion').html( $(this).attr('value') );
-		var v = this.getAttribute('value');
-		if (v.substr(0,5) == 'index'){
-			v = "misTemasDeCatalogo";
-		}
+		var v = $(this).children('a').attr('name');
 		window.clearInterval(tempo);
 		$('#entry').hide();
 		$('#entry').load('descripciones/' + v + ".html");
