@@ -48,7 +48,7 @@ a:hover {
 	}
 #header {
 	height:140px;
-	background:url(images/bg-header.jpg) no-repeat;
+	background:url(images/bg-header.png) no-repeat;
 	}
 #menu {
 	height:35px;
@@ -63,11 +63,9 @@ a:hover {
 	margin-right:10px;
 	}
 #content {
-	width:600px;
+	float:left;
+	width:500px;
 	min-height:400px;
-        margin-top:72px;
-        margin-right:auto;
-        margin-left:auto;
 	}
 #footer {
 	clear:both;
@@ -77,15 +75,17 @@ a:hover {
 
 /* Entries */
 
-.entry {
+#entry {
 	padding:5px 10px;
 	text-align:justify;
 	line-height:1.75em;
+	min-height:400px;
 	}
-.entry-title {
+#entry-title {
 	font-size:1.90em;
 	font-weight:normal;
 	letter-spacing:-1px;
+	color:#B4C835;
 	}
 .date {
 	font-size:0.9em;
@@ -126,29 +126,26 @@ a:hover {
 	}
 
 /* Sidebar */
-
-#sidebar ul {
-	list-style-type:none;
-	margin-top:10px;
-	}
-#sidebar li {
 	
-	}
-#sidebar li a {
-	display:block;
-	height:20px;
-	line-height:20px;
-	color:#222222;
-	padding-left:5px;
-	border-bottom:1px solid #dddddd;
-	}
-#sidebar li a:hover {
-	background:#edebed;
-	color:#6CC4D8;
-	}
 #sidebar-bottom {
 	height:20px;
 	background:url(images/bg-sidebar-bottom.gif) no-repeat top center;
+	}
+
+#sidebar .misDatos{		
+		margin-right:auto;
+		margin-left:auto;
+	}
+#sidebar .misDatos img{
+		display:block;
+		margin-right:auto;
+		margin-left:auto;
+	}
+#sidebar .misDatos p{
+		text-align:center;
+		display:block;
+		margin-right:auto;
+		margin-left:auto;
 	}
 
 /* Footer */
@@ -172,13 +169,11 @@ a:hover {
 /* Heading's */
 
 h1 {
-	font-size:2.5em;
+	font-size:1.90em;
 	font-weight:normal;
-	cursor:default;
-	position:relative; top:50px; left:30px;
-	letter-spacing:1px;
-	color:#aaaaaa;
-	font-style:italic;
+	letter-spacing:-1px;
+	color:#B4C835;
+	margin-bottom:15px;
 	}
 
 /* Feed */
@@ -188,24 +183,23 @@ h1 {
 	width:126px;
 	background:url(images/bg-feed.gif) no-repeat;
 	margin:0 auto;
-	padding-left:26px;
+	padding-top:5px;
+	padding-left:39px;
 	}
 a.feed-button {
-	display:block;
-    width:100px;
-    height:25px;
-    background:url("images/button-feed.png") 0 0 no-repeat;
+	color:#ffffff;
     text-decoration: none;
 	}
 a:hover.feed-button {
+	color:#ffff33;
 	background-position:0 -25px;
 	}
 
 /* Extra's */
-/*
+
 #ad-top {
 	width:480px;
 	height:72px;
-	background:url(images/bg-ad-top.png) no-repeat;
+/*	background:url(images/bg-ad-top-1.png) no-repeat;*/
 	padding:5px;
-	}*/
+	}

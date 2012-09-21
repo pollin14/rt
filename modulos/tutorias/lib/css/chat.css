@@ -1,0 +1,23 @@
+
+<!--
+/*body { background: #66839A; font-size: 12px; font-family: Verdana, Arial; }*/
+.character { 
+	margin-top: 6px;
+	margin-right:6px;
+	vertical-align:middle;
+	width:90px;}
+
+.sbl { background: url('../img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; text-align: center; min-width: 100px; }
+.sbr { background: url('../img/br.gif') bottom right no-repeat; }
+.stl { background: url('../img/tl.gif') top left no-repeat; }
+.str { background: url('../img/tr.gif') top right no-repeat; padding: 10px; } 
+.sb { padding: 2px 0px 10px 50px; background: url('../img/b.gif') 30px top no-repeat; }
+
+.container { background: #FFFFFF;  width: 80%; padding: 10px; }
+.sbl2 { background: url('lib/img/bl2.gif') bottom left no-repeat #E9E9E9; width: 90%; text-align: center;  min-width: 100px; }
+.sbr2 { background: url('lib/img/br2.gif') bottom right no-repeat; }
+.stl2 { background: url('lib/img/tl2.gif') top left no-repeat; }
+.str2 { background: url('lib/img/tr2.gif') top right no-repeat; padding: 10px; } 
+.sb2 { padding: 2px 0px 10px 50px; background: url('lib/img/b2.gif') 30px top no-repeat; }
+//-->
+
