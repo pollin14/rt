@@ -61,11 +61,11 @@ switch($_GET['tipoDeUsuario']){
 
 			<div id="menu">
 				<ul>
-					<li value="loged.html"><a href="#" name="home">Pagina de Inicio</a></li>
-					<li value="../../modulos/mensajesPrivados/bandejaDeEntrada.php"><a href="#" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
-					<li value="../../modulos/misTutorias/misTutorias.php"><a href="#" name="misTutorias">Mis Tutorias</a></li>
-					<li value="../../modulos/solicitudDeTutoria/solicitudDeTutoria"><a href="#" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
-					<li value="../../modulos/solicitudDeTutoria/solicitudDeTutoria"><a href="#" name="temasDeCatalogo">Temas de Catalogo</a></li>
+					<li><a href="../..//modulos/loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="../../modulos/mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
+					<li><a href="../../modulos/misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
+					<li><a href="../../modulos/solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
+					<li><a href="../../modulos/alta_en_arbol/index.php" name="temasDeCatalogo">Temas de Catalogo</a></li>
 				</ul>
 			</div>
 
@@ -76,21 +76,40 @@ switch($_GET['tipoDeUsuario']){
 				
 				<div id="misDatos">
 					<p>Chris Redfield</p>
-					<img src="../../lib/css/images/no_avatar.jpg"/>
+					<?php 
+						$imagen = $_SESSION['idUsuario'] . ".jpg";
+
+						if( !file_exists("../../avatares/".$imagen)){
+							$imagen = "default.jpg";
+						}
+
+						echo '<img src="../../avatares/' .$imagen .'"';
+						echo 'alt="Click para subir un nuevo avatar." />';
+					?>
 				</div>
 				
 				<div id="sidebar-bottom"></div>
-				
-				<div id="sidebar-top"><p>Productos<br/> <a href="#">Subir Producto</a></div>
-				
-				<div id="productos">
-					<div class="producto"><img class="boton" src="../../lib/img/cancel.png"/><p>Producto 1</p></div>
-					<div class="producto"><img class="boton" src="../../lib/img/cancel.png"/><p>Producto 2</p></div>
-					<div class="producto"><img class="boton" src="../../lib/img/cancel.png"/><p>Producto 3</p></div>
-					<img class="boton" src="../../lib/img/actualizar.png"/>
-				</div>
-				
-				<div id="sidebar-bottom"></div>
+ <?php 
+      
+$tipoDeUsuario = $_GET['tipoDeUsuario'];
+
+switch ( $tipoDeUsuario){
+  case ("moderador"): // Es el tutor en etapa de demostracion
+	  include "componentes/mensajesPendientes.php";
+	  break;
+  case ("alumno"):
+	  include "componentes/productos.php";
+	  break;
+  case ("tutor"):
+	  include "componentes/productos.php";
+	  include "componentes/recursos.php";
+	  break;
+  case ("sinodal"):
+	  echo '<div id="sidebar-bottom"></div>';
+		break;
+  }
+?>				
+
 			</div>
 
 			<div id="content">
@@ -125,75 +144,7 @@ switch($_GET['tipoDeUsuario']){
                 
             </div>
         </div>
-      
-      <?php 
-      
-      $tipoDeUsuario = $_GET['tipoDeUsuario'];
-      
-      switch ( $tipoDeUsuario){
-      case ("tutor"):
-          ?>
-			<div class="columna">        
-			<div id="recursos"> 
-				<h3>Recursos</h3> 
-				<div id="listaDeRecursos"></div>
-				<br>
-				<button id="subirRecurso">Subir Recurso</button>
-			</div>
-			
-			<div style="clear:both;"></div>
-			
-			<div id="productos">
-				<h3>Productos</h3>
-				<div id="listaDeProductos"></div>
-				<br>
-				<div id="subirProductos">
-				<button value="4">Subir Registro de Tutoria</button>
-				</div>
-			</div>
-			</div>
-			
-			<div style="clear:both;"></div>
-			<div id="temaCaptura">
-				<input class="bordeNegro" 
-					   type="text" 
-					   value="" 
-					   placeholder="Nombre del Tema"/>
-				<button>Guardar </button>
-			</div>
-        
-          <?php
-          break;
-      case ("moderador"): // Es el tutor en etapa de demostracion
-		  echo '<div class="columna">';
-		  echo '<div id="pendientes">';
-		  echo '<h3>Pendientes </h3>';
-          echo '<div id="listaDePendientes"></div>';
-		  echo '<div style="clear:left"></div>';
-		  echo '<button id="aprobar"><img src="../../lib/img/ok.png"> Aprobar</button>';
-		  echo '</div>';
-		  echo '</div>';
-          break;
-      case ("alumno"):?>
-        
-<!--			<div class="columna">
-			<div id="productos">
-				<h3>Productos</h3>
-					<div id="listaDeProductos"></div>
-					<div id="subirProductos">
-						<button value="1">Subir Registro de Proceso de Estudio</button>
-						<button value="2">Subir Guion de Tutoria</button>
-						<button value="3">Subir Demostracion Publica</button>
-					</div>
-			</div>
-			</div>-->
-          <?php
-          break;
-	  case ("sinodal"):
-			break;
-      }
-      ?>
-      
+
       <div id="m"></div>
 
     </div>				

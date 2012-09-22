@@ -1,3 +1,11 @@
+<?php 
+session_start();
+header('Content-Type: text/html; charset=UTF-8');
+include "../../configuracion.php";
+administraSesion();
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -18,11 +26,11 @@
 
 			<div id="menu">
 				<ul>
-					<li value="loged.html"><a href="#" name="home">Pagina de Inicio</a></li>
-					<li value="../../modulos/mensajesPrivados/bandejaDeEntrada.php"><a href="#" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
-					<li value="../../modulos/misTutorias/misTutorias.php"><a href="#" name="misTutorias">Mis Tutorias</a></li>
-					<li value="../../modulos/solicitudDeTutoria/solicitudDeTutoria"><a href="#" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
-					<li value="../../modulos/solicitudDeTutoria/solicitudDeTutoria"><a href="#" name="temasDeCatalogo">Temas de Catalogo</a></li>
+					<li value="../../../loged.php"><a href="#" name="home">Pagina de Inicio</a></li>
+					<li><a href="../../modulos/mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
+					<li><a href="../../modulos/misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
+					<li><a href="../../modulos/solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
+					<li><a href="../../modulos/alta_en_arbol/index.php" name="temasDeCatalogo">Temas de Catalogo</a></li>
 				</ul>
 			</div>
 
@@ -32,8 +40,17 @@
 				</div>
 				
 				<div id="misDatos">
-					<p>Chris Redfield</p>
-					<img src="../../lib/css/images/no_avatar.jpg"/>
+					<p><?php echo $_SESSION['nombre']; ?></p>
+					 <?php 
+						$imagen = $_SESSION['idUsuario'] . ".jpg";
+
+						if( !file_exists("../../avatares/".$imagen)){
+							$imagen = "default.jpg";
+						}
+
+						echo '<img src="../../avatares/' .$imagen .'"';
+						echo 'alt="Click para subir un nuevo avatar." />';
+					?>
 				</div>
 				
 				<div id="sidebar-bottom"></div>

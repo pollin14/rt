@@ -18,7 +18,7 @@
  Solo para la ventana del MODERADOR
 */
 
-#listaDePendientes{
+/*#listaDePendientes{
   height: 350px;
   width: 300px;
   border-width: 2px;
@@ -32,7 +32,7 @@
 	border: purple solid 1px;
 	margin: 5px auto 5px auto;
 	padding:6px;
-}
+}*/
 
 /* 
     Solo para la ventana del TUTOR 
@@ -159,11 +159,13 @@
 
 /* Productos y Recursos */
 
-.producto img{
+.itemlist img{
 	position: absolute;
+	cursor: pointer;
 }
 
-.producto p{
+.itemlist p{
 	margin-left:25px;
 	margin-bottom:5px;
+	cursor:pointer;
 }

@@ -25,11 +25,10 @@ if ( ! $result){
 
 while($result && $row = $result->fetch_assoc()){
 	$visual = ($row['descripcion'] == "")? $row['url']: $row['descripcion'];
-	echo '<div>';
-	echo '<span value="' . $row['url'] . '" title="' . $row['hint'] . '">';
-	echo $visual.'</span>';
+	echo '<div class="itemlist">';
 	echo '<img src="../../lib/img/cancel.png" title="Borrar Recurso"/>';
+	echo '<p value="' . $row['url'] . '" title="' . $row['hint'] . '">';
+	echo $visual.'</p>';
 	echo '</div>';
-	echo '<span style="clear:both;display:none;"></span>';
 }
 ?>
