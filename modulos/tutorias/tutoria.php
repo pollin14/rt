@@ -106,6 +106,11 @@ switch ( $tipoDeUsuario){
 	  break;
   case ("sinodal"):
 		break;
+  case ("moderador"):
+	  include "mensajesPendientes.php";
+	  break;
+  case("demostrador"):
+	  break;
   }
 ?>				
 

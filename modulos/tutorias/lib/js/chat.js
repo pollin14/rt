@@ -96,21 +96,23 @@ actualizaConversacion = function(xml){
 	
 	//Agregamos los mensajes pendientes a la ventana de pendientes
 	pendientes.each(function(){
-		
-		var m = '<div class="mensajePendiente">';
-			m += $(this).attr('fecha') +"<br/>";
-			m += "De: " + $(this).attr('nick');
-			m += '<div value="' + $(this).attr('idUsuario') + "," 
-				+ $(this).attr('idMensaje') + '">';
-			m += $(this).text()
-			m += '</div>';
-			m += '<button>Autorizar</button>'
+
+//esta cosa no funciona con un div en vez de con un span
+		var m = "";			
+			m = '<div class="itemlist">';
+				m += '<img class="boton" src="../../lib/img/ok2.png"/>';
+				m += '<p value="' + $(this).attr('idUsuario') + ',' 
+					+ $(this).attr('idMensaje') + '">';
+				m += $(this).attr('fecha') + "<br/>";
+				m += "De: " + $(this).attr('nick') + "<br/>";
+				m += '<span>x </span>';
+				m += '</p><br/>'
 			m += '</div>';
 			
-		$('#listaDePendientes').html( $('#listaDePendientes').html() + m);
-		$('#listaDePendientes').find('button').click(function(){
+		$('#pendientes').html( $('#pendientes').html() + m);
+		$('#pendientes').find('img').click(function(){
 			
-			var pendiente = $(this).siblings('div');
+			var pendiente = $(this).siblings('p');
 			var tmp = pendiente.attr('value').split(','); 
 			$(this).parent().load(
 				'lib/php/autorizarMensaje.php',
@@ -118,7 +120,7 @@ actualizaConversacion = function(xml){
 					idUsuario: tmp[0], 
 					idMensaje : tmp[1],
 					idEtapa: DEMOSTRACION,
-					mensaje: pendiente.html()
+					mensaje: pendiente.children('span').html()
 				});
 			$(this).parent().hide();
 		});

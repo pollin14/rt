@@ -14,66 +14,6 @@
     float:left;
 }
 
-/* 
- Solo para la ventana del MODERADOR
-*/
-
-/*#listaDePendientes{
-  height: 350px;
-  width: 300px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  overflow:auto;
-  padding:6px;
-}
-
-.mensajePendiente{
-	border: purple solid 1px;
-	margin: 5px auto 5px auto;
-	padding:6px;
-}*/
-
-/* 
-    Solo para la ventana del TUTOR 
-*/
-
-/*#recursos,#productos,#pendientes{
-    margin-left: 20px;
-    float:left;
-	width:100%;
-}
-
-#listaDeRecursos,#listaDeProductos{
-  height: 120px;
-  width: 100%;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  overflow:auto;
-}
-
-
-#listaDeRecursos img,
-#listaDeProductos img{
-    cursor: pointer;
-    float:right;
-}
-
-#listaDeProductos span,
-#listaDeRecursos span{
-	width:250px;
-	display:block;
-    cursor: pointer;
-	float:left;
-	overflow-x:hidden;
-}
-
-#listaDeProductos div,
-#listaDeRecursos div{
-	width:275px;
-}*/
-
 .columna{
 	width:300px;
 	margin-top:-20px;
