@@ -14,7 +14,6 @@ administraSesion();
 		<link rel="stylesheet" href="../../lib/css/style.css" type="text/css" media="screen" />
 		<link rel="StyleSheet" href="misTutorias.css" type="text/css"/>
 		<script type="text/javascript" src="../../lib/js/jquery.js"></script>
-		<script type="text/javascript" src="loged.js"></script>
 		<script type="text/javascript" src="misTutorias.js"></script>
 	</head>
 
