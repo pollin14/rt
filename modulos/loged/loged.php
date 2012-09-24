@@ -26,11 +26,11 @@ administraSesion();
 
 			<div id="menu">
 				<ul>
-					<li value="#"><a href="#" name="home">Pagina de Inicio</a></li>
-					<li><a href="../../modulos/mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
-					<li><a href="../../modulos/misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
-					<li><a href="../../modulos/solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
-					<li><a href="../../modulos/alta_en_arbol/index.php" name="misTemasDeCatalogo">Temas de Catalogo</a></li>
+					<li><a href="loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="../mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
+					<li><a href="../misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
+					<li><a href="../solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
+					<li><a href="../alta_en_arbol/index.php" name="misTemasDeCatalogo">Temas de Catalogo</a></li>
 				</ul>
 			</div>
 
