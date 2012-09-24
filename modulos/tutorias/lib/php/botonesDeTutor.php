@@ -9,14 +9,20 @@ header('Content-Type: text/html; charset=UTF-8');
 	 alt="Click para Añadir Tema de Catalogo al Tutorado"/>
 
 <img id="siguienteEtapa"
-	src="../../lib/img/ok.png"
-	title="Presiona para cambiar a la Siguiente Etapa"
-	alt="Click para cambiar a la Siguiente Etapa"
-	class="boton"/>
-					
-<img id="buscaSinodales"
-	src="../../lib/img/buscar.png"
-	title="Presiona para buscar (nuevos) sinodales"
-	alt="Click para buscar (nuevos) sinodales"
-	class="boton"/>
+	 src="../../lib/img/ok.png"
+	 title="Presiona para cambiar a la Siguiente Etapa"
+	 alt="Click para cambiar a la Siguiente Etapa"
+	 class="boton"/>
 
+<img id="buscaSinodales"
+	 src="../../lib/img/buscar.png"
+	 title="Presiona para buscar (nuevos) sinodales"
+	 alt="Click para buscar (nuevos) sinodales"
+	 class="boton"/>
+<div id="temaCaptura">
+	<input class="bordeNegro" 
+		   type="text" 
+		   value="" 
+		   placeholder="Nombre del Tema"/>
+	<button>Guardar </button>
+</div>

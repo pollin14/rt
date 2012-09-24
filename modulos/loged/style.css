@@ -35,7 +35,6 @@ a {
 a:hover {
 	text-decoration:none;
 	color:#6CC7DC;
-	cursor:pointer;
 	}
 
 /* Structure */
@@ -49,7 +48,7 @@ a:hover {
 	}
 #header {
 	height:140px;
-	background:url(images/bg-header.png) no-repeat;
+	background:url(images/bg-header.jpg) no-repeat;
 	}
 #menu {
 	height:35px;
@@ -67,14 +66,11 @@ a:hover {
 	float:left;
 	width:500px;
 	min-height:400px;
-	padding-left:10px;
-	padding-bottom:16px;
-	padding-top:16px;
 	}
 #footer {
 	clear:both;
 	height:100px;
-	background:url(images/bg-footer.png) no-repeat;
+	background:url(images/bg-footer.jpg) no-repeat;
 	}
 
 /* Entries */
@@ -89,7 +85,6 @@ a:hover {
 	font-size:1.90em;
 	font-weight:normal;
 	letter-spacing:-1px;
-	color:#B4C835;
 	}
 .date {
 	font-size:0.9em;
@@ -130,28 +125,22 @@ a:hover {
 	}
 
 /* Sidebar */
-#sidebar-top {
-	height:50px;
-	background:url(images/bg-sidebar-top.gif) no-repeat top center;
-	text-align:center;
-	}	
+	
 #sidebar-bottom {
 	height:20px;
 	background:url(images/bg-sidebar-bottom.gif) no-repeat top center;
 	}
 
-#sidebar #misDatos{		
+#sidebar .misDatos{		
 		margin-right:auto;
 		margin-left:auto;
 	}
-#sidebar #misDatos img{
+#sidebar .misDatos img{
 		display:block;
 		margin-right:auto;
 		margin-left:auto;
-		width:100px;
-		cursor:pointer;
 	}
-#sidebar #misDatos p{
+#sidebar .misDatos p{
 		text-align:center;
 		display:block;
 		margin-right:auto;
@@ -162,7 +151,7 @@ a:hover {
 
 #footer-valid {
 	float:left;
-	padding-top:68px;
+	padding-top:55px;
 	padding-left:20px;
 	cursor:default;
 	color:#ffffff;
@@ -179,11 +168,13 @@ a:hover {
 /* Heading's */
 
 h1 {
-	font-size:1.90em;
+	font-size:2.5em;
 	font-weight:normal;
-	letter-spacing:-1px;
-	color:#B4C835;
-	margin-bottom:15px;
+	cursor:default;
+	position:relative; top:50px; left:30px;
+	letter-spacing:1px;
+	color:#aaaaaa;
+	font-style:italic;
 	}
 
 /* Feed */
@@ -210,6 +201,6 @@ a:hover.feed-button {
 #ad-top {
 	width:480px;
 	height:72px;
-/*	background:url(images/bg-ad-top-1.png) no-repeat;*/
+	background:url(images/bg-ad-top.png) no-repeat;
 	padding:5px;
 	}
