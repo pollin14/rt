@@ -1,18 +1,35 @@
-#contenido{
+/*#contenido{
   min-height: 500px;
   width: 400px;
   border: purple solid thin;
   float: left;
   padding: 10px;
   margin-left:70px;
-}
+}*/
 
 
-#titulo{
+/*#titulo{
     font-style:italic;
     font-size: medium;
 }
 
 h1{
 	color: chocolate;
+}*/
+
+#menu-vertical ul {
+	list-style-type: none;
+	margin-bottom:15px;
+}
+
+#menu-vertical li{
+	padding:0 15px;
+	display:block;
+	color:#B4C835;
+	margin-right:2px;
+	cursor:pointer;
+}
+
+#menu-vertical li:hover{
+	color:#6CC7DC;
 }

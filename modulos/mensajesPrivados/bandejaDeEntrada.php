@@ -1,32 +1,83 @@
 <?php
-
-include "../../configuracion.php";
 session_start();
+header('Content-Type: text/html; charset=UTF-8');
+include "../../configuracion.php";
 administraSesion();
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
         <title>Bandeja De Entrada</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta http-equiv="cache-control" content="no-cahce"/>
         <script type="text/javascript" src="../../lib/js/funciones.js"></script>
         <script type="text/javascript" src="../../lib/js/jquery.js"></script>
         <script src="bandejaDeEntrada.js" type="text/javascript"></script>
         <link href="estilos.css" type="text/css" rel="StyleSheet"/>
-		<link rel="stylesheet" type="text/css" href="../../lib/css/esviap.css"/>
+		<link rel="stylesheet" type="text/css" href="../../lib/css/style.css"/>
     </head>
-    <body>
-	    <?php include "../../lib/php/encabezado.php" ?>
-		<?php include "../../lib/php/menu.php" ?>
-	   
-        <p id="barraDeNavegacion"></p>
-        <div id="actualizar"><img src="../../lib/img/actualizar.png" alt="Revisar si existen mensajes nuevos"/></div>
-        <div id="bandejaDeEntrada"></div>
-        <div id="mensaje"></div>
-	   <div style="clear:both;"></div>
-		
-		<?php include "../../lib/php/pieDePagina.php"?>
-    </body>
+
+	<body>
+
+		<div id="wrapper">
+
+			<div id="header">
+
+			</div>
+
+			<div id="menu">
+				<ul>
+					<li value="../loged/loged.php"><a href="../loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
+					<li><a href="../misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
+					<li><a href="../solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
+					<li><a href="../alta_en_arbol/index.php" name="misTemasDeCatalogo">Temas de Catalogo</a></li>
+				</ul>
+			</div>
+
+			<div id="sidebar">
+				<div id="feed">
+					<a class="feed-button" href="cerrarSesion.php">Cerrar Sesion</a>
+				</div>
+
+				<div id="misDatos">
+					<p><?php echo $_SESSION['nombre']; ?></p>
+					<?php
+					$imagen = $_SESSION['idUsuario'] . ".jpg";
+
+					if (!file_exists("../../avatares/" . $imagen)) {
+						$imagen = "default.jpg";
+					}
+
+					echo '<img src="../../avatares/' . $imagen . '"';
+					echo 'alt="Click para subir un nuevo avatar." />';
+					?>
+				</div>
+
+				<div id="sidebar-bottom"></div>
+			</div>
+
+			<div id="content">
+<!--				<div id="ad-top">
+					Insert 468x60 banner advertisement 
+				</div>-->
+
+				<p id="barraDeNavegacion"></p>
+				<div id="actualizar"><img src="../../lib/img/actualizar.png" alt="Revisar si existen mensajes nuevos"/></div>
+				<div id="bandejaDeEntrada"></div>
+				<div id="mensaje"></div>
+				<div style="clear:both;"></div>
+
+			</div>
+
+			<div id="footer">
+				<div id="footer-valid">
+					Av. Paseo de la Reforma 122, Col. Juárez, Delegación Cuauhtémoc, C.P. 06600, México, D.F
+				</div>
+			</div>
+
+		</div>
+
+	</body>
 </html>

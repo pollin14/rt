@@ -18,6 +18,7 @@ and open the template in the editor.
         $(document).ready(function(){
             var idTema = getUrlVars()['idTema'];
             var idTutoria = getUrlVars()['idTutoria'];
+			var tipoDeUsuario = getUrlVars()['tipoDeUsuario'];
             //crp = chat.recuros.producto
             var crp = getUrlVars()['crp'];
             var tmp;
@@ -37,11 +38,17 @@ and open the template in the editor.
             tmp = '<input type="hidden" name="crp" value="' + crp +'"/>';
             $("form").html( $('form').html() + tmp);
 			
-			//Si se subio un producto,debemos detectar el id del boton
+			//Si se subio un producto debemos saber cual de los 4 fue.
 			if ( crp == "productos"){
-				tmp = '<input type="hidden" name="idBoton" value="' + 
-					getUrlVars()['idBoton']+'"/>';
+				if(tipoDeUsuario == "alumno"){
+					tmp = '<input type="radio" name="idBoton" value="1" checked/>Registro de Proceso de Estudios<br/>';
+					tmp += '<input type="radio" name="idBoton" value="2"/>Guion de Tutoria <br/>';
+					tmp += '<input type="radio" name="idBoton" value="3"/>Demostración Publica<br>';
+				}else{
+					tmp = '<input type="radio" name="idBoton" value="4" checked/>Registro de Tutoria';
+				}
 				$("form").html( $('form').html() + tmp);
+
 			}
             
             

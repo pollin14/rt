@@ -29,9 +29,11 @@ switch($_GET['tipoDeUsuario']){
 		$otros = "Observador/Sinodal";
 }
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
     <title>Tutorias:
     
 <?php 
@@ -40,19 +42,77 @@ switch($_GET['tipoDeUsuario']){
     
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="StyleSheet" href="../../lib/css/esviap.css" type="text/css"/>
-    <link rel="StyleSheet" href="lib/css/estilos.css" type="text/css"/>
+    <link rel="StyleSheet" href="../../lib/css/style.css" type="text/css"/>
+    <link rel="StyleSheet" href="lib/css/chat.css" type="text/css"/>
     
     <script type="text/javascript" src="../../lib/js/jquery.js"></script>
     <script type="text/javascript" src="../../lib/js/funciones.js"></script>
     <script type="text/javascript" src="../../lib/js/modernizr.js"></script>
     <script type="text/javascript" src="lib/js/chat.js"></script>
+	</head>
 
-  </head>
-  <body>
-	 <?php include "../../lib/php/encabezado.php" ?>
-	 <?php include "../../lib/php/menu.php"?>
-    <div>
+	<body>
+
+		<div id="wrapper">
+
+			<div id="header">
+				
+			</div>
+
+			<div id="menu">
+				<ul>
+					<li><a href="../..//modulos/loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="../../modulos/mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
+					<li><a href="../../modulos/misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
+					<li><a href="../../modulos/solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
+					<li><a href="../../modulos/alta_en_arbol/index.php" name="temasDeCatalogo">Temas de Catalogo</a></li>
+				</ul>
+			</div>
+
+			<div id="sidebar">
+				<div id="feed">
+					<a class="feed-button" href="cerrarSesion.php">Cerrar Sesion</a>
+				</div>
+				
+				<div id="misDatos">
+					<p>Chris Redfield</p>
+					<?php 
+						$imagen = $_SESSION['idUsuario'] . ".jpg";
+
+						if( !file_exists("../../avatares/".$imagen)){
+							$imagen = "default.jpg";
+						}
+
+						echo '<img src="../../avatares/' .$imagen .'"';
+						echo 'alt="Click para subir un nuevo avatar." />';
+					?>
+				</div>
+				
+				<div id="sidebar-bottom"></div>
+ <?php 
+      
+$tipoDeUsuario = $_GET['tipoDeUsuario'];
+
+switch ( $tipoDeUsuario){
+  case ("moderador"): // Es el tutor en etapa de demostracion
+	  include "componentes/mensajesPendientes.php";
+	  break;
+  case ("alumno"):
+	  include "componentes/productos.php";
+	  break;
+  case ("tutor"):
+	  include "componentes/productos.php";
+	  include "componentes/recursos.php";
+	  break;
+  case ("sinodal"):
+		break;
+  }
+?>				
+
+			</div>
+
+			<div id="content">
+<div>
         
 			<h3> Tema: <?php echo $nombreDelTema ?></h3>
 			<h3> <?php echo ucfirst($_GET['tipoDeUsuario']) . ": " .$_SESSION['nombre'] . "," . $otros; ?></h3>
@@ -74,7 +134,7 @@ switch($_GET['tipoDeUsuario']){
 					 title="Enciende o Apaga el sonido"
 					 id="sonidoOnOff"
 					 value="on"/>
-                
+
                 <?php 
                 if($_GET['tipoDeUsuario'] == 'tutor'){ 
                     include 'lib/php/botonesDeTutor.php';
@@ -83,79 +143,20 @@ switch($_GET['tipoDeUsuario']){
                 
             </div>
         </div>
-      
-      <?php 
-      
-      $tipoDeUsuario = $_GET['tipoDeUsuario'];
-      
-      switch ( $tipoDeUsuario){
-      case ("tutor"):
-          ?>
-			<div class="columna">        
-			<div id="recursos"> 
-				<h3>Recursos</h3> 
-				<div id="listaDeRecursos"></div>
-				<br>
-				<button id="subirRecurso">Subir Recurso</button>
-			</div>
-			
-			<div style="clear:both;"></div>
-			
-			<div id="productos">
-				<h3>Productos</h3>
-				<div id="listaDeProductos"></div>
-				<br>
-				<div id="subirProductos">
-				<button value="4">Subir Registro de Tutoria</button>
-				</div>
-			</div>
-			</div>
-			
-			<div style="clear:both;"></div>
-			<div id="temaCaptura">
-				<input class="bordeNegro" 
-					   type="text" 
-					   value="" 
-					   placeholder="Nombre del Tema"/>
-				<button>Guardar </button>
-			</div>
-        
-          <?php
-          break;
-      case ("moderador"): // Es el tutor en etapa de demostracion
-		  echo '<div class="columna">';
-		  echo '<div id="pendientes">';
-		  echo '<h3>Pendientes </h3>';
-          echo '<div id="listaDePendientes"></div>';
-		  echo '<div style="clear:left"></div>';
-		  echo '<button id="aprobar"><img src="../../lib/img/ok.png"> Aprobar</button>';
-		  echo '</div>';
-		  echo '</div>';
-          break;
-      case ("alumno"):?>
-        
-			<div class="columna">
-			<div id="productos">
-				<h3>Productos</h3>
-					<div id="listaDeProductos"></div>
-					<div id="subirProductos">
-						<button value="1">Subir Registro de Proceso de Estudio</button>
-						<button value="2">Subir Guion de Tutoria</button>
-						<button value="3">Subir Demostracion Publica</button>
-					</div>
-			</div>
-			</div>
-          <?php
-          break;
-	  case ("sinodal"):
-			break;
-      }
-      ?>
-      
+
       <div id="m"></div>
 
-    </div>
-	 <div style="clear:both"></div>
-	 <?php include "../../lib/php/pieDePagina.php" ?>
-  </body>
+    </div>				
+				
+			</div>
+
+			<div id="footer">
+				<div id="footer-valid">
+					Av. Paseo de la Reforma 122, Col. Juárez, Delegación Cuauhtémoc, C.P. 06600, México, D.F
+				</div>
+			</div>
+
+		</div>
+
+	</body>
 </html>
