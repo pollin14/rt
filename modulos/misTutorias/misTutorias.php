@@ -31,7 +31,7 @@ administraSesion();
 					<li><a href="../mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
 					<li><a href="misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
 					<li><a href="../solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
-					<li><a href="../alta_en_arbol/index.php" name="misTemasDeCatalogo">Temas de Catalogo</a></li>
+					<li><a href="../alta_en_arbol/index.php?uid=<?php echo $_SESSION['idUsuario']; ?>" name="misTemasDeCatalogo">Temas de Catalogo</a></li>
 				</ul>
 			</div>
 

@@ -65,7 +65,7 @@ switch($_GET['tipoDeUsuario']){
 					<li><a href="../../modulos/mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
 					<li><a href="../../modulos/misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
 					<li><a href="../../modulos/solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
-					<li><a href="../../modulos/alta_en_arbol/index.php" name="temasDeCatalogo">Temas de Catalogo</a></li>
+					<li><a href="../alta_en_arbol/index.php?uid=<?php echo $_SESSION['idUsuario']; ?>" name="misTemasDeCatalogo">Temas de Catalogo</a></li>
 				</ul>
 			</div>
 
