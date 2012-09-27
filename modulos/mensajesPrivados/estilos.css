@@ -8,7 +8,7 @@
 
 #bandejaDeEntrada{
     border: black solid 1px;
-    height: 500px;
+    height: 150px;
     float:left;
     margin: 5px;
     min-width: 400px;
@@ -42,14 +42,14 @@
     background-color:red;
 }
 
-#actualizar{
+/*#actualizar{
 	width:24px;
     cursor: pointer;
 }
 
 #actualizar:hover{
     background: greenyellow;
-}
+}*/
 
 #mensaje{
     padding:10px;
