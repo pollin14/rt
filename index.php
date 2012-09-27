@@ -51,9 +51,6 @@
 	  <tr>
 		  <td colspan="2" align="right"><a href="modulos/recuperacionDeContrasena/recuperacionDeContrasena.php" title="Recuperar Correo">Recuperar Contraseña</a></td>
 	  </tr>
-		<tr>
-			<td colspan="2" align="right"><a href="curp.php" title="Recuperar Correo">Consulta tus Datos a Traves del CURP</a></td>
-		</tr>
     </table>
 </form>
 <p></p>
