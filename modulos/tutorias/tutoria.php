@@ -65,7 +65,7 @@ switch($_GET['tipoDeUsuario']){
                 <div style="clear:both"></div>
                 <textarea id="mensaje" rows="5" maxlength="255"></textarea>
                 <div style="clear:both"></div>
-                <label id="caracteresRestantes" >255</label>
+                <label id="caracteresRestantes">255</label>
                 <button id="enviarMensaje">Enviar</button>
 				
 				<img class="boton" 

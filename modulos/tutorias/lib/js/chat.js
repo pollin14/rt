@@ -185,16 +185,23 @@ inicializaChat = function(){
     
     $('#mensaje').val("");
     
-    $('#mensaje').keydown(function(event){
+    $('#mensaje').keyup(function(event){
         
+		var MAX = 255;
         var cr = $('#mensaje');
-        $('#caracteresRestantes').html(
-            parseInt(cr.attr('maxLength')) - cr.val().length );
+		var caracteresRestantes = MAX - cr.val().length;
+		
+		
         if (event.which == 13 && !event.shiftKey){
             event.preventDefault();
             $('#enviarMensaje').click();
             $('#caracteresRestantes').html( cr.attr('maxLength'));
-        }
+        }if( cr.val().length > 255){
+			$('#mensaje').val(cr.val().substr(0,255));
+			caracteresRestantes = 0;
+		}
+		
+		$('#caracteresRestantes').html( caracteresRestantes );
     });
   
     $('#enviarMensaje').click(function(){
