@@ -197,13 +197,16 @@ inicializaChat = function(){
         if (event.which == 13 && !event.shiftKey){
             event.preventDefault();
             $('#enviarMensaje').click();
-            $('#caracteresRestantes').html( cr.attr('maxLength'));
-        }if( cr.val().length > 255){
-			$('#mensaje').val(cr.val().substr(0,255));
-			caracteresRestantes = 0;
+        }else{
+			if( cr.val().length > 255){
+				$('#mensaje').val(cr.val().substr(0,255));
+				caracteresRestantes =  0;
+			}
+			
+			$('#caracteresRestantes').html( caracteresRestantes );
 		}
 		
-		$('#caracteresRestantes').html( caracteresRestantes );
+		
     });
   
     $('#enviarMensaje').click(function(){
@@ -213,7 +216,7 @@ inicializaChat = function(){
 		}
         //mensajes[mensajes.length] = $("#message").val();
         $('#mensaje').val("");
-		$('#caracteresRestantes').html(255);
+		$('#caracteresRestantes').html( 255 );
         //guardaMensaje();
         descargaMensajesNuevos();
     });
