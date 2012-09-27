@@ -6,14 +6,16 @@ function dameNombreDelUsuario($idUsuario,$db){
 	
 	$query = sprintf("select nombre from Usuarios where idUsuario = %d;", $idUsuario);
 	$result = $db-> query($query);
-	if(!$result) die ("error en la consulta: ".$query);
+	if(!$result) 
+		die ("Error al obtener el nombre del usuario.");
 	$row = $result->fetch_assoc();
 	return $row['nombre'];
 }
 function dameNombreDelTema($idTema,$db){
 	$query = sprintf("select nombre from Temas where idTema = %d;", $idTema);
 	$result = $db-> query($query);
-	if(!$result) die ("error en la consulta: ".$query);
+	if(!$result) 
+		die ("Error al obtener el nombre del tema. ");
 	$row = $result->fetch_assoc();
 	return $row['nombre'];
 }
@@ -26,31 +28,29 @@ function dameNombreDelTutorDelTema($idTema,$db){
 				t.idTema = %d and 
 				u.idUsuario = t.idUsuario;",$idTema);
 	$result = $db -> query($query);
-	if(!$result) die ("error en la consulta: ".$query);
+	if(!$result) die ("Error al obtener el nombre del tutor del tema.");
 	$row = $result->fetch_assoc();
 	return $row['nombre'];
 }
 
 function dameIdTemaIdAlumnoDeTutoria($idTutoria, $db){
-	
-	$query = sprintf("
+	$result = $db -> query(sprintf("
 		select idTema,estudiante from Tutorias 
-		where idTutoria = %d;", $idTutoria);
+		where idTutoria = %d;", $idTutoria));
 	
-	$result = $db -> query($query);
-	
-	if(!$result ) die("Error. dameIdTemaIdAlumnoDeTutoria. " . $query . $db->error);
+	if(!$result ) 
+		die("Error al obtener el id del tema y el id del alumo de la tutoria. ");
 	
 	return $result->fetch_row();
 }
 
-function dameNombreDelProducto($idProducto,$db){
-	$result = $db -> query ("
+function dameNombreDelProducto($idProducto,$db){	
+	$result = $db -> query(sprintf("
 		select nombre from nombreDeProducto 
-		where idProducto= " . $idProducto .";" );
+		where idProducto=  %d;", $idProducto));
 	
 	if(!$result) 
-		die ("Error al obtener el nombre del producto." .$query . $db->error);
+		die ("Error al obtener el nombre del producto.");
 	
 	$row = $result -> fetch_assoc();
 	
@@ -59,13 +59,13 @@ function dameNombreDelProducto($idProducto,$db){
 }
 
 function dameNombreDelTemaDeLaTutoria($idTutoria,$db){
-	$result = $db -> query ("
+	$result = $db -> query ( sprintf("
 		select Temas.nombre from Temas,Tutorias
-		where Tutorias.idTutoria = " . $idTutoria ." and
-			Tutorias.idTema = Temas.IdTema;");
+		where Tutorias.idTutoria = %d and
+			Tutorias.idTema = Temas.IdTema;",$idTutoria));
 	
 	if(!$result) 
-		die ("Error al obtener el nombre del producto." .$query . $db->error);
+		die ("Error al obtener el nombre del tema de la tutoria.");
 	
 	$row = $result -> fetch_assoc();
 	
@@ -78,11 +78,11 @@ function dameNombreDelTutorDeLaTutoria($idTutoria,$db){
 			where 
 				Tutorias.idTutoria = %d and 
 				Tutorias.idTema = Temas.idTema and
-				Temas.idUsuario = Usuarios.idUsuario;',$_GET['idTutoria']);
+				Temas.idUsuario = Usuarios.idUsuario;',$idTutoria);
 	$result = $db->query($query);
 	
 	if(!$result) 
-		die ("Error al obtener el nombre del producto." .$query . $db->error);
+		die ("Error al obtener el nombre del tutor de la tutoria.");
 	
 	$row = $result -> fetch_assoc();
 	
@@ -99,7 +99,7 @@ function dameNombreDelEstudiante($idTutoria,$db){
 	$result = $db->query($query);
 	
 	if(!$result) 
-		die ("Error al obtener el nombre del producto." .$query . $db->error);
+		die ("Errro al obtener el nombre del estudiante.");
 	
 	$row = $result -> fetch_assoc();
 	

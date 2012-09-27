@@ -37,7 +37,7 @@ administraSesion();
 
 			<div id="sidebar">
 				<div id="feed">
-					<a class="feed-button" href="cerrarSesion.php">Cerrar Sesion</a>
+					<a class="feed-button" href="../../modulos/loged/cerrarSesion.php">Cerrar Sesion</a>
 				</div>
 				
 				<div id="misDatos">

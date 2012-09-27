@@ -30,7 +30,7 @@
 
 #bandejaDeEntrada div[name="leido"],
 #bandejaDeEntrada div[name="noleido"]{
-    width: 100px;
+    width: 50px;
     border: black solid 1px;
     padding: 3px;
     margin: 5px;

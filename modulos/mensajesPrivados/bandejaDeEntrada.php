@@ -13,8 +13,8 @@ administraSesion();
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <script type="text/javascript" src="../../lib/js/funciones.js"></script>
         <script type="text/javascript" src="../../lib/js/jquery.js"></script>
-        <script src="bandejaDeEntrada.js" type="text/javascript"></script>
-        <link href="estilos.css" type="text/css" rel="StyleSheet"/>
+        <script type="text/javascript" src="bandejaDeEntrada.js"></script>
+        <link href="bandejaDeEntrada.css" type="text/css" rel="StyleSheet"/>
 		<link rel="stylesheet" type="text/css" href="../../lib/css/style.css"/>
     </head>
 
@@ -28,7 +28,7 @@ administraSesion();
 
 			<div id="menu">
 				<ul>
-					<li value="../loged/loged.php"><a href="../loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="../loged/loged.php" name="home">Pagina de Inicio</a></li>
 					<li><a href="bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
 					<li><a href="../misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
 					<li><a href="../solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
@@ -38,7 +38,7 @@ administraSesion();
 
 			<div id="sidebar">
 				<div id="feed">
-					<a class="feed-button" href="cerrarSesion.php">Cerrar Sesion</a>
+					<a class="feed-button" href="../../modulos/loged/cerrarSesion.php">Cerrar Sesion</a>
 				</div>
 
 				<div id="misDatos">
