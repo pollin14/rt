@@ -211,6 +211,7 @@ inicializaChat = function(){
 		}
         //mensajes[mensajes.length] = $("#message").val();
         $("#mensaje").val("");
+		$('#caracteresRestantes').html(255);
         //guardaMensaje();
         descargaMensajesNuevos();
     });
