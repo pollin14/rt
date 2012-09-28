@@ -43,7 +43,7 @@ function generarCCT(){
             
         },
         success : function(){
-            alert('tu CCT provisional sera enviado a tu correo electronico /n una vez reciba el CCT en su correo favor de registrarse');
+            alert('tu CCT provisional sera enviado a tu correo electronico \n una vez reciba el CCT en su correo favor de registrarse');
             alert(mail+entidad+localidad);
         }
     })

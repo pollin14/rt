@@ -7,9 +7,7 @@
 		<script type="text/javascript" src="../../lib/js/jquery.js"></script>
 	</head>
 	<body>
-<?php 
-include "../../lib/php/encabezado.php";
-
+<?php
 if(!isset($_POST['email'])){?>
 		
 		<div>
@@ -19,7 +17,6 @@ if(!isset($_POST['email'])){?>
 			<input type="submit" value="Enviar Contraseña"/>
 			</form>
 		</div>
-		 <?php include "../../lib/php/pieDePagina.php"?>
 	</body>
 </html>
 <?php
@@ -73,7 +70,6 @@ if ($result -> num_rows > 0){
 	echo "<p>Lo siento, no hay ningun usuario con esta cuenta de correo</p>";
 }
 
-include "../../lib/php/pieDePagina.php"
 ?>
 	</body>
 </html>

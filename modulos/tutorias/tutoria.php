@@ -157,7 +157,7 @@ switch ( $tipoDeUsuario){
 
 			<div id="footer">
 				<div id="footer-valid">
-					Av. Paseo de la Reforma 122, Col. Juárez, Delegación Cuauhtémoc, C.P. 06600, México, D.F
+					<?php include '../../lib/php/direccion.php'?>
 				</div>
 			</div>
 
