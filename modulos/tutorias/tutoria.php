@@ -75,7 +75,7 @@ switch($_GET['tipoDeUsuario']){
 				</div>
 				
 				<div id="misDatos">
-					<p>Chris Redfield</p>
+					<p><?php echo $_SESSION['nombre']; ?></p>
 					<?php 
 						$imagen = $_SESSION['idUsuario'] . ".jpg";
 
