@@ -68,32 +68,44 @@ descargaMensajesPrevios = function(){
  */
 
 actualizaConversacion = function(xml){
-    
-	var tmp;
 	
     idUltimoMensaje = parseInt($(xml).find("idUltimoMensaje").text());
+	
+	var tmp;
+	
     var mensajes = $(xml).find('mensajes').children();
 	var pendientes = $(xml).find('pendientes').children();
-
+	
+	var conversacion = $('#ventanaDeConversacion');
+	var mAnteriores = conversacion.html(); // mensajesAnteriores
+	var mNuevos = "";//mensajesNuevos
     mensaje = "";
         
     //Agregra los mensajes a la ventana de conversacion.
     mensajes.each(function(){
-		var conversacion = $('#ventanaDeConversacion');
-		var mAnteriores = conversacion.html(); // mensajesAnteriores
-		var mNuevos = "";//mensajesNuevos
 
-		mNuevos += '<span class="fecha">' + $(this).attr("fecha") + "</span><br/>";
-		mNuevos += '<div class="sbl"><div class="sbr"><div class="stl"><div class="str">'
-		mNuevos += '<span class="mensaje">' + $(this).text() + "</span>";
-		mNuevos += '</div></div></div></div><div class="sb">';
-		mNuevos += '<img class="character" src="../../avatares/'+$(this).attr('idUsuario')+'.jpg"/>';
-		mNuevos += '<b class="nick">';
-		mNuevos += $(this).attr("nick") + "</b>";
-		conversacion.html(mAnteriores + mNuevos);
-		autoScroll("ventanaDeConversacion");
+//		mNuevos += '<span class="fecha">' + $(this).attr("fecha") + "</span><br/>";
+//		mNuevos += '<div class="sbl"><div class="sbr"><div class="stl"><div class="str">'
+//		mNuevos += '<span class="mensaje">' + $(this).text() + "</span>";
+//		mNuevos += '</div></div></div></div><div class="sb">';
+//		mNuevos += '<img class="character" src="../../avatares/'+$(this).attr('idUsuario')+'.jpg"/>';
+//		mNuevos += '<b class="nick">';
+//		mNuevos += $(this).attr("nick") + "</b>";
+
+		mNuevos += 
+			'<div class="mensaje-wrapper">' +
+				'<div class="avatar">' +
+					'<img src="../../avatares/' + $(this).attr('idUsuario') + '.jpg"/>' +
+					'<p>' + $(this).attr("nick")+'<p>' +
+				'</div>' +
+				'<div class="mensaje-content">' +
+					'<div class="mensaje-top"><p>'+ $(this).attr("fecha")+'</div>' +
+					'<div class="mensaje-center justify">' +  $(this).text()+ '</div>' +
+					'<div class="mensaje-bottom"></div>' +
+				'</div>' +
+			'</div><div style="clear:both;"></div>';
+		
     });
-	
 	//Agregamos los mensajes pendientes a la ventana de pendientes
 	pendientes.each(function(){
 
@@ -128,6 +140,8 @@ actualizaConversacion = function(xml){
 
 	if(mensajes.length != 0 && 
 		$('#sonidoOnOff').attr('value') == "on"){
+		conversacion.html(mAnteriores + mNuevos);
+		autoScroll("ventanaDeConversacion");
 		$('#sonido').html(player);
 	}
 

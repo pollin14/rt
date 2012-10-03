@@ -14,54 +14,10 @@
     float:left;
 }
 
-.columna{
-	width:300px;
-	margin-top:-20px;
-	float:left;
-}
 
-/* 
-    Estos estilos se utilizan en la ventana tutorias.
-*/
-
-#ventanaDeConversacion { 
-  height: 350px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  overflow:auto;
-  color:black;
-  background-color:#CCCCCC;
-}
-
-.nick{
-  color:blue;
-}
 
 .fecha{
     font-style: italic;
-}
-
-.filaPar{
-    background-color: gainsboro;
-}
-
-.filaImpar{
-    background-color: gray;
-}
-
-
-
-
-
-
-
-.bordeRojo{
-	border:red solid thin;
-}
-
-.bordeNegro{
-	border: black solid thin;
 }
 
 .boton{
@@ -77,24 +33,64 @@
 	width: 100%;
 }
 
-.character { 
-	margin-top: 6px;
-	margin-right:6px;
-	vertical-align:middle;
-	width:90px;}
+#ventanaDeConversacion { 
+  height: 350px;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  overflow:auto;
+  color:black;
+  background-color:#CCCCCC;
+/*	background-color:white;*/
+	padding: 0px 0px 0px 10px;
+}
 
-.sbl { background: url('../img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; text-align: center; min-width: 100px; }
-.sbr { background: url('../img/br.gif') bottom right no-repeat; }
-.stl { background: url('../img/tl.gif') top left no-repeat; }
-.str { background: url('../img/tr.gif') top right no-repeat; padding: 10px; } 
-.sb { padding: 2px 0px 10px 50px; background: url('../img/b.gif') 30px top no-repeat; }
+.mensaje-top{
+	height:20px;	
+	background:url("../img/bg-sidebar-top.png") no-repeat top center;
+}
 
-.container { background: #FFFFFF;  width: 80%; padding: 10px; }
-.sbl2 { background: url('lib/img/bl2.gif') bottom left no-repeat #E9E9E9; width: 90%; text-align: center;  min-width: 100px; }
-.sbr2 { background: url('lib/img/br2.gif') bottom right no-repeat; }
-.stl2 { background: url('lib/img/tl2.gif') top left no-repeat; }
-.str2 { background: url('lib/img/tr2.gif') top right no-repeat; padding: 10px; } 
-.sb2 { padding: 2px 0px 10px 50px; background: url('lib/img/b2.gif') 30px top no-repeat; }
+.mensaje-top p{
+/*	margin:0px 0px 0px 16px;*/
+	padding:5px 0px 0px 16px;
+}
+
+.mensaje-bottom{
+	height:20px;
+	background:url("../img/bg-sidebar-bottom.png") no-repeat top center;
+}
+
+.mensaje-center{
+	background-color:#EFEFEF;
+	padding: 5px 5px 0px 5px;
+}
+
+.mensaje-content{
+	float:left;
+	width:299px;
+}
+
+.avatar{
+	float:left;
+	width:100px;
+	background-image:url('../img/cola.png');
+	background-repeat:no-repeat;
+	background-position:right 10px;
+}
+
+.avatar img{
+	width:80px;
+	height:80px;
+}
+
+.avatar p{
+	margin:0px 0px 0px 0px;
+	text-align:center;
+}
+
+.mensaje-wrapper{
+	margin:10px 0px 0px 0px;
+}
 
 
 /* Productos y Recursos */
