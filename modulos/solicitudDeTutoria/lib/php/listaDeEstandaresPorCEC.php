@@ -6,7 +6,7 @@ include "../../../../configuracion.php";
 $idCEC = $_POST['idCEC']; // idComponenteEjeCategoria
 
 $db = dameConexion();
-$query = sprintf('select * from Estandares where idComponenteEjeCategoria = %d;', $idCEC);
+$query = sprintf('select * from Estandares where idComponenteEjeCategoria = %d order by descripcion;', $idCEC);
 $result = $db->query($query);
 
 if(!$result) die("Error. " . $db->error);

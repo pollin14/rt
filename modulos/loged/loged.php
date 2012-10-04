@@ -44,10 +44,10 @@ administraSesion();
 		
 		<div id="menu">
 			<ul>
-				<li value="bandejaDeEntrada"><img src="../../lib/img/correo.png" id="imagen_correo"/> Bandeja de entrada </li>
-				<li value="misTutorias"><img src="../../lib/img/chat.png"/> Mis Tutorías </li>
-				<li value="solicitudDeTutoria"><img src="../../lib/img/buscar.png"/> Solicitud de Tutoría</li>
-				<li value="index.php?uid=<?php echo $_SESSION['idUsuario']; ?>"> <img src="../../lib/img/temasDeCatalogo.png"/>Mis temas de catalogo </li>
+				<a href="../mensajesPrivados/bandejaDeEntrada.php" class="noDec"><li><img src="../../lib/img/correo.png" id="imagen_correo"/> Bandeja de entrada </li></a>
+				<a href="../misTutorias/misTutorias.php" class="noDec"><li><img src="../../lib/img/chat.png"/> Mis Tutorías </li></a>
+				<a href="../solicitudDeTutoria/solicitudDeTutoria.php" class="noDec"><li><img src="../../lib/img/buscar.png"/> Solicitud de Tutoría</li></a>
+				<a href="../altaEnArbol/index.php?uid=<?php echo $_SESSION['idUsuario']; ?>" class="noDec"><li> <img src="../../lib/img/temasDeCatalogo.png"/>Mis temas de catalogo </li></a>			
 			</ul>
 		</div>
 		<div id="descripcion"></div>

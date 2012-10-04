@@ -18,7 +18,7 @@ $query = sprintf(
 		"select nombre,idTema 
 			from EstandaresDeTema natural join temas 
 			where idEstandar = %d 
-			group by idTema;",$idEstandar);
+			group by idTema order by nombre;",$idEstandar);
 
 $result = $db -> query($query);
 

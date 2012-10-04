@@ -8,7 +8,7 @@ define("LIMITE", 20);
 $html = "";
 
 $db = dameConexion();
-$query = "select * from ComponenteEjeCategoria;";
+$query = "select * from ComponenteEjeCategoria order by nombre;";
 $result = $db -> query($query);
 
 if(!$result){ die ("Error: ".  $query);};
