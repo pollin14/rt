@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
 header('Content-Type: text/html; charset=UTF-8');
-include "../../configuracion.php";
+include_once "../../configuracion.php";
+include_once '../../lib/php/queries.php';
 administraSesion();
 ?>
 
@@ -12,8 +13,10 @@ administraSesion();
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>TURed</title>
 		<link rel="stylesheet" href="../../lib/css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../../lib/css/jquery-ui.css" type="text/css" media="screen" />
 		<link rel="StyleSheet" href="misTutorias.css" type="text/css"/>
 		<script type="text/javascript" src="../../lib/js/jquery.js"></script>
+		<script type="text/javascript" src="../../lib/js/jquery-ui.js"></script>
 		<script type="text/javascript" src="misTutorias.js"></script>
 	</head>
 
@@ -22,7 +25,7 @@ administraSesion();
 		<div id="wrapper">
 
 			<div id="header">
-				
+
 			</div>
 
 			<div id="menu">
@@ -39,38 +42,47 @@ administraSesion();
 				<div id="feed">
 					<a class="feed-button" href="../../modulos/loged/cerrarSesion.php">Cerrar Sesion</a>
 				</div>
-				
+
 				<div id="misDatos">
 					<p><?php echo $_SESSION['nombre']; ?></p>
-					 <?php 
-						$imagen = $_SESSION['idUsuario'] . ".jpg";
+					<?php
+					$imagen = $_SESSION['idUsuario'] . ".jpg";
 
-						if( !file_exists("../../avatares/".$imagen)){
-							$imagen = "default.jpg";
-						}
+					if (!file_exists("../../avatares/" . $imagen)) {
+						$imagen = "default.jpg";
+					}
 
-						echo '<img src="../../avatares/' .$imagen .'"';
-						echo 'alt="Click para subir un nuevo avatar." />';
+					echo '<img src="../../avatares/' . $imagen . '"';
+					echo 'alt="Click para subir un nuevo avatar." />';
 					?>
 				</div>
-				
+
 				<div id="sidebar-bottom"></div>
 			</div>
 
 			<div id="content">
 				<div id="ad-top">
-<!--					 Insert 468x60 banner advertisement -->
+					<!--					 Insert 468x60 banner advertisement -->
 				</div>
-				
-				<div id="menu-vertical">
-					<ul>
-					   <li title="buscaTutorias">Mis Tutorías</li>
-					   <li title="buscaTutorados">¿Donde soy Tutorado?</li>
-					   <li title="buscaDondeSoyObservador">¿Donde soy Observador? </li>
-					</ul>
-				 </div>
-				 <div id="contenido"></div>
-				
+
+				<!--				<div id="menu-vertical">
+									<ul>
+									   <li title="buscaTutorias">Mis Tutorías</li>
+									   <li title="buscaTutorados">¿Donde soy Tutorado?</li>
+									   <li title="buscaDondeSoyObservador">¿Donde soy Observador? </li>
+									</ul>
+								 </div>
+								 <div id="contenido"></div>-->
+				<div id="accordion">
+					<h3><a>¿Donde soy Tutor</a></h3>
+					<div> <?php include 'componentes/dondeSoyTutor.php' ?></div>
+					<h3><a>¿Donde soy Tutorado?</a></h3>
+					<div> <?php include 'componentes/dondeSoyTutorado.php' ?></div>
+					<h3><a>¿Donde soy Observador?</a></h3>
+					<div> <?php include 'componentes/dondeSoyObservador.php' ?></div>
+					
+				</div>
+
 			</div>
 
 			<div id="footer">

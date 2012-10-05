@@ -65,11 +65,9 @@ a:hover {
 }
 #content {
 	float:left;
-	width:500px;
+	width:484px;
 	min-height:400px;
-	padding-left:10px;
-	padding-bottom:16px;
-	padding-top:16px;
+	padding:16px 10px 16px 16px;
 }
 #footer {
 	clear:both;
@@ -96,18 +94,6 @@ a:hover {
 	color:#bbb;
 	cursor:default;
 	letter-spacing:1px;
-}
-.comments {
-	margin-top:-1em;
-}
-.comments a {
-	color:#6CC7DC;
-	background:url(images/icon-comment.png) no-repeat 0px 2px;
-	padding-left:20px;
-	padding-right:2px;
-}
-.comments a:hover {
-	color:#B4C835;
 }
 
 

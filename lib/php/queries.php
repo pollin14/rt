@@ -105,4 +105,17 @@ function dameNombreDelEstudiante($idTutoria,$db){
 	
 	return $row['nombre'];
 }
+
+function dameIdTutoriaDelSinodal($idUsuario,$db){
+	$query = sprintf(
+		"select idTutoria from sinodales where idUsuario = %d;",$idUsuario);
+	$result = $db->query($query);
+	
+	if( $result -> num_rows == 0)
+		return false;
+	
+	$row = $result->fetch_assoc();
+	
+	return $row['idTutoria'];
+}
 ?>
