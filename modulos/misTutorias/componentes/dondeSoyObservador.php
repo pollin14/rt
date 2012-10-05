@@ -14,7 +14,7 @@ if(!$result) die ("Error al buscar donde eres observador");
 while($row = $result->fetch_assoc()){
 	echo '<h2><a ';
 	echo 'href="../tutorias/tutoria.php?idTutoria=' . $idTutoria;
-	echo '">';
+	echo '&tipoDeUsuario=Observador">';
 	echo $row['tema'] . "</a></h2>";
 	echo "<p>Tutor: " . $row['tutor'] . "</p>";
 	echo "<p>Tutorado: " . $row['estudiante'] . "</p>";

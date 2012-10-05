@@ -17,7 +17,7 @@ if(!$result) die ('Error al obtener donde soy tutor(a)');
 while($row = $result->fetch_assoc()){
 	echo '<h2><a ';
 	echo 'href="../tutorias/tutoria.php?idTutoria=' . $row['idTutoria'];
-	echo '">';
+	echo '&tipoDeUsuario=alumno">';
 	echo $row['tema'] . "</a></h2>";
 	echo "<p>Tutor: " . $row['tutor'] . "</p>";
 }
