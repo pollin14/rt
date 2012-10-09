@@ -23,8 +23,10 @@ function dameConexion(){
 
 function administraSesion(){
     if(!isset($_SESSION['idUsuario'])){
-		echo "No has iniciado session.";
-        header('Location: http://' . $_SERVER['SERVER_NAME']. "/rt");
+		echo "<p>No has iniciado session.</p>";
+		echo "<p>Si no eres redireccionado a la pantalla de inicio preciona el siguiente link</p>";
+		echo "<a href=\"http://" . $_SERVER['SERVER_NAME'] . "\">Pagina de inicio </p>"; 
+        header('Location: http://' . $_SERVER['SERVER_NAME'] ."/rt");
         exit();
     }
 }
