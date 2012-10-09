@@ -22,4 +22,23 @@ while($row = $result->fetch_assoc()){
 	echo "<p>Tutorado: " . $row['estudiante'] . "</p>";
 }
 
+
+/*
+ * 
+ * Con el siguete select se crea la vista para realizar las cosultas.
+select 
+	tutorias.idTutoria as idTutoria,
+	tutorias.idTema as idTema,
+	temas.nombre as tema,
+	temas.idUsuario as idTutor,
+	x.nombre as tutor,
+	tutorias.estudiante as idEstudiante,
+	y.nombre as estudiante
+from 
+	(((tutorias
+		left join temas on temas.idTema = tutorias.idTema)
+			left join usuarios as x on x.idUsuario = temas.idUsuario)
+				left join usuarios as y on y.idUsuario = tutorias.estudiante);
+
+ */
 ?>

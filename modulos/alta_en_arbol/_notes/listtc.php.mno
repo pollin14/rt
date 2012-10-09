@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<info>
-	<infoitem key="UD_Recordset1" value="name:nombre;datatype:string,name:Grado;datatype:string,name:Nivel;datatype:string,name:Asignatura;datatype:string,name:Unidad_Diagnostica;datatype:string,name:Descrip_Mapeo;datatype:blob,name:idu;datatype:int,name:Id_reactivo;datatype:int,name:temacatalogo;datatype:string" />
-</info>

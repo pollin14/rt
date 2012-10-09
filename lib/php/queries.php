@@ -106,16 +106,21 @@ function dameNombreDelEstudiante($idTutoria,$db){
 	return $row['nombre'];
 }
 
-function dameIdTutoriaDelSinodal($idUsuario,$db){
+function dameListaDeTutorias($idUsuario,$db){
 	$query = sprintf(
 		"select idTutoria from sinodales where idUsuario = %d;",$idUsuario);
 	$result = $db->query($query);
 	
-	if( $result -> num_rows == 0)
+	if(!$result) die ("Error al consultar las tutorias donde eres observador.");
+	
+	if($result->num_rows == 0)
 		return false;
 	
-	$row = $result->fetch_assoc();
+	$tmp = "(";
+	while($row = $result->fetch_assoc()){
+		$tmp .= $row['idTutoria'] . ",";
+	}
 	
-	return $row['idTutoria'];
+	return substr($tmp, 0, strlen($tmp)-1) . ")";
 }
 ?>

@@ -61,7 +61,7 @@ switch($_GET['tipoDeUsuario']){
 
 			<div id="menu">
 				<ul>
-					<li><a href="../..//modulos/loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="../../modulos/loged/loged.php" name="home">Pagina de Inicio</a></li>
 					<li><a href="../../modulos/mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
 					<li><a href="../../modulos/misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
 					<li><a href="../../modulos/solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>

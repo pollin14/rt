@@ -4,15 +4,16 @@ var anterior;
 function temas(accion,padre){
     $.ajax({
         type:"POST",
-        url:"lib/php/buscaTemas.php",
+        url:"lib/php/buscaTemasLinaje.php",
         dataType: "xml",
         data:{
             accion: accion
         },
-        success: escribeTemas,
-        error: error
+        success: escribeTemas
     })
 }
+
+
 
 function escribeTemas(xml){
     $(xml).find("tema").each(function(){
@@ -65,8 +66,7 @@ function busca(event){
             accion:'hijo',
             tema: idTema
         },
-        success: escribeTemasA,
-        error:error
+        success: escribeTemasA
     });
 
 }
@@ -128,11 +128,3 @@ function escribeTemasA(xml){
     anterior="";
     nodoPadre="";
 }
-
-$(document).ready(function(){
-
-    $('#informacion').portamento({
-        wrapper: $('#wrapper')
-    });	
-    temas('todos');
-})

@@ -138,11 +138,13 @@ actualizaConversacion = function(xml){
 		});
 	});
 
-	if(mensajes.length != 0 && 
-		$('#sonidoOnOff').attr('value') == "on"){
+	if(mensajes.length != 0 ){
 		conversacion.html(mAnteriores + mNuevos);
 		autoScroll("ventanaDeConversacion");
-		$('#sonido').html(player);
+		
+		if($('#sonidoOnOff').attr('value') == "on"){
+			$('#sonido').html(player);
+		}
 	}
 
     idEtapa = parseInt($(xml).find('ultimaEtapa').text());

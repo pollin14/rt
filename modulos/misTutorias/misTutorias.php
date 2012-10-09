@@ -80,7 +80,6 @@ administraSesion();
 					<div> <?php include 'componentes/dondeSoyTutorado.php' ?></div>
 					<h3><a>¿Donde soy Observador?</a></h3>
 					<div> <?php include 'componentes/dondeSoyObservador.php' ?></div>
-					
 				</div>
 
 			</div>
