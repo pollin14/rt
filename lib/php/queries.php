@@ -1,7 +1,5 @@
 <?php
 
-header('Content-Type: text/html; charset=UTF-8');
-
 function dameNombreDelUsuario($idUsuario,$db){
 	
 	$query = sprintf("select nombre from Usuarios where idUsuario = %d;", $idUsuario);

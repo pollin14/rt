@@ -46,11 +46,11 @@
 								<td colspan="2" align="right"><a href="modulos/registro/index.php" title="Alta en ESVIAP">No estoy registrado</a></td>
 							</tr>
 							<tr>
-								<td colspan="2" align="right"><a href="modulos/recuperacionDeContrasena/recuperacionDeContrasena.php" title="Recuperar Correo" target="_blank">Recuperar Contraseña</a></td>
+								<td colspan="2" align="right"><a href="lib/php/recuperacionDeContrasena.php" title="Recuperar Correo" target="_blank">Recuperar Contraseña</a></td>
 							</tr>
 						</table>
 					</form>
-					<a href="Privacidad.php">Política  de privacidad y manejo de datos personales</a><a href="modulos/estadisticas/index.php">.</a>
+					<a href="Privacidad.php">Política  de privacidad y manejo de datos personales</a><a href="modulos/estadisticas/estadisticas.php">.</a>
 				</div>
 			</div>
 

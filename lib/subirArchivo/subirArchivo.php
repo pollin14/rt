@@ -39,7 +39,7 @@ if (move_uploaded_file($nombreTemporal,
     echo '<script type="text/javascript">';
     echo '$(document).ready(function(){';
     echo 'window.setTimeout(window.close, 2000);';
-    echo 'window.opener.window.exito = true;';
+    echo 'window.opener.window.location = window.opener.window.location;';
     echo '});';
     echo '</script>';
     echo "Avatar subido con exito. Cerrando ventana.";

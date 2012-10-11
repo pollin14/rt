@@ -1,3 +1,5 @@
-$(function(){
-	$('#accordion').accordion({animated:'bounceslide'});
+$(document).ready(function(){
+	$(function(){
+		$('#accordion').accordion({animated:'bounceslide'});
+	})
 })

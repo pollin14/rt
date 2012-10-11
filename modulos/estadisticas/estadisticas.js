@@ -37,7 +37,7 @@ function muestra_tabla(nombre){
 		success: function(html){
 			$('#tabla').html(html);
 			$('#tabla').find('a').click(function(){
-				$('#tabla').load($(this).attr('title'));
+				$('#tabla').load(encodeURI($(this).attr('title')));
 			})
 			$('#tabla').show('slow');
 		},

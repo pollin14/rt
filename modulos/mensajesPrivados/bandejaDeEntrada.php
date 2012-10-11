@@ -11,11 +11,11 @@ administraSesion();
 	<head>
         <title>Bandeja De Entrada</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link type="text/css" rel="StyleSheet" href="bandejaDeEntrada.css"/>
+		<link rel="stylesheet" type="text/css" href="../../lib/css/style.css"/>
         <script type="text/javascript" src="../../lib/js/funciones.js"></script>
         <script type="text/javascript" src="../../lib/js/jquery.js"></script>
         <script type="text/javascript" src="bandejaDeEntrada.js"></script>
-        <link href="bandejaDeEntrada.css" type="text/css" rel="StyleSheet"/>
-		<link rel="stylesheet" type="text/css" href="../../lib/css/style.css"/>
     </head>
 
 	<body>
@@ -28,7 +28,7 @@ administraSesion();
 
 			<div id="menu">
 				<ul>
-					<li><a href="../loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li><a href="../loged/loged.php" name="home">Inicio</a></li>
 					<li><a href="bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
 					<li><a href="../misTutorias/misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
 					<li><a href="../solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
@@ -51,7 +51,8 @@ administraSesion();
 					}
 
 					echo '<img src="../../avatares/' . $imagen . '"';
-					echo 'alt="Click para subir un nuevo avatar." />';
+					echo ' alt="Click para subir un nuevo avatar."';
+					echo ' onclick=\'window.open("../../lib/subirArchivo/subirArchivo.html","SubirAvatar","height=200px,width=600px,location=no,menubar=no,resizable=no,scollbars=no,titlebar=no,toolbar=no")\'/>';
 					?>
 				</div>
 

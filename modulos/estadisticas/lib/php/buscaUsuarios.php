@@ -65,7 +65,7 @@ if (isset($_GET['busca'])) {
                                         and 
                                         Entidades.nombre = "%s" 
                                         order by 
-                                        Usuarios.nick;', $titulo);
+                                        Usuarios.nick;', $_GET['entidad']);
 			break;
 	}
 }

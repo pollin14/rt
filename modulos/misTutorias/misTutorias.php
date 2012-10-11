@@ -30,7 +30,7 @@ administraSesion();
 
 			<div id="menu">
 				<ul>
-					<li value="..loged/loged.php"><a href="../loged/loged.php" name="home">Pagina de Inicio</a></li>
+					<li value="../loged/loged.php"><a href="../loged/loged.php" name="home">Inicio</a></li>
 					<li><a href="../mensajesPrivados/bandejaDeEntrada.php" name="bandejaDeEntrada">Bandeja De Entrada</a></li>
 					<li><a href="misTutorias.php" name="misTutorias">Mis Tutorias</a></li>
 					<li><a href="../solicitudDeTutoria/solicitudDeTutoria.php" name="solicitudDeTutoria">Solicitud de Tutoria</a></li>
@@ -40,7 +40,7 @@ administraSesion();
 
 			<div id="sidebar">
 				<div id="feed">
-					<a class="feed-button" href="../../modulos/loged/cerrarSesion.php">Cerrar Sesion</a>
+					<a class="feed-button" href="../../lib/php/cerrarSesion.php">Cerrar Sesion</a>
 				</div>
 
 				<div id="misDatos">
@@ -53,7 +53,8 @@ administraSesion();
 					}
 
 					echo '<img src="../../avatares/' . $imagen . '"';
-					echo 'alt="Click para subir un nuevo avatar." />';
+					echo ' alt="Click para subir un nuevo avatar."';
+					echo ' onclick=\'window.open("../../lib/subirArchivo/subirArchivo.html","SubirAvatar","height=200px,width=600px,location=no,menubar=no,resizable=no,scollbars=no,titlebar=no,toolbar=no")\'/>';
 					?>
 				</div>
 

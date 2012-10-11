@@ -18,11 +18,13 @@ include "../../lib/php/queries.php";
 
 administraSesion();
 
+$db = dameConexion();
+
 $idTutoria  = $_POST['idTutoria'];
 $url        = "";
 $idTema     = "";
-$hint       = $_POST['hint'];
-$descripcion = $_POST['descripcion'];
+$hint       = $db->real_escape_string($_POST['hint']);
+$descripcion = $db->real_escape_string($_POST['descripcion']);
 $idUsuario = $_SESSION['idUsuario'];
 
 
@@ -34,18 +36,16 @@ if ( $tipo == "archivo"){
 		echo "Nombre del archivo invalido";
 		exit();
 	}else{
-		$nombreReal = utf8_encode($_FILES['archivo']['name']);
+		$nombreReal = $_FILES['archivo']['name'];
 		$nombreTemporal = $_FILES['archivo']['tmp_name'];
 	}
 }
 
 if( $tipo == "url" && $_POST['url'] != ""){
-    $nombreReal = $_POST['url'];
+    $nombreReal = $db->real_escape_string($_POST['url']);
 }
 
 $esArchivo = ($tipo == "url" )?false:true; 
-
-$db = dameConexion();
 
 if(!$db){die ("Error al conectarse a la base de datos.");}
 
@@ -74,7 +74,7 @@ switch($crp){
             echo ' value="' .$url .'">';
             echo '</span>';
         }else{
-            echo "<p>Error al mover el archivo.</p>";
+            echo "<p>Ocurrio un problema al subir el archivo :(</p>";
             echo "de " . $nombreTemporal . " a " . $directorio;
 			exit();
         }
@@ -95,24 +95,33 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "Error en al insertar.<br>";
-                echo $query . "<br>";
-                echo $db -> error;
-                exit();
-                
+                $s = sprintf('select descripcion,hint from Recursos where url = "%s";', $url);
+				$re = $db->query($query);
+				if ( !$re){
+					echo "<p>Ocurrio un problema al subir el recuros :( </p>";
+					echo "<p>Ya puedes cerrar la ventana.</p>";
+				}else{
+					$r = $re->fetch_assoc();
+					echo "<p>Ya existe un archivo con el mismo nombre. Para";
+					echo " actualizarlo elimina el archivo cuya descipcion es";
+					echo " <b>" . $r['descripcion'] . "</b> y hint es ";
+					echo " <b>" . $r['hint'] . "</b>.</p>";
+					echo "<p>Ya puedes cerrar la ventana</p>";
+				}
+				
+                exit();//salimos para no mover el archivo.
             }
             
             if(!file_exists($directorio)){
                 mkdir($directorio,0777,true);
             }
             
-            if (move_uploaded_file($nombreTemporal, $directorio . $nombreReal)){
+            if (move_uploaded_file($nombreTemporal, $url)){
                 echo '<span id="info"';
                 echo ' value="' . $url . '">';
                 echo '</span>';
             }else{
-                echo "<p>Error al mover el archivo.</p>";
-                echo "de " . $nombreTemporal . " a " . $tmp;
+                echo "<p>Ocurrio un problema al subir el recurso.</p>";
                 exit();
             }
         }else{
@@ -123,7 +132,7 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "<p>Error en al insertar.</p>";
+                echo "<p>Ocurrio un problema al guardar el recuros.(url)</p>";
                 exit();
             }
             
@@ -149,9 +158,9 @@ switch($crp){
 		
         
         if (!$db -> query($query)){
-            echo "Error al insertar.<br>";
+            echo "<p>Ocurrio un problema al subir el producto</p>";
             echo "<p>Posiblemente, ya subiste este producto.";
-			echo " Para actualizarlo, borralo y despues subelo.</p>";
+			echo " Para actualizarlo, borralo y despues vuelvelo a subir.</p>";
             exit();
         }
         

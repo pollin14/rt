@@ -1,5 +1,4 @@
-var iws = null // id del intervalo para la ventana subir
-var ws = null //id de la ventana.
+
 
 /**
 * Esta variable es usada para tomar la pista de un temporalizador que se
@@ -22,13 +21,7 @@ recargaAvatar = function(){
 $(document).ready(function(){
 
 	$('#descripcion').hide();
-
-	$('#menu').find('li').click(function(){
-		
-		window.location = this.getAttribute('value');
-		
-	});
-
+	
 	$('#menu').find('li').mouseenter(function(){
 		//bug de jquery
 		//$('#descripcion').html( $(this).attr('value') );
@@ -46,16 +39,4 @@ $(document).ready(function(){
 		},time);
 
 	});
-
-	//subir avatar;
-	$('#misDatos').children('img').click(function(){
-		var params = "directories=no,height=150px,";
-		params += "width=500px,location=no,menubar=no,resizable=no,";
-		params += "titlebar=no,toolbar=no";
-        
-		ws = window.open("subirArchivo.html", "subirAvatar",params);
-		window.clearInterval(iws);
-		iws = window.setInterval(recargaAvatar, 500);
-	});
-
 })

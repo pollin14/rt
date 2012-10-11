@@ -4,10 +4,6 @@ header('Content-Type: text/html; charset=UTF-8');
 
 $db = dameConexion();
 
-if ($db->connect_errno) {
-	printf($db->connect_error);
-	exit();
-}
 // numero de usuarios
 $cuentaUsuarios = sprintf('select count(*) as cuantos from Usuarios');
 $resultadoDeCuentaUsuarios = $db->query($cuentaUsuarios);

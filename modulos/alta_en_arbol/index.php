@@ -276,7 +276,7 @@ if (mysql_num_rows($re) < 1) {
 
 			<div id="sidebar">
 				<div id="feed">
-					<a class="feed-button" href="../../modulos/loged/cerrarSesion.php">Cerrar Sesion</a>
+					<a class="feed-button" href="../../lib/php/cerrarSesion.php">Cerrar Sesion</a>
 				</div>
 
 				<div id="misDatos">
@@ -289,7 +289,8 @@ if (mysql_num_rows($re) < 1) {
 					}
 
 					echo '<img src="../../avatares/' . $imagen . '"';
-					echo 'alt="Click para subir un nuevo avatar." />';
+					echo ' alt="Click para subir un nuevo avatar."';
+					echo ' onclick=\'window.open("../../lib/subirArchivo/subirArchivo.html","SubirAvatar","height=200px,width=600px,location=no,menubar=no,resizable=no,scollbars=no,titlebar=no,toolbar=no")\'/>';
 					?>
 				</div>
 

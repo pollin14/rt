@@ -32,7 +32,7 @@ a {
 	text-decoration:none;
 	color:#B4C835;
 }
-a:hover {
+a:hover ,h2 a:hover {
 	text-decoration:none;
 	color:#6CC7DC;
 	cursor:pointer;
@@ -164,7 +164,7 @@ a:hover {
 
 /* Heading's */
 
-h1 {
+h1,h2 {
 	font-size:1.90em;
 	font-weight:normal;
 	letter-spacing:-1px;
