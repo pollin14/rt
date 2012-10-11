@@ -226,7 +226,7 @@ inicializaChat = function(){
     });
   
     $('#enviarMensaje').click(function(){
-        mensaje = $("#mensaje").val().trim();
+        mensaje = $.trim($("#mensaje").val());
 		if(mensaje.lenght > 255){
 			mensaje = mensaje.substr(0, 254);
 		}
