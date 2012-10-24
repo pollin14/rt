@@ -1,2 +1,8 @@
 /lib/img/.fr-xMju3T/
-/nbproject/private/
+
+archivosSubidos
+avatares
+nbproject
+nbproject/*.properties
+nbproject/*.xml
+otros

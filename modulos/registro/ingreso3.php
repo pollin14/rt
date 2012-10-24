@@ -103,7 +103,7 @@ $totalRows_rs_nodos = mysql_num_rows($rs_nodos);
 function multiNivel(){
 	document.getElementById('nivel').setAttribute('multiple', 'multiple');
 	document.getElementById('nivel').setAttribute('size', '4');
-	var m = 'Manten Precionado <b>Ctrl</b> en Windows o linux y <b>Command</b> si estas usando Mac ';
+	var m = 'Manten Presionado <b>Ctrl</b> en Windows o linux y <b>Command</b> si estas usando Mac ';
 	m += 'para seleccionar mas de un nivel.';
 	document.getElementById('nivelMensaje').innerHTML = m;
 }

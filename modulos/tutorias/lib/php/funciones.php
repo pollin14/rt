@@ -90,7 +90,7 @@ function fetchMensajesNuevos(
 					' idMensaje="' .$row['idMensaje'] . '"' .
 					' fecha="'. $row['fecha']  .'">';
 			$xmlP .= '<![CDATA[';
-			$xmlP .= nl2br($row['mensaje']);
+			$xmlP .= $row['mensaje'];
 			$xmlP .= ']]>';
 			$xmlP .= '</pendiente>';
 		}else{
@@ -99,7 +99,7 @@ function fetchMensajesNuevos(
 					' nick="' . $row['nick'] . '"' .
 					' fecha="'. $row['fecha']  .'">';
 			$xmlM .= '<![CDATA[';
-			$xmlM .= nl2br($row['mensaje']);
+			$xmlM .= $row['mensaje'];
 			$xmlM .= ']]>';
 			$xmlM .= '</mensaje>';
 		}

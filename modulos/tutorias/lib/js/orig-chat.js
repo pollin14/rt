@@ -278,27 +278,28 @@ inicializaRecursos = function (){
   // para actualizar la lista de recursos con el nuevo
   // archivo que se acaba de subir al servidor.
   $('#subirRecurso').click(function(){
-    var params = "directories=no,height=150px,";
+    var params = "directories=no,height=170px,";
     params += "width=500px,location=no,menubar=yes,resizable=no,";
     params += "titlebar=yes,toolbar=yes";
     
     var url = "?idUsuario="+idUsuario+"&crp=recursos&idTutoria=" +idTutoria;
+	url += "&tipoDeUsuario="+tipoDeUsuario;
 
     //Si el segundo parametro lleva espacios en blanco no funcionara en
     //internet explorer
     winSubirRecurso = window.open("subirArchivo.html" + url, "SubirArchivo", params);
 
-    reiniciaTemporalizador(
-    TEMPO_SUBIR_ARCHIVO,
+    window.clearInterval(tempoSubirArchivo);
+    tempoSubirArchvio = window.setInterval(
     function(){
         if (winSubirRecurso.closed){
             // Una vez que la ventana ah sido cerrada, ya no necesitamos
             // el temporalizador para subir archivos.
-            window.clearInterval(temporalizadores[TEMPO_SUBIR_ARCHIVO]);
+            window.clearInterval(tempoSubirArchivo);
             actualizaListaDeRecursos();
         }
     }, 
-    intervaloSubirArchivo);
+    INTERVALO_SUBIR_ARCHIVO);
   });
   
 }
@@ -314,11 +315,11 @@ actualizaListaDeRecursos = function(){
         dataType: "html",
         success: function(html)
         {
-            $('#listaDeRecursos').html(html);
+            $('#recursos').html(html);
             
             var producto = $('#recursos');
             
-            producto.find('span').click(function(){
+            producto.find('p').click(function(){
 				var link = $(this);
                 var esUrl = (link.html().indexOf('http://') == -1)? false: true;
                 var hint = link.html();
@@ -374,11 +375,11 @@ actualizaListaDeProductos = function(){
         dataType: "html",
         data: {idTutoria: idTutoria},
         success: function(html){
-            $('#listaDeProductos').html(html);
+            $('#productos').html(html);
             var productos = $('#productos');
 			
 			//manda el producto por el chat
-			productos.find('span').click(function(){
+			productos.find('p').click(function(){
 				var link = $(this);
                 var hint = link.html();
 				var url = link.attr('value');
@@ -425,16 +426,14 @@ inicializaProductos = function(){
   
   actualizaListaDeProductos();
   
-  $('#subirProductos button').click(function(){
-    
-	var idBoton = $(this).attr('value');
+  $('#subirProducto').click(function(){
 	
-    var params = "directories=no,height=150px,";
+    var params = "directories=no,height=200px,";
     params += "width=500px,location=no,menubar=yes,resizable=no,";
     params += "titlebar=no,toolbar=no";
     
     var url = "subirArchivo.html?idTutoria=" + idTutoria+"&crp=productos" ;
-		url += "&idBoton="+idBoton;
+		url += "&tipoDeUsuario="+tipoDeUsuario;
 
     //Si el segundo parametro lleva espacios en blanco no funcionara en
     //internet explorer
