@@ -39,15 +39,15 @@ administraSesion();
             echo 'alt="Click para subir un nuevo avatar." />';
             ?>
 			<p><?php echo $_SESSION['nombre']; ?></p>
-			<p><a href="cerrarSesion.php">Cerrar Sesion</a> </p>
+			<p><a href="cerrarSesion.php">Cerrar Sesión</a> </p>
 		</div>
 		
 		<div id="menu">
 			<ul>
-				<li value="bandejaDeEntrada"><img src="../../lib/img/correo.png" id="imagen_correo"/> Bandeja de entrada </li>
-				<li value="misTutorias"><img src="../../lib/img/chat.png"/> Mis Tutorías </li>
-				<li value="solicitudDeTutoria"><img src="../../lib/img/buscar.png"/> Solicitud de Tutoría</li>
-				<li value="index.php?uid=<?php echo $_SESSION['idUsuario']; ?>"> <img src="../../lib/img/temasDeCatalogo.png"/>Mis temas de catalogo </li>
+				<li value="bandejaDeEntrada"><a href="../mensajesPrivados/bandejaDeEntrada.php"><img src="../../lib/img/correo.png" id="imagen_correo"/> Bandeja de entrada</a> </li>
+				<li value="misTutorias"><a href="../misTutorias/misTutorias.php"><img src="../../lib/img/chat.png"/> Mis Tutorías </a></li>
+				<li value="solicitudDeTutoria"><a href="../solicitudDeTutoria/solicitudDeTutoria.php"><img src="../../lib/img/buscar.png"/> Solicitud de Tutoría</a></li>
+				<li value="misTemasDeCatalogo"><a href="../alta_en_arbol/index.php?uid=<?php echo $_SESSION['idUsuario']; ?>" ><img src="../../lib/img/temasDeCatalogo.png"/>Mis temas de catálogo</a> </li>
 			</ul>
 		</div>
 		<div id="descripcion"></div>

@@ -19,12 +19,12 @@ $asunto = "Aceptado";
 $idTema = $_GET['idTema'];
 
 $fecha = getActualDate();
-
+	
 $nombreDelTutorado = dameNombreDelUsuario($para,$db);
 $nombreDelTema = dameNombreDelTema($idTema,$db);
 $nombreDelTutor = dameNombreDelTutorDelTema($idTema,$db);
 
-$mensaje = "<p>Hola <b>" . $nombreDelTutorado ."</b>!</p> <p>Fuiste aceptado en la tutoria";
+$mensaje = "<p>Hola <b>" . $nombreDelTutorado ."</b>!</p> <p>Fuiste aceptado en la tutoría";
 $mensaje .= " con el tema <b>" . $nombreDelTema ."</b> impartida por <b>";
 $mensaje .= $nombreDelTutor .".</b></p>";
 
@@ -38,7 +38,7 @@ $insert = sprintf("insert into Tutorias (estudiante,idTema) values(%d,%d);",
         $_GET['idTutorado'],$_GET['idTema']);
 
 if(! $db->query($insert) ){
-    $html = "<p>Error. La tutoria ya fue creada.</p>"; 
+    $html = "<p>¡Ups!. La tutoría ya fue creada.</p>"; 
 	print($html);
 	exit();
 }
@@ -47,7 +47,7 @@ $idTutoria = $db->insert_id;
 
 saveMensaje($idTutoria,$de,1,1,"Etapa uno",$db);
 
-$html = '<center><p style="margin-top:auto;margin-bottom">Tutoria creada. Direccionando en 3 seg...</p></center>'; 
+$html = '<center><p style="margin-top:auto;margin-bottom">Tutoría creada. Direccionando en 3 seg...</p></center>'; 
 
 $db->close();
 print($html);

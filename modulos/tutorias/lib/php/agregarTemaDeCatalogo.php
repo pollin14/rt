@@ -42,7 +42,7 @@ if(!$result ) die ("Error. Tema repetido. ");
 if($result -> num_rows != 0){
     $row = $result->fetch_assoc();
     echo "El tema con el nombre " . $row['nombre'];
-    echo " fue agregado a los Temas de Catalogo de " . $nombreDelAlumno . ".";
+    echo " fue agregado a los Temas de Catálogo de " . $nombreDelAlumno . ".";
     exit();
 }
 
@@ -55,7 +55,7 @@ $db -> query($insert);
 if( $db->errno != 0) die ("Error. No se pudo guardar el tema.");
 
 echo "El tema con el nombre " . $_POST['nombre'];
-echo " fue agregado a los Temas de Catalogo de " . $nombreDelAlumno . ".";
+echo " fue agregado a los Temas de Catálogo de " . $nombreDelAlumno . ".";
 
 $db->close();
 

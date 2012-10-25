@@ -22,34 +22,14 @@ recargaAvatar = function(){
 $(document).ready(function(){
 	
 	$('#descripcion').hide();
-	
-	$('ul li').click(function(){
-		var v = this.getAttribute('value');
-		var nd = v; //nombre del modulo
-		switch(v){
-			case ('bandejaDeEntrada'):
-				nd = 'mensajesPrivados';
-				v += ".php";
-				break;
-			default:
-				if (v.substr(0,5) == 'index'){
-					nd = 'alta_en_arbol';
-				}else{
-				    v = v + ".php";
-				}
-		}
-		window.location = '../' + nd + '/' + v;
-	});
+
 	
 	$('#menu li').mouseenter(function(){
 		//bug de jquery
 		//$('#descripcion').html( $(this).attr('value') );
 		var v = this.getAttribute('value');
-		if (v.substr(0,5) == 'index'){
-		  v = "misTemasDeCatalogo";
-	     }
-                window.clearInterval(tempo);
-                $('#descripcion').hide();
+		window.clearInterval(tempo);
+		$('#descripcion').hide();
 		$('#descripcion').load('descripciones/' + v + ".html");
 		$('#descripcion').show('fast');
 	});

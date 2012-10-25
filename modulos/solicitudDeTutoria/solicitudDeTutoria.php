@@ -6,7 +6,7 @@ administraSesion();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Solicitud de Tutoria</title>
+        <title>Solicitud de tutoría</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta http-equiv="cache-control" content="no-cache"/>
         <link type="text/css" href="lib/css/solicitudDeTutoria.css" rel="stylesheet"/>
@@ -26,12 +26,12 @@ administraSesion();
             </select>
         </div>-->
         <div id="lista1">
-			<h3>Componente/Eje/Categoria</h3>
+			<h3>Componente/Eje/Categoría</h3>
             <select size="10">
             </select>
         </div>
         <div id="lista2">
-			<h3>Estandares</h3>
+			<h3>Estándares</h3>
             <select size="10">
             </select>
         </div>

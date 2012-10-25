@@ -4,7 +4,7 @@ var idTutor = 0;
 var idUsuario = 0;
 var numeroDePagina = 0;
 
-var asunto = "Solicitud de Tutoria";
+var asunto = "Solicitud de Tutoría";
 var mensaje ="";
 
 

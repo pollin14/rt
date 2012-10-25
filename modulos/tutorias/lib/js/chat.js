@@ -4,7 +4,7 @@ var idTutoria   = 0;
 var idUsuario   = 0;
 var tipoDeUsuario = "alumno";
 var idEtapa = -1;
-var etapas = new Array("cero","uno","dos","tres","Busqueda De Observadores","Demostración","Aprobado");
+var etapas = new Array("cero","uno","dos","tres","Búsqueda De Observadores","Demostración","Aprobado");
 
 var autorizacion = 1;
 var mensaje = "";
@@ -577,7 +577,7 @@ $(document).ready(function(){
               idEtapa++;
               switch(idEtapa){
                   case(DEMOSTRACION):
-                      $('#mensaje').val("En la Etapa de Demostracion");
+                      $('#mensaje').val("En la Etapa de Demostración");
                       break;
 				  case (BUSQUEDA_DE_SINODALES):
 					  buscaSinodales();

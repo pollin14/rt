@@ -55,7 +55,7 @@ switch($_GET['tipoDeUsuario']){
     <div>
         
 			<h3> Tema: <?php echo $nombreDelTema ?></h3>
-			<h3> <?php echo ucfirst($_GET['tipoDeUsuario']) . ": " .$_SESSION['nombre'] . "," . $otros; ?></h3>
+			<h3> <?php echo ucfirst($_GET['tipoDeUsuario']) . ": " .$_SESSION['nombre'] . ", " . $otros; ?></h3>
 			<h3>Etapa: <span id="etapa"></span></h3>
 		<div id="chat">
 			<div id="sonido"></div>
@@ -80,7 +80,6 @@ switch($_GET['tipoDeUsuario']){
                     include 'lib/php/botonesDeTutor.php';
                 }
                 ?>
-                
             </div>
         </div>
       
@@ -106,7 +105,7 @@ switch($_GET['tipoDeUsuario']){
 				<div id="listaDeProductos"></div>
 				<br>
 				<div id="subirProductos">
-				<button value="4">Subir Registro de Tutoria</button>
+				<button value="4">Subir Registro de Tutoría</button>
 				</div>
 			</div>
 			</div>
@@ -140,7 +139,7 @@ switch($_GET['tipoDeUsuario']){
 					<div id="listaDeProductos"></div>
 					<div id="subirProductos">
 						<button value="1">Subir Registro de Proceso de Estudio</button>
-						<button value="2">Subir Guion de Tutoria</button>
+						<button value="2">Subir Guion de Tutoría</button>
 						<button value="3">Subir Demostracion Publica</button>
 					</div>
 			</div>

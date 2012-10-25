@@ -204,7 +204,7 @@ $mensaje .= " del tema <b>" . $nombreDelTema ."</b>";
 $mensaje .= " impartido por <b>" .$nombreDelTutor ."</b>" ;
 $mensaje .= " (<b>".$correoDelTutor ."</b>)";
 $mensaje .= " son</p> " .$ldo ."";
-$mensaje .= "<p>Contactate con ellos y con el tutor para acordar la fecha y hora de la";
+$mensaje .= "<p>Contáctate con ellos y con el tutor para acordar la fecha y hora de la";
 $mensaje .= " Demostración.</p>";
 
 $query = sprintf('

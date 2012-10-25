@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <img id="añadirTemaDeCatalogo" 
 	 class="boton" 
 	 src="../../lib/img/temasDeCatalogo.png"
-	 title="Añadir Tema de Catalogo al Tutorado"
+	 title="Añadir Tema de Catálogo al Tutorado"
 	 alt="Click para Añadir Tema de Catalogo al Tutorado"/>
 
 <img id="siguienteEtapa"

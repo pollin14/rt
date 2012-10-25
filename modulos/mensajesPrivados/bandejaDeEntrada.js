@@ -14,9 +14,9 @@ actualizaBandejaDeEntrada = function(xml){
         mensaje += '<span name="asunto" >' + $(this).attr("asunto") + '</span>';
         
         if ( parseInt($(this).attr("leido")))
-            mensaje += '<div name="leido">leido</div>';
+            mensaje += '<div name="leido">leído</div>';
         else
-            mensaje += '<div name="noleido">No Leido</div>';
+            mensaje += '<div name="noleido">No leído</div>';
         
         mensaje += '<div style="clear:both;"></div>';
         mensaje += '</div>';

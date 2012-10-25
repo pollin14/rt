@@ -24,7 +24,7 @@
                     //bug de internet explorer
                     //para: getUrlVars()['para'],
                     para: getUrlVars()['from'],
-                    asunto: "Tutoria NO aceptada",
+                    asunto: "Tutoría NO aceptada",
                     mensaje: mensaje
                 },
                 success: function(){
@@ -38,6 +38,6 @@
         </script>
     </head>
     <body>
-		<center><p style='margin-top:auto;margin-bottom:auto;'> Tutoria Cancelada. Regresando al la bandeja de entrada... </p></center>
+		<center><p style='margin-top:auto;margin-bottom:auto;'> Tutoría Cancelada. Regresando al la bandeja de entrada... </p></center>
     </body>
 </html>
