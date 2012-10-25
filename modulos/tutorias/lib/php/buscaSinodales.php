@@ -2,6 +2,7 @@
 header('Content-Type: text/html; charset=UTF-8');
 include "../../../../configuracion.php";
 include "../../../../lib/php/utils.php";
+include "../../../../lib/php/queries.php";
 
 
 $idTutoria = $_POST['idTutoria'];
@@ -161,34 +162,32 @@ $buscaObservadores= sprintf("
 	where idUsuario not in (%d,%d)
 	order by rand() limit 3;", $idAlumno,$idTutor);
 
-$result = $db->query($buscaObservadores);
+$result2 = $db->query($buscaObservadores);
 
-if(!$result) die("Error." . $query . $db->error);
+if(!$result2) die("Error." . $query . $db->error);
 
-while( $row = $result->fetch_assoc()){
+while( $row = $result2->fetch_assoc()){
 	
 	$idObservador = $row['idUsuario'];
 	$nombre = $row['nombre'];
-	$correo = $row['email'];
+	$correoSinodal = $row['email'];
     
-	$ldo .= "<li>".$nombre ." : <b>" . $correo . "</b></li>";
+	$ldo .= "<li>".$nombre ." : <b>" . $correoSinodal . "</b></li>";
 
-	$query = sprintf("insert into Sinodales (idTutoria,idUsuario)
+	$insert = sprintf("insert into Sinodales (idTutoria,idUsuario)
 		values (%d,%d);",$idTutoria,$idObservador);
 	
-	if(! $db->query($query) ) die("Error." . $query . $db->error);
-    
-	$headers = "MIME-Version: 1.0\r\n";
-	$headers .= "Content-type: text/html; charset=utf8\r\n";
-	$headers .= "From: Red de Tutorias (RT)\r\n";
-	$headers .= "Reply-To: no-reply\r\n";
+	if(! $db->query($insert) ) die("Ups! Ocurrio un problema al enviar el mensaje privado.");
 	
-    //mail($correoDeSinodal,$asunto,$mensaje,$headers);
-    $query = sprintf('insert into 
+	//Envio de emails (hay otro envio de email en solicitud de tutorias)
+	
+    mail($correoSinodal,$asunto,$mensaje,HEADERS_MAIL);
+	
+    $insert2 = sprintf('insert into 
         MensajesPrivados (de,para,asunto,mensaje,fecha) values(%d,%d,"%s",\'%s\',"%s");',
             $idAlumno,$idObservador,$asunto,$mensaje,$fecha);
 	
-	$db -> query($query);
+	$db -> query($insert2);
 	
 	if(!$db)die("Error. " . $query . $db->error);	
 }
@@ -196,6 +195,8 @@ while( $row = $result->fetch_assoc()){
 $ldo .= "</ul>";
 
 //Mensaje para el futuro Demostrador
+$correoDemostrador = dameEmailDelUsuario($_SESSION['idUsuario'],$db);
+
 $asunto = "Asignación de Observadores";
 
 $mensaje = "<h3>Asignación de Observadores</h3>";
@@ -207,11 +208,13 @@ $mensaje .= " son</p> " .$ldo ."";
 $mensaje .= "<p>Contáctate con ellos y con el tutor para acordar la fecha y hora de la";
 $mensaje .= " Demostración.</p>";
 
-$query = sprintf('
+mail($correoDemostrador,$asunto,$mensaje,HEADERS_MAIL);
+
+$insert3 = sprintf('
 	insert into MensajesPrivados (de,para,asunto,mensaje,fecha)
 	values (%d,%d,"%s",\'%s\',"%s");',$idTutor,$idAlumno,$asunto,$mensaje,$fecha);
 
-if(!$db -> query($query)) die("Error." . $query . $db->error);
+if(!$db -> query($insert3)) die("Error." . $insert3 . $db->error);
 
 //Mensaje para el Tutor
 $asunto = "Asignación de Observadores";

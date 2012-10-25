@@ -32,13 +32,6 @@ $db = dameConexion();
 
 $query = sprintf("select nombre,nick,contraseña from Usuarios where email = '%s';", $_POST['email']);
 
-$headers = "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/html; charset=utf8\r\n";
-$headers .= "From: Red de Tutorias (RT)\r\n";
-$headers .= "Reply-To: no-reply\r\n";
-
-//$headers .= "Cc: victor.aguilar@yahoo.com.mx\r\n";
-
 $result = $db -> query($query);
 
 if (! $result ){
@@ -55,7 +48,7 @@ if ($result -> num_rows > 0){
 	$mensaje .= "<p> contraseña es: <b>" . $row['contraseña'] . "</b></p>";
 	$mensaje .= "<p>No lo vuelvas a olvidar.</p>";
 	
-	mail( $_POST['email'] , $asunto, $mensaje ,$headers);
+	mail( $_POST['email'] , $asunto, $mensaje ,HEADERS_MAIL);
 	
 	echo "<p>Correo enviado. En algunos segundos recibiras un correo con tu";
 	echo " usuario y contraseña.</p>";

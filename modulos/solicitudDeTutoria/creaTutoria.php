@@ -32,6 +32,10 @@ $query = sprintf('insert into MensajesPrivados
 	(de,para,asunto,mensaje,fecha,leido) values(%d,%d,\'%s\',\'%s\',"%s",%s)',
 	$de,$para,$asunto,$mensaje,$fecha,"false");
 
+$mail = dameEmailDelUsuario($de,$db);
+
+mail($mail,$asunto,$mensaje,HEADERS_MAIL);
+
 if(! $db -> query($query)) echo ("Error al enviar mensaje de confirmacion");
 
 $insert = sprintf("insert into Tutorias (estudiante,idTema) values(%d,%d);",

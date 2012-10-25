@@ -105,4 +105,15 @@ function dameNombreDelEstudiante($idTutoria,$db){
 	
 	return $row['nombre'];
 }
+
+function dameEmailDelUsuario($idUsuario,$db){
+	$query = sprintf('select email from usuarios where idUsuario = %d;',$idUsuario);
+	$result = $db -> query($query);
+	if(!$result){
+		return false;
+	}else{
+		$row = $result -> fetch_assoc();
+		return $row['email'];
+	}
+}
 ?>

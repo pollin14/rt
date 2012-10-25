@@ -51,7 +51,6 @@ administraSesion();
 			</ul>
 		</div>
 		<div id="descripcion"></div>
-		</div>
 	</div>
 	<div class="limpiador"></div>
 	

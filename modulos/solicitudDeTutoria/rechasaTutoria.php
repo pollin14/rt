@@ -1,3 +1,21 @@
+<?php
+include "../../configuracion.php";
+include "../../lib/php/queries.php";
+
+session_start();
+administraSesion();
+
+$mensaje = "<p>El tutor <b>" . $_GET['nombreDelTutor'] . "</b>";
+$mensaje .= " no acepto tutorarte en el tema <b>" . $_GET['nombreDelTema'];
+$mensaje .= "</b></p><p>Puedes probar con otro tutor. </p>";
+
+$asunto = "Tutoría NO aceptada";
+
+$mail = dameEmailDelUsuario($_SESSION['idUsuario'], dameConexion());
+mail($mail,$asunto,$asunto,HEADERS_MAIL);
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
