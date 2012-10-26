@@ -74,8 +74,8 @@ switch($crp){
             echo ' value="' .$url .'">';
             echo '</span>';
         }else{
-            echo "<p>Error al mover el archivo.</p>";
-            echo "de " . $nombreTemporal . " a " . $directorio;
+            echo "<p>Ups, ocurrio un problema al subir el archivo.</p>";
+			echo "<p>Pudo deberse a que es muy grande o tiene caracteres muy raros</p>";
 			exit();
         }
         echo "Archivo subido con exito. Cerrando...";
@@ -95,9 +95,8 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "Error en al insertar.<br>";
-                echo $query . "<br>";
-                echo $db -> error;
+                echo "<p>Ups, ocurrio un problema al subir el archivo.</p>";
+				echo "<p>Pudo deberse a que es muy grande o tiene caracteres muy raros</p>";
                 exit();
                 
             }
@@ -111,8 +110,8 @@ switch($crp){
                 echo ' value="' . $url . '">';
                 echo '</span>';
             }else{
-                echo "<p>Error al mover el archivo.</p>";
-                echo "de " . $nombreTemporal . " a " . $tmp;
+                echo "<p>Ups, ocurrio un problema al subir el archivo.</p>";
+				echo "<p>Pudo deberse a que es muy grande o tiene caracteres muy raros</p>";
                 exit();
             }
         }else{
@@ -123,8 +122,8 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "<p>Error en al insertar.</p>";
-                exit();
+                echo "<p>Ups, ocurrio un problema al subir el archivo.</p>";
+				echo "<p>Pudo deberse a que es muy grande o tiene caracteres muy raros</p>";
             }
             
             echo '<span id="info"';
@@ -149,9 +148,9 @@ switch($crp){
 		
         
         if (!$db -> query($query)){
-            echo "Error al insertar.<br>";
-            echo "<p>Posiblemente, ya subiste este producto.";
-			echo " Para actualizarlo, borralo y despues subelo.</p>";
+            echo "<p>Ups!, ya subiste este producto.";
+			echo " Para actualizarlo, borralo y despues subelo o tal vez";
+			echo " es muy grande o tiene caracteres muy raros</p>";
             exit();
         }
         
@@ -164,8 +163,10 @@ switch($crp){
             echo ' value="' . $url . '"';
             echo '</span>';
         }else{
-            echo "<p>Error al mover el archivo.</p>";
-            echo "de " . $nombreTemporal . " a " . $url;
+			$delete = sprintf('delete from Productos where url = "%s";', $url);
+			$db->query($delete);
+            echo "<p>Ups!, ocurrio un problema al subir el archivo.</p>";
+			echo "<p>Pudo deberse a que es muy grande o tiene caracteres muy raros</p>";
             exit();
         }
         echo "Archivo subido con exito. Cerrando...";

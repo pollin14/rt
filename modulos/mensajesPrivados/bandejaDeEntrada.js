@@ -25,7 +25,7 @@ actualizaBandejaDeEntrada = function(xml){
     $('#bandejaDeEntrada').html(bde);
     
     $('div[name="mensaje"] span').click(function(){
-        
+
         var idMensajePrivado = $(this).parent().attr("idMensajePrivado");
         
         $.ajax({
@@ -38,8 +38,8 @@ actualizaBandejaDeEntrada = function(xml){
             success: muestraMensaje,
             error: function(){alert("Error al actualizar bandeja de entrada.")}
         });
-        
-        $(this).siblings('div[name:"noleido"]:first').text("leido").css('background-color','greenyellow');
+
+        $(this).siblings('div:first').text("leido").css('background-color','greenyellow');
         
         
     })
