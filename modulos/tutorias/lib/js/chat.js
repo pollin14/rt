@@ -288,17 +288,16 @@ inicializaRecursos = function (){
     //internet explorer
     winSubirRecurso = window.open("subirArchivo.html" + url, "SubirArchivo", params);
 
-    reiniciaTemporalizador(
-    TEMPO_SUBIR_ARCHIVO,
-    function(){
+	window.clearInterval(tempoSubirArchivo);
+    tempoSubirArchivo = window.setInterval(function(){
         if (winSubirRecurso.closed){
             // Una vez que la ventana ah sido cerrada, ya no necesitamos
             // el temporalizador para subir archivos.
-            window.clearInterval(temporalizadores[TEMPO_SUBIR_ARCHIVO]);
+            window.clearInterval(tempoSubirArchivo);
             actualizaListaDeRecursos();
         }
-    }, 
-    intervaloSubirArchivo);
+    },INTERVALO_SUBIR_ARCHIVO);
+	
   });
   
 }
