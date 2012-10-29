@@ -53,7 +53,7 @@ function utf8_encode_seguro($texto){
 }
 
 function dameExtension($fileName){
-	return "." .strrev(strstr(strrev($fileName),".",true));
+	return strstr($fileName,".");
 }
 
 /*
