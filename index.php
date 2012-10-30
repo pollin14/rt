@@ -54,7 +54,7 @@
     </table>
 </form>
 <p></p>
-    <p><strong><a href="Privacidad.php">Política  de privacidad y manejo de datos personales</a><a href="modulos/estadisticas/index.php">.</a></strong></p>
+    <p><strong><a href="Privacidad.php">Política  de privacidad y manejo de datos personales</a><a href="modulos/estadisticas/estadisticas.php">.</a></strong></p>
   <tr><td valign="top" height="20">
 <?php include "lib/php/pieDePagina.php" ?>
 </td></tr></table>

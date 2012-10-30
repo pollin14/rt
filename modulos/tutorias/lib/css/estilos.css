@@ -140,7 +140,7 @@
 	vertical-align:middle;
 	width:90px;}
 
-.sbl { background: url('img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; text-align: center; min-width: 100px; }
+.sbl { background: url('img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; min-width: 100px; }
 .sbr { background: url('img/br.gif') bottom right no-repeat; }
 .stl { background: url('img/tl.gif') top left no-repeat; }
 .str { background: url('img/tr.gif') top right no-repeat; padding: 10px; } 
