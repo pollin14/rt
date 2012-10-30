@@ -47,8 +47,6 @@ $esArchivo = ($tipo == "url" )?false:true;
 
 $db = dameConexion();
 
-if(!$db){die ("Error al conectarse a la base de datos.");}
-
 //Conseguimos el idTema de la tutoria.
 $query = sprintf("select idTema from Tutorias where idTutoria = %d;", $idTutoria);
 
@@ -74,9 +72,10 @@ switch($crp){
             echo ' value="' .$url .'">';
             echo '</span>';
         }else{
-            echo "<p>Error al mover el archivo.</p>";
-            echo "de " . $nombreTemporal . " a " . $directorio;
-			exit();
+            echo "<p>Ups! Ocurrió un problema y no se pudo subir el archivo.</p>";
+				echo "<p>Puede que se demasiado grande. Verifica";
+				echo " que pese no más de 4MB.</p>";
+                exit();
         }
         echo "Archivo subido con exito. Cerrando...";
 		echo '<script type="text/javascript">
@@ -95,9 +94,9 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "Error en al insertar.<br>";
-                echo $query . "<br>";
-                echo $db -> error;
+                echo "<p>Ups! Ocurrió un problema y no se pudo subir el recurso.</p>";
+				echo "<p>Puede que se demasiado grande. Verifica";
+				echo " que pese no más de 4MB.</p>";
                 exit();
                 
             }
@@ -111,8 +110,9 @@ switch($crp){
                 echo ' value="' . $url . '">';
                 echo '</span>';
             }else{
-                echo "<p>Error al mover el archivo.</p>";
-                echo "de " . $nombreTemporal . " a " . $tmp;
+                echo "<p>Ups! Ocurrió un problema y no se pudo subir el recurso.</p>";
+				echo "<p>Puede que se demasiado grande. Verifica";
+				echo " que pese no más de 4MB.</p>";
                 exit();
             }
         }else{
@@ -149,7 +149,7 @@ switch($crp){
 		
         
         if (!$db -> query($query)){
-            echo "Error al insertar.<br>";
+			echo "<p>Ups! Ocurrió un problema.</p>";
             echo "<p>Posiblemente, ya subiste este producto.";
 			echo " Para actualizarlo, borralo y despues subelo.</p>";
             exit();

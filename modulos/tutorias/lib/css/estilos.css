@@ -21,9 +21,7 @@
 #listaDePendientes{
   height: 350px;
   width: 300px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
+  border: black solid thin;
   overflow:auto;
   padding:6px;
 }
@@ -45,33 +43,40 @@
 }
 
 #listaDeRecursos,#listaDeProductos{
-  height: 120px;
+  min-height: 50px; 
+  max-height: 300px;
   width: 100%;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  overflow:auto;
+  border: black solid thin;
+  overflow-y: auto;
 }
 
 
 #listaDeRecursos img,
 #listaDeProductos img{
     cursor: pointer;
-    float:right;
+	display:block;
+    float:left;
 }
 
 #listaDeProductos span,
 #listaDeRecursos span{
-	width:250px;
+	width:252px;
+	min-height:24px;
 	display:block;
     cursor: pointer;
 	float:left;
 	overflow-x:hidden;
+	
+	padding-left:24px;
+	background-repeat:no-repeat;
+	background-position:top left;
 }
 
 #listaDeProductos div,
 #listaDeRecursos div{
-	width:275px;
+	width:100%;
+	min-height:24px;
+	overflow-y: auto;
 }
 
 .columna{
@@ -86,9 +91,7 @@
 
 #ventanaDeConversacion { 
   height: 350px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
+  border: black solid thin;
   overflow:auto;
   color:black;
   background-color:#CCCCCC;
@@ -98,7 +101,7 @@
   color:blue;
 }
 
-.fecha{
+.italic{
     font-style: italic;
 }
 
@@ -109,12 +112,6 @@
 .filaImpar{
     background-color: gray;
 }
-
-
-
-
-
-
 
 .bordeRojo{
 	border:red solid thin;
@@ -143,15 +140,8 @@
 	vertical-align:middle;
 	width:90px;}
 
-.sbl { background: url('../img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; text-align: center; min-width: 100px; }
-.sbr { background: url('../img/br.gif') bottom right no-repeat; }
-.stl { background: url('../img/tl.gif') top left no-repeat; }
-.str { background: url('../img/tr.gif') top right no-repeat; padding: 10px; } 
-.sb { padding: 2px 0px 10px 50px; background: url('../img/b.gif') 30px top no-repeat; }
-
-.container { background: #FFFFFF;  width: 80%; padding: 10px; }
-.sbl2 { background: url('lib/img/bl2.gif') bottom left no-repeat #E9E9E9; width: 90%; text-align: center;  min-width: 100px; }
-.sbr2 { background: url('lib/img/br2.gif') bottom right no-repeat; }
-.stl2 { background: url('lib/img/tl2.gif') top left no-repeat; }
-.str2 { background: url('lib/img/tr2.gif') top right no-repeat; padding: 10px; } 
-.sb2 { padding: 2px 0px 10px 50px; background: url('lib/img/b2.gif') 30px top no-repeat; }
+.sbl { background: url('img/bl.gif') bottom left no-repeat #EDEDED; width: 90%; text-align: center; min-width: 100px; }
+.sbr { background: url('img/br.gif') bottom right no-repeat; }
+.stl { background: url('img/tl.gif') top left no-repeat; }
+.str { background: url('img/tr.gif') top right no-repeat; padding: 10px; } 
+.sb { padding: 2px 0px 10px 50px; background: url('img/b.gif') 30px top no-repeat; }

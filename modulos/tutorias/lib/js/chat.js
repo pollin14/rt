@@ -83,7 +83,7 @@ actualizaConversacion = function(xml){
 		var mAnteriores = conversacion.html(); // mensajesAnteriores
 		var mNuevos = "";//mensajesNuevos
 
-		mNuevos += '<span class="fecha">' + $(this).attr("fecha") + "</span><br/>";
+		mNuevos += '<span class="italic">' + $(this).attr("fecha") + "</span><br/>";
 		mNuevos += '<div class="sbl"><div class="sbr"><div class="stl"><div class="str">'
 		mNuevos += '<span class="mensaje">' + $(this).text() + "</span>";
 		mNuevos += '</div></div></div></div><div class="sb">';
