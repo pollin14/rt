@@ -99,7 +99,7 @@ actualizaConversacion = function(xml){
 					'<p>' + $(this).attr("nick")+'<p>' +
 				'</div>' +
 				'<div class="mensaje-content">' +
-					'<div class="mensaje-top"><p>'+ $(this).attr("fecha")+'</div>' +
+					'<div class="mensaje-top">'+ $(this).attr("fecha")+'</div>' +
 					'<div class="mensaje-center justify">' +  $(this).text()+ '</div>' +
 					'<div class="mensaje-bottom"></div>' +
 				'</div>' +

@@ -35,9 +35,7 @@
 
 #ventanaDeConversacion { 
   height: 350px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
+  border: black solid thin;
   overflow:auto;
   color:black;
   background-color:#CCCCCC;
@@ -48,11 +46,7 @@
 .mensaje-top{
 	height:20px;	
 	background:url("../img/bg-sidebar-top.png") no-repeat top center;
-}
-
-.mensaje-top p{
-/*	margin:0px 0px 0px 16px;*/
-	padding:5px 0px 0px 16px;
+	padding:0px 0px 0px 16px;
 }
 
 .mensaje-bottom{

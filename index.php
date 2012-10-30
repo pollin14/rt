@@ -56,7 +56,7 @@
 
 			<div id="footer">
 				<div id="footer-valid">
-					<?php include '../../lib/php/direccion.php' ?>
+					<?php include 'lib/php/direccion.php' ?>
 				</div>
 			</div>
 
