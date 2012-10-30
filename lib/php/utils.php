@@ -73,7 +73,7 @@ function dameNombreDelArchivo($path, $separador = "/"){
 function logging($texto){
 	echo $texto;
 	$ddf = fopen('error.log','a');
-	fwrite($ddf,"[".date("r")."] Error: $texto");
+	fwrite($ddf,"[".date("r")."] Error:" . $texto. "\n");
 	fclose($ddf);
 }
 ?>

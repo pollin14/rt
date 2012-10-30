@@ -123,7 +123,8 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "<p>Error en al insertar.</p>";
+                echo "<p>Ups! Ocurrió un problema y no se pudo subir el recurso.</p>";
+				echo "<p>Puede que tu dirección web este mal.</p>";
                 exit();
             }
             
@@ -164,8 +165,9 @@ switch($crp){
             echo ' value="' . $url . '"';
             echo '</span>';
         }else{
-            echo "<p>Error al mover el archivo.</p>";
-            echo "de " . $nombreTemporal . " a " . $url;
+            echo "<p>Ups! Ocurrió un problema.</p>";
+            echo "<p>Posiblemente, ya subiste este producto.";
+			echo " Para actualizarlo, borralo y despues subelo.</p>";
             exit();
         }
         echo "Archivo subido con exito. Cerrando...";
