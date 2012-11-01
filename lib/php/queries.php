@@ -116,4 +116,44 @@ function dameEmailDelUsuario($idUsuario,$db){
 		return $row['email'];
 	}
 }
+
+function dameResumen($db){
+	
+	function inicializaFila(&$fila, $entidad){
+		$fila['Entidad'] = $entidad;
+		$fila['Español'] = 0;
+		$fila['Ciencias'] = 0;
+		$fila['Matemáticas'] = 0;
+		$fila['null'] = 0; //Sin asignatura
+	}
+	$query = '
+	select 
+		entidad,
+		asignatura,
+		count(entidad) as temas
+	from
+		(select entidad,asignatura,idTema from view_temas group by asignatura,idTema) as x
+	group by entidad, asignatura
+	order by entidad';
+
+	$entidad = "";
+	$tabla = array();
+
+	$result = $db->query($query);
+
+	while($result && $row = $result ->fetch_assoc()){
+		
+		if( $row['entidad'] != $entidad){
+			$entidad = $row['entidad'];
+			inicializaFila($tabla[$row['entidad']],$row['entidad']);
+		}
+
+		if($row['asignatura'] === null){
+			$row['asignatura'] = "null";
+		}
+		$tabla[$row['entidad']][$row['asignatura']] = $row['temas'];
+	}
+	
+	return $tabla;
+}
 ?>

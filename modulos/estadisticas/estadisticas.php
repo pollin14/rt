@@ -11,7 +11,7 @@
 			$(document).ready(function(){
 				$('#menu a').click(function(){
 					$('#chart').show();
-					$('#tabla').hide();
+//					$('#tabla').hide();
 					swfobject.embedSWF(
 					"../../lib/ofc/open-flash-chart.swf", "chart",
 					"500", "500", "9.0.0", "expressInstall.swf",
@@ -35,6 +35,10 @@
 				muestra_tabla('tutorias.php')
 			}
 			
+			function muestra_tabla_resumen(){
+				muestra_tabla('resumen.php');
+			}
+			
 			function muestra_tabla(nombre){
 				$('#chart').hide();
 				$('#tabla').load( "tablas/" + nombre ).show();
@@ -49,6 +53,7 @@
         <a value="tutorias.php" href="#">Tutorias</a>
         <a value="entidades.php" href="#">Entidades</a>
         <a value="usuarios.php" href="#">Usuarios</a>
+		<a value="resumen.php" href="#">Resumen</a>
 		</div>
 		<br>
 		<div id="info">
