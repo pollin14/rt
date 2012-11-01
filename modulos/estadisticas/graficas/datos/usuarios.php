@@ -33,7 +33,12 @@ $graph->set_on_click("muestra_tabla_usuarios");
 $max = max($v);
 $step = floor($max/10);
 
+$x_axis_labels = new x_axis_labels();
+$x_axis_labels->set_size(12);
+$x_axis_labels->set_labels(array('Mujeres','Hombres','Tutores','Tutorados'));
+
 $x_axis = new x_axis();
+$x_axis->set_labels($x_axis_labels);
 $x_axis->set_3d(5);
 
 $y_axis = new y_axis();
