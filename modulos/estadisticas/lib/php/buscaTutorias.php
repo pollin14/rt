@@ -11,10 +11,10 @@ $sinMensajes = 0 + $e->cuantasTutoriasHay() - $e->cuantasTutoriasFinalizadasHay(
 	$e->cuantasTutoriasActivasHay();
 
 $query = 'select 
-            Temas.nombre as tema, Usuarios.nick as estudiante, Tutorias.idTutoria , Tutores.Tutor, Etapas.max
+            Temas.nombre as tema, Usuarios.nombre as estudiante, Tutorias.idTutoria , Tutores.Tutor, Etapas.max
             from 
             Tutorias, Usuarios, Temas , ((select 
-            Tutorias.idTutoria, Usuarios.nick as Tutor, Temas.idTema
+            Tutorias.idTutoria, Usuarios.nombre as Tutor, Temas.idTema
             from 
             Tutorias, Usuarios, Temas 
             where 
@@ -41,10 +41,10 @@ $query = 'select
 switch ($_GET['accion']) {
     case 'todos':
         $buscaTutorias = sprintf('select 
-                        Temas.nombre as tema, Usuarios.nick as estudiante, Tutorias.idTutoria , Tutores.Tutor
+                        Temas.nombre as tema, Usuarios.nombre as estudiante, Tutorias.idTutoria , Tutores.Tutor
                         from 
                         Tutorias, Usuarios, Temas , ((select 
-                        Tutorias.idTutoria, Usuarios.nick as Tutor, Temas.idTema
+                        Tutorias.idTutoria, Usuarios.nombre as Tutor, Temas.idTema
                         from 
                         Tutorias, Usuarios, Temas 
                         where 
@@ -71,10 +71,10 @@ switch ($_GET['accion']) {
         break;
     case 'tutoria':
         $buscaTutorias = sprintf('select 
-                        Temas.nombre as tema, Usuarios.nick as estudiante, Tutorias.idTutoria , Tutores.Tutor, Etapas.max
+                        Temas.nombre as tema, Usuarios.nombre as estudiante, Tutorias.idTutoria , Tutores.Tutor, Etapas.max
                         from 
                         Tutorias, Usuarios, Temas , ((select 
-                        Tutorias.idTutoria, Usuarios.nick as Tutor, Temas.idTema
+                        Tutorias.idTutoria, Usuarios.nombre as Tutor, Temas.idTema
                         from 
                         Tutorias, Usuarios, Temas 
                         where 
@@ -147,8 +147,8 @@ echo '<img alt="logo EIMLE" src="../../../../lib/img/eimle.png"
                         echo $filaDeTutorias['estudiante'];
                     echo '</td>';
                     echo '<td>';
-                        echo $filaDeTutorias['Tutor'] + $sinMensajes;
-                    echo '</td>';
+                        echo $filaDeTutorias['Tutor'];
+						echo '</td>';
                 echo '</tr>';
             }
             ?>
