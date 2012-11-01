@@ -30,12 +30,14 @@ $graph->set_alpha( 0.75 );
 $graph->set_values( $d );
 $graph->set_on_click("muestra_tabla_usuarios");
 
+$max = max($v);
+$step = floor($max/10);
+
 $x_axis = new x_axis();
 $x_axis->set_3d(5);
 
 $y_axis = new y_axis();
-$alto=max( array($e->cuantosHombresHay(),$e->cuantasMujeresHay()))+5;
-$y_axis->set_range(0,$alto,5);
+$y_axis->set_range(0,$max,$step);
 
 $chart = new open_flash_chart();
 $chart->set_x_axis($x_axis);
