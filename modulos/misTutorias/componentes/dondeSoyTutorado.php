@@ -12,9 +12,7 @@ $query = sprintf(
 
 $result = $db->query($query);
 
-if(!$result) die ('Error al obtener donde soy tutor(a)');
-
-while($row = $result->fetch_assoc()){
+while($result && $row = $result->fetch_assoc()){
 	echo '<h2><a ';
 	echo 'href="../tutorias/tutoria.php?idTutoria=' . $row['idTutoria'];
 	echo '&tipoDeUsuario=alumno">';

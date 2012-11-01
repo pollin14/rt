@@ -7,8 +7,8 @@ administraSesion();
 ?>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>TURed</title>
@@ -65,15 +65,6 @@ administraSesion();
 				<div id="ad-top">
 					<!--					 Insert 468x60 banner advertisement -->
 				</div>
-
-				<!--				<div id="menu-vertical">
-									<ul>
-									   <li title="buscaTutorias">Mis Tutorías</li>
-									   <li title="buscaTutorados">¿Donde soy Tutorado?</li>
-									   <li title="buscaDondeSoyObservador">¿Donde soy Observador? </li>
-									</ul>
-								 </div>
-								 <div id="contenido"></div>-->
 				<div id="accordion">
 					<h3><a>¿Donde soy Tutor</a></h3>
 					<div> <?php include 'componentes/dondeSoyTutor.php' ?></div>
@@ -82,7 +73,6 @@ administraSesion();
 					<h3><a>¿Donde soy Observador?</a></h3>
 					<div> <?php include 'componentes/dondeSoyObservador.php' ?></div>
 				</div>
-
 			</div>
 
 			<div id="footer">
