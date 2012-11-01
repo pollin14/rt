@@ -18,9 +18,8 @@ $resultadoDeCuentaTutores = $db->query($cuentaTutores);
 $cuentaTutorados = sprintf("select count(distinct estudiante) as cuantos from Tutorias ;");
 $resultadoDeCuentaTutorados = $db->query($cuentaTutorados);
 ?>
-
-<center>
-	<table border="1">
+<table class="datos">
+	<thead>
 		<tr>
 			<td>
 				<a title="lib/php/buscausuarios.php?sexo=todos">
@@ -33,6 +32,8 @@ $resultadoDeCuentaTutorados = $db->query($cuentaTutorados);
 				?>
 			</td>
 		</tr>
+	</thead>
+	<tbody>
 		<tr>
 			<td>
 				<a title="lib/php/buscausuarios.php?sexo=mujer">
@@ -85,5 +86,5 @@ $resultadoDeCuentaTutorados = $db->query($cuentaTutorados);
 				?>  
 			</td>
 		</tr>
-	</table>
-</center>
+	</tbody>
+</table>

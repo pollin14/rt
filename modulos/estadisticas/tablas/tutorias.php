@@ -27,94 +27,82 @@ group by
 idTutoria) as t)
 where max ';
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title></title>
-	</head>
-	<body>
-	<center>
-		<table border="1">
-			<tr>
-				<td>
-					<a title="lib/php/buscaTutorias.php?accion=todos">
-						Tutorias
-					</a>
-				</td>
-				<td>
-					<?php
-					echo $e->cuantasTutoriasHay();
-					?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a title="lib/php/buscaTutorias.php?accion=terminadas">
-						Terminadas
-					</a>
-				</td>
-				<td>
-					<?php
-					$buscaTutoriasEnEtapa6 = $buscaTutoriasEnEtapaX . '=6;';
-					$resultado = $db->query($buscaTutoriasEnEtapa6);
-					$filaResult = $resultado->fetch_assoc();
-					echo $filaResult['cuantos'];
-					?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a title="lib/php/buscaTutorias.php?accion=demostracion">
-						En Demostracion
-					</a>
-				</td>
-				<td>
-					<?php
-					$buscaTutoriasEnEtapa5 = $buscaTutoriasEnEtapaX . '=5;';
-					$resultado = $db->query($buscaTutoriasEnEtapa5);
-					$filaResult = $resultado->fetch_assoc();
-					echo $filaResult['cuantos'];
-					?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a title="lib/php/buscaTutorias.php?accion=espera">
-						En espera de Demostracion
-					</a>
-				</td>
-				<td>
-					<?php
-					$buscaTutoriasEnEtapa4 = $buscaTutoriasEnEtapaX . '=4;';
-					$resultado = $db->query($buscaTutoriasEnEtapa4);
-					$filaResult = $resultado->fetch_assoc();
-					echo $filaResult['cuantos'];
-					?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a title="lib/php/buscaTutorias.php?accion=tutoria">
-						En tutoria
-					</a>
-				</td>
-				<td>
-					<?php
-					$buscaTutoriasEnEtapa3 = $buscaTutoriasEnEtapaX . '<4;';
-					$resultado = $db->query($buscaTutoriasEnEtapa3);
-					$filaResult = $resultado->fetch_assoc();
-					echo $filaResult['cuantos'] + $sinMensajes;
-					?>
-				</td>
-			</tr>
-			<?php
-			?>
-		</table></center>
-	<?php
-	?>
-</body>
-</html>
-<?php
-$db->close();
-?>
+
+<table class="datos">
+	<thead>
+		<tr>
+			<td>
+				<a title="lib/php/buscaTutorias.php?accion=todos">
+					Tutorias
+				</a>
+			</td>
+			<td>
+				<?php
+				echo $e->cuantasTutoriasHay();
+				?>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<a title="lib/php/buscaTutorias.php?accion=terminadas">
+					Terminadas
+				</a>
+			</td>
+			<td>
+				<?php
+				$buscaTutoriasEnEtapa6 = $buscaTutoriasEnEtapaX . '=6;';
+				$resultado = $db->query($buscaTutoriasEnEtapa6);
+				$filaResult = $resultado->fetch_assoc();
+				echo $filaResult['cuantos'];
+				?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a title="lib/php/buscaTutorias.php?accion=demostracion">
+					En Demostracion
+				</a>
+			</td>
+			<td>
+				<?php
+				$buscaTutoriasEnEtapa5 = $buscaTutoriasEnEtapaX . '=5;';
+				$resultado = $db->query($buscaTutoriasEnEtapa5);
+				$filaResult = $resultado->fetch_assoc();
+				echo $filaResult['cuantos'];
+				?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a title="lib/php/buscaTutorias.php?accion=espera">
+					En espera de Demostracion
+				</a>
+			</td>
+			<td>
+				<?php
+				$buscaTutoriasEnEtapa4 = $buscaTutoriasEnEtapaX . '=4;';
+				$resultado = $db->query($buscaTutoriasEnEtapa4);
+				$filaResult = $resultado->fetch_assoc();
+				echo $filaResult['cuantos'];
+				?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a title="lib/php/buscaTutorias.php?accion=tutoria">
+					En tutoria
+				</a>
+			</td>
+			<td>
+				<?php
+				$buscaTutoriasEnEtapa3 = $buscaTutoriasEnEtapaX . '<4;';
+				$resultado = $db->query($buscaTutoriasEnEtapa3);
+				$filaResult = $resultado->fetch_assoc();
+				echo $filaResult['cuantos'] + $sinMensajes;
+				?>
+			</td>
+		</tr>
+	</tbody>
+</table>

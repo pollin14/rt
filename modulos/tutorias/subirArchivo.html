@@ -72,6 +72,9 @@ and open the template in the editor.
                         }
                     });
                     break;
+				case ('chat'):
+					$('#descripcion').hide();
+					$('#hint').hide(); // no hay break
                 default://El chat y los productos no puden ser urls
                     $('#divSubirUrl').hide();
                     $('#url').hide();
@@ -95,18 +98,18 @@ and open the template in the editor.
                     <td>
                         <label>Archivo</label><input type="radio" name="tipo" value="archivo" checked/>
                     </td>
-                    <td>
-                        <div id="url"><label>URL</label><input type="radio" name="tipo" value="url"/></div>
+                    <td id="url">
+                        <div><label>URL</label><input type="radio" name="tipo" value="url"/></div>
                     </td>
                 </tr>
                 
-                <tr>
+                <tr id="descripcion">
                     <td>Descripcion</td>
                     <td><input type="text" name="descripcion" maxlength="190"/></td>
 					<td></td>
                 </tr>
                 
-                <tr>
+                <tr id="hint">
                     <td>Hint</td><td><input type="text" name="hint" maxlength="100"/></td>
 					<td></td>
                 </tr>

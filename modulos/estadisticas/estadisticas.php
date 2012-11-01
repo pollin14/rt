@@ -57,7 +57,8 @@ $db = dameConexion();
 						<li><a href="#tabs-2">Tutorías</a></li>
 						<li><a href="#tabs-3">Entidades</a></li>
 						<li><a href="#tabs-4">Usuarios</a></li>
-						<li><a href="#tabs-5">Linaje</a></li>
+						<li><a href="#tabs-5">Resumen</a></li>
+<!--						<li><a href="#tabs-5">Linaje</a></li>-->
 					</ul>
 					<div id="tabs-1">
 						<div id="temas"></div>
@@ -72,6 +73,9 @@ $db = dameConexion();
 						<div id="usuarios"></div>
 					</div>
 					<div id="tabs-5">
+						<div id="resumen"></div>
+					</div>
+<!--					<div id="tabs-5">
 						<div id="wrapper">
 							<div id="linaje">
 								<button>Cargar linaje</button>
@@ -87,7 +91,7 @@ $db = dameConexion();
 
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<div id="tabla"></div>
 			</div>

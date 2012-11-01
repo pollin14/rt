@@ -56,6 +56,17 @@ function dameExtension($fileName){
 	return strstr($fileName,".");
 }
 
+/**
+*
+* @param string $path ruta del archivo que incluye su nombre
+* @param styring $separador en windows se usa la barra invertida mientras que
+* en linux es una barra normal.
+* @return string unicamente el nombre del archivo.
+*/
+function dameNombreDelArchivo($path, $separador = "/"){
+return substr($path, strrpos($path,$separador) + 1);
+}
+
 /*
  * Log errors in error.log file.
  */

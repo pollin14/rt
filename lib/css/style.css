@@ -229,9 +229,53 @@ a:hover.feed-button {
 	margin-left:auto;	
 }
 
-table{
+/*table{
 	margin-top:10px;
 }
 table tr td{
 	padding:4px;
+}*/
+
+table.datos {
+	margin-top:10px;
+	margin-right:auto;
+	margin-left:auto;
+	width: 300px;
+	border: black solid 0px;
+	border-top: gray solid thin;
+	border-bottom:gray solid thin;
+}
+
+table.datos thead td{
+	border: gray solid 0px;
+	padding: 6px;
+	color: white;
+	background-image: url(images/bg-menu.png);
+	background-color: #222222;
+	background-repeat: no-repeat;
+}
+
+table.datos tbody td{
+	border: gray solid 0px;
+	border-top: gray solid thin;
+	padding:6px;
+}
+
+table.datos tbody tr:hover{
+	background-color:#F29C3E;
+}
+
+table.datos tbody td:hover a{
+	color:black;
+}
+
+#info{
+	margin-right:auto; 
+	margin-left:auto; 
+	max-width:500px;
+	min-height:500px;
+}
+
+.odd{
+	background-color:#CEEDF1;
 }

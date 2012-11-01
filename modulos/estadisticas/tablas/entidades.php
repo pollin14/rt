@@ -17,9 +17,8 @@ $buscaEntidades = sprintf("
                     Entidades.nombre;");
 $resultadoDeEntidades = $db->query($buscaEntidades);
 ?>
-<center>
-	<table border="1"> 
-		<thead>
+<table class="datos"> 
+	<thead>
 		<tr>
 			<td>
 				Entidad
@@ -28,8 +27,8 @@ $resultadoDeEntidades = $db->query($buscaEntidades);
 				Usuarios
 			</td>
 		</tr>
-		</thead>
-		<tbody>
+	</thead>
+	<tbody>
 		<?php
 		while ($resultadoDeEntidades && $filaDeEntidades = $resultadoDeEntidades->fetch_assoc()) {
 			echo '<tr>';
@@ -44,6 +43,5 @@ $resultadoDeEntidades = $db->query($buscaEntidades);
 			echo '</tr>';
 		}
 		?>
-		</tbody>
-	</table>
-</center>
+	</tbody>
+</table>

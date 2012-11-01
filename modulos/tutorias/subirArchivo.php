@@ -74,7 +74,7 @@ switch($crp){
             echo ' value="' .$url .'">';
             echo '</span>';
         }else{
-            echo "<p>Ocurrio un problema al subir el archivo :(</p>";
+            echo "<p>Ups! Ocurrió un problema al subir el archivo :(</p>";
             echo "de " . $nombreTemporal . " a " . $directorio;
 			exit();
         }
@@ -98,7 +98,7 @@ switch($crp){
                 $s = sprintf('select descripcion,hint from Recursos where url = "%s";', $url);
 				$re = $db->query($query);
 				if ( !$re){
-					echo "<p>Ocurrio un problema al subir el recuros :( </p>";
+					echo "<p>Ups! Ocurrió un problema al subir el recuros :( </p>";
 					echo "<p>Ya puedes cerrar la ventana.</p>";
 				}else{
 					$r = $re->fetch_assoc();
@@ -121,7 +121,7 @@ switch($crp){
                 echo ' value="' . $url . '">';
                 echo '</span>';
             }else{
-                echo "<p>Ocurrio un problema al subir el recurso.</p>";
+                echo "<p>Ups! Ocurrió un problema al subir el recurso.</p>";
                 exit();
             }
         }else{
@@ -132,7 +132,7 @@ switch($crp){
                     $idTema, $url,$descripcion ,$hint);
             
             if (!$db -> query($query)){
-                echo "<p>Ocurrio un problema al guardar el recuros.(url)</p>";
+                echo "<p>UPs! Ocurrió un problema al guardar el recuros.(url)</p>";
                 exit();
             }
             
@@ -158,7 +158,7 @@ switch($crp){
 		
         
         if (!$db -> query($query)){
-            echo "<p>Ocurrio un problema al subir el producto</p>";
+            echo "<p>Ups! Ocurrió un problema al subir el producto</p>";
             echo "<p>Posiblemente, ya subiste este producto.";
 			echo " Para actualizarlo, borralo y despues vuelvelo a subir.</p>";
             exit();
@@ -173,8 +173,9 @@ switch($crp){
             echo ' value="' . $url . '"';
             echo '</span>';
         }else{
-            echo "<p>Error al mover el archivo.</p>";
-            echo "de " . $nombreTemporal . " a " . $url;
+            echo "<p>Ups! Ocurrió un problema al subir el producto</p>";
+            echo "<p>Posiblemente, ya subiste este producto.";
+			echo " Para actualizarlo, borralo y despues vuelvelo a subir.</p>";
             exit();
         }
         echo "Archivo subido con exito. Cerrando...";

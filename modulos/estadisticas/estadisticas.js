@@ -29,6 +29,11 @@ function muestra_tabla_usuarios(){
 function muestra_tabla_tutorias(){
 	muestra_tabla('tutorias.php')
 }
+
+function muestra_tabla_resumen(){
+	muestra_tabla('resumen.php')
+}
+
 function muestra_tabla(nombre){
 	$.ajax({
 		type:'post',
@@ -39,6 +44,7 @@ function muestra_tabla(nombre){
 			$('#tabla').find('a').click(function(){
 				$('#tabla').load(encodeURI($(this).attr('title')));
 			})
+			$('#tabla').find('tbody').children('tr:odd').addClass('odd');
 			$('#tabla').show('slow');
 		},
 		error: function(){
@@ -61,6 +67,7 @@ $(document).ready(function(){
 	cargaGrafica('tutorias.php','tutorias');
 	cargaGrafica('entidades.php','entidades');
 	cargaGrafica('usuarios.php','usuarios');
+	cargaGrafica('resumen.php','resumen');
 	
 	$('#linaje').children('button').click(function(){
 		var link = document.createElement('script');
