@@ -11,7 +11,7 @@
 			$(document).ready(function(){
 				$('#menu a').click(function(){
 					$('#chart').show();
-//					$('#tabla').hide();
+					$('#tabla').hide();
 					swfobject.embedSWF(
 					"../../lib/ofc/open-flash-chart.swf", "chart",
 					"500", "500", "9.0.0", "expressInstall.swf",
