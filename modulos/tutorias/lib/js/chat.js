@@ -238,10 +238,8 @@ inicializaChat = function(){
             // el temporalizador para subir archivos.
             window.clearInterval(tempoSubirArchivo);
 
-            //todo conseguir nombre del urlDelArchivo
             // En el chat solo se puden eviar archivos. Urls no.
-            mensaje = '<a href="' + urlDelArchivo+ '" target="_blank">';
-            mensaje += urlDelArchivo + "</a>";
+            mensaje = urlDelArchivo;
 
             nombreDelArchivo = "";
             urlDelArchivo = "";

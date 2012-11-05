@@ -68,20 +68,20 @@ switch($crp){
         }
         
         if (move_uploaded_file($nombreTemporal, $directorio . $nombreReal)){
-            echo '<span id="info"';
-            echo ' value="' .$url .'">';
-            echo '</span>';
+			echo '<script type="text/javascript"> x = ';
+			echo '\'<a href="' . $url .'">' . dameNombreDelArchivo($url) . '</a>\'';
+			echo '</script>';
         }else{
             echo "<p>Ups! Ocurrió un problema y no se pudo subir el archivo.</p>";
-				echo "<p>Puede que se demasiado grande. Verifica";
-				echo " que pese no más de 4MB.</p>";
-                exit();
+			echo "<p>Puede que se demasiado grande. Verifica";
+			echo " que pese no más de 4MB.</p>";
+			exit();
         }
         echo "Archivo subido con exito. Cerrando...";
 		echo '<script type="text/javascript">
 				$(document).ready(function(){
 				window.setTimeout(window.close, 3000);
-				window.opener.window.urlDelArchivo = $("#info").attr("value");
+				window.opener.window.urlDelArchivo = x;
 				});</script>';
         break;
     case ("recursos"):
