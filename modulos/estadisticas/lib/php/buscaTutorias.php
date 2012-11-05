@@ -125,7 +125,7 @@ echo '<img alt="logo EIMLE" src="../../../../lib/img/eimle.png"
                     ID
                 </td>
                 <td>
-                    Tema de Tutoria
+                    Tema de Tutoría
                 </td>
                 <td>
                     Estudiante

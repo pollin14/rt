@@ -50,7 +50,7 @@
 		<?php include "../../lib/php/encabezado.php" ?>
 		<div style="text-align: center" id="menu">
         <a value="temas.php" href="#">Catálogos</a>
-        <a value="tutorias.php" href="#">Tutorias</a>
+        <a value="tutorias.php" href="#">Tutorías</a>
         <a value="entidades.php" href="#">Entidades</a>
         <a value="usuarios.php" href="#">Usuarios</a>
 		<a value="resumen.php" href="#">Resumen</a>
