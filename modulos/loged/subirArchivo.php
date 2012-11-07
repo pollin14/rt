@@ -11,10 +11,9 @@ header('Content-Type: text/html; charset=UTF-8');
 
   </head>
   <body>
-      <script type="text/javascript" src="../../lib/js/jquery.js"> </script>
 <?php
 
-$idUsuario = $_SESSION['idUsuario'];
+$idUsuario = $_POST['idUsuario'];
 $extension = $_FILES['archivo']['type'];
 $nombreReal = $_FILES['archivo']['name'];
 $nombreTemporal = $_FILES['archivo']['tmp_name'];
@@ -37,10 +36,7 @@ if(!file_exists($directorio)){
 if (move_uploaded_file($nombreTemporal, 
         $directorio . $idUsuario . $extension)){
     echo '<script type="text/javascript">';
-    echo '$(document).ready(function(){';
     echo 'window.setTimeout(window.close, 2000);';
-    echo 'window.opener.window.exito = true;';
-    echo '});';
     echo '</script>';
     echo "Avatar subido con exito. Cerrando ventana.";
 }else{

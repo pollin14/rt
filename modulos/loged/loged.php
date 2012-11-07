@@ -6,7 +6,7 @@ administraSesion();
 ?>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,6 +18,10 @@ administraSesion();
 <script type="text/javascript" src="../../lib/js/funciones.js"></script>
 <script type="text/javascript" src="loged.js"></script>
 <script type="text/javascript" src="../../modulos/notificaciones/lib/js/notificaciones.js"></script>
+<script type="text/javascript">
+<?php echo 'var REMOTE_SERVER="' . REMOTE_SERVER . '";'; ?>
+<?php echo "var idUsuario=\"" .$_SESSION['idUsuario']  . "\";"; ?>
+</script>
 
 </head>
 
@@ -31,12 +35,12 @@ administraSesion();
             <?php 
             $imagen = $_SESSION['idUsuario'] . ".jpg";
             
-            if( !file_exists("../../avatares/".$imagen)){
-                $imagen = "default.jpg";
-            }
-            
-            echo '<img src="../../avatares/' .$imagen .'"';
-            echo 'alt="Click para subir un nuevo avatar." />';
+//            if( !file_exists("../../avatares/".$imagen)){
+//                $imagen = "default.jpg";
+//            }
+            echo '<img src="'. REMOTE_SERVER . 'avatares/' .$imagen .'"';
+            echo 'title="Click para subir un nuevo avatar." ';
+			echo "style=\"background-image:url('" . REMOTE_SERVER . "avatares/default.jpg');\"/>";
             ?>
 			<p><?php echo $_SESSION['nombre']; ?></p>
 			<p><a href="cerrarSesion.php">Cerrar Sesión</a> </p>

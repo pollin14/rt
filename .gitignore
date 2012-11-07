@@ -6,3 +6,4 @@ nbproject
 nbproject/*.properties
 nbproject/*.xml
 otros
+*.*~

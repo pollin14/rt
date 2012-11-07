@@ -60,7 +60,7 @@
 
 #listaDeProductos span,
 #listaDeRecursos span{
-	width:252px;
+	width:230px;
 	min-height:24px;
 	display:block;
     cursor: pointer;

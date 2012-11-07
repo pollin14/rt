@@ -16,26 +16,17 @@ and open the template in the editor.
         var tipo = "archivo";
         
         $(document).ready(function(){
-            var idTema = getUrlVars()['idTema'];
-            var idTutoria = getUrlVars()['idTutoria'];
-            //crp = chat.recuros.producto
-            var crp = getUrlVars()['crp'];
+			
+			var crp =getUrlVars()['crp']
             var tmp;
             
             /* Datos ocultos a traves de inputs*/
             
-            
-            //idTema
-            tmp = '<input type="hidden" name="idTema" value="' + idTema +'"/>';
-            $("form").html( $('form').html() + tmp);
-            
-            //idTutoria
-            tmp = '<input type="hidden" name="idTutoria" value="' + idTutoria +'"/>';
-            $("form").html( $('form').html() + tmp);
-
-            //crp indica quien subio el archivo: chat, recuros, producto
-            tmp = '<input type="hidden" name="crp" value="' + crp +'"/>';
-            $("form").html( $('form').html() + tmp);
+			$('#idTutoria').val(getUrlVars()['idTutoria']);
+			$('#crp').val(crp);
+			$('#idEtapa').val(getUrlVars()['idEtapa']);
+			$('#tipoDeUsuario').val(getUrlVars()['tipoDeUsuario'])
+			$('#idUsuario').val(getUrlVars()['idUsuario'])
 			
 			//Si se subio un producto,debemos detectar el id del boton
 			if ( crp == "productos"){
@@ -55,7 +46,7 @@ and open the template in the editor.
 
                     //eventos del tipo de archivo.
                     $('input:radio[name=tipo]').click(function(){
-                        tipo = $(this).attr('value');
+                        var tipo = $(this).attr('value');
                         if(tipo == "url"){
                             $('#divSubirUrl').show();
                             $('#divSubirArchivo').hide();
@@ -84,7 +75,12 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <form method="post" action="subirArchivo.php" enctype="multipart/form-data"> 
+        <form method="post" action="http://smg/rt/modulos/tutorias/subirArchivo.php" enctype="multipart/form-data"> 
+			<input type="hidden" id="idTutoria" name="idTutoria"/>
+			<input type="hidden" id="crp" name="crp"/>
+			<input type="hidden" id="idEtapa" name="idEtapa"/>
+			<input type="hidden" id="tipoDeUsuario" name="tipoDeUsuario"/>
+			<input type="hidden" id="idUsuario" name="idUsuario"/>
             <table>
                 <tr>
                     <td>Tipo: </td>

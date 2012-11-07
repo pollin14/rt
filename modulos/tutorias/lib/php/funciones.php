@@ -140,7 +140,8 @@ function fetchNumProductos($idTutoria, $db){
 	return $xml;
 }
 
-function saveMensaje($idTutoria,$idUsuario,$idEtapa,$autorizacion,$mensaje,$db){
+function saveMensaje($idTutoria,$idUsuario,$idEtapa,$tipoDeUsuario,$mensaje,$db){
+	$autorizacion = ($tipoDeUsuario === "sinodal")? 0: 1;
 	// The sended message.
 	if( $mensaje != ""){
 		$insert = sprintf(

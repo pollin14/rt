@@ -26,9 +26,10 @@
 #misDatos img{
 	display:block;
 	margin:auto;
-	max-height:210px;
-	max-width:130px;
+	height:183px;
+	width:183px;
     cursor:pointer;
+	background-repeat:no-repeat;
 }
 
 #misDatos p{

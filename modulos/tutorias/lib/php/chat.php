@@ -19,9 +19,8 @@ $idUltimoMensaje = $_POST['idUltimoMensaje'];
 
 
 //$borrar = "1"; //minutos
-$autorizacion = ($tipoDeUsuario === "sinodal")? 0: 1;
 
-saveMensaje($idTutoria,$idUsuario,$idEtapa,$autorizacion,$mensaje,$db);
+saveMensaje($idTutoria,$idUsuario,$idEtapa,$tipoDeUsuario,$mensaje,$db);
 
 ////Borramos mensajes viejos.
 //$query = sprintf('

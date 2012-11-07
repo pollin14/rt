@@ -47,7 +47,7 @@ switch($_GET['tipoDeUsuario']){
     <script type="text/javascript" src="../../lib/js/funciones.js"></script>
     <script type="text/javascript" src="../../lib/js/modernizr.js"></script>
     <script type="text/javascript" src="lib/js/chat.js"></script>
-
+<?php echo '<script type="text/javascript">var SERVER_PATH = "' . REMOTE_SERVER .'modulos/tutorias/";</script>' ?>
   </head>
   <body>
 	 <?php include "../../lib/php/encabezado.php" ?>

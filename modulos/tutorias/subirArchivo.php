@@ -1,7 +1,3 @@
-<?php 
-session_start();
-header('Content-Type: text/html; charset=UTF-8');
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,21 +5,31 @@ header('Content-Type: text/html; charset=UTF-8');
 
   </head>
   <body>
-      <script type="text/javascript" src="../../lib/js/jquery.js"></script>
-<?php
+
+<?php 
+
+/**
+ * Este script guarda los archivos subidos en el servidor donde se 
+ * esta ejecutando y regresa una url a travez de javascript para ser
+ * pasado a la ventana que abrio esta ventana de carga de archivos.
+ */
+
+session_start();
+header('Content-Type: text/html; charset=UTF-8');
 
 include "../../configuracion.php";
 include "../../lib/php/utils.php";
 include "../../lib/php/queries.php";
-
-administraSesion();
+include "lib/php/funciones.php";
 
 $idTutoria  = $_POST['idTutoria'];
+$tipoDeUsuario = $_POST['tipoDeUsuario'];
+$idEtapa = $_POST['idEtapa'];
 $url        = "";
 $idTema     = "";
 $hint       = $_POST['hint'];
 $descripcion = $_POST['descripcion'];
-$idUsuario = $_SESSION['idUsuario'];
+$idUsuario = $_POST['idUsuario'];
 
 
 $tipo       = $_POST['tipo'];
@@ -61,34 +67,31 @@ $query = "";
 switch($crp){
     case ("chat"):
         $directorio = "../../archivosSubidos/chat/". $idTutoria . "/" . $idUsuario . "/";		
-        $url = $directorio . $nombreReal;
+        $url = 'http://' .$_SERVER['SERVER_ADDR'] . '/rt/archivosSubidos/chat/'. $idTutoria . "/" .$idUsuario . "/" . $nombreReal;
         
         if(!file_exists($directorio)){
             mkdir($directorio,0777,true);
         }
         
         if (move_uploaded_file($nombreTemporal, $directorio . $nombreReal)){
-			echo '<script type="text/javascript"> x = ';
-			echo '\'<a href="' . $url .'">' . dameNombreDelArchivo($url) . '</a>\'';
-			echo '</script>';
+			$mensaje = "Por favor revisa el siguiente archivo: ";
+			$mensaje .= '<a href=\"' . $url . '\" title=\"' . $nombreReal . '\">' . $nombreReal . '</a>';
+			saveMensaje($idTutoria, $idUsuario, $idEtapa, $tipoDeUsuario, $mensaje, $db);
         }else{
             echo "<p>Ups! Ocurrió un problema y no se pudo subir el archivo.</p>";
 			echo "<p>Puede que se demasiado grande. Verifica";
 			echo " que pese no más de 4MB.</p>";
 			exit();
         }
-        echo "Archivo subido con exito. Cerrando...";
+        echo '<p>Archivo subido con exito. Cerrando...</p> <div class="loading"></div>';
 		echo '<script type="text/javascript">
-				$(document).ready(function(){
-				window.setTimeout(window.close, 3000);
-				window.opener.window.urlDelArchivo = x;
-				});</script>';
+				window.setTimeout(window.close, 3000);</script>';
         break;
     case ("recursos"):
         if($esArchivo){
             
             $directorio = "../../archivosSubidos/recursos/". $idTema . "/";
-            $url = $directorio . $nombreReal;
+            $url = 'http://' .$_SERVER['SERVER_ADDR'] . '/rt/archivosSubidos/recursos/' . $idTema ."/" . $nombreReal;
             
             $query = sprintf('insert into Recursos values(%d,"%s","%s","%s")', 
                     $idTema, $url,$descripcion ,$hint);
@@ -106,9 +109,7 @@ switch($crp){
             }
             
             if (move_uploaded_file($nombreTemporal, $directorio . $nombreReal)){
-                echo '<span id="info"';
-                echo ' value="' . $url . '">';
-                echo '</span>';
+            
             }else{
                 echo "<p>Ups! Ocurrió un problema y no se pudo subir el recurso.</p>";
 				echo "<p>Puede que se demasiado grande. Verifica";
@@ -127,24 +128,20 @@ switch($crp){
 				echo "<p>Puede que tu dirección web este mal.</p>";
                 exit();
             }
-            
-            echo '<span id="info"';
-            echo ' value="' . $url . '"';
-            echo '</span>';
         }
         echo "Archivo subido con exito. Cerrando...";
 		echo '<script type="text/javascript">
-				$(document).ready(function(){
 				window.setTimeout(window.close, 3000);
-				window.opener.window.urlDelArchivo = $("#info").attr("value");
-				});</script>';
+				</script>';
         break;
     case ("productos"):       
 		
 		$nombreDelProducto = dameNombreDelProducto($_POST['idBoton'],$db);
 		$extension = dameExtension($nombreReal);
         $directorio = "../../archivosSubidos/productos/". $idTutoria . "/";
-        $url = $directorio . $nombreDelProducto . $extension;
+        $url = 'http://' .$_SERVER['SERVER_ADDR'];
+		$url.= '/rt/archivosSubidos/productos/'. $idTutoria . "/";
+		$url .= $nombreDelProducto . $extension;
         $query = sprintf('insert into Productos values(%d,"%s","%s","%s")', 
                     $idTutoria, $url , $descripcion ,$hint );
 		
@@ -160,10 +157,8 @@ switch($crp){
             mkdir($directorio,0777,true);
         }
         
-        if (move_uploaded_file($nombreTemporal, $url)){
-            echo '<span id="info"';
-            echo ' value="' . $url . '"';
-            echo '</span>';
+        if (move_uploaded_file($nombreTemporal, $directorio .$nombreDelProducto . $extension)){
+
         }else{
             echo "<p>Ups! Ocurrió un problema.</p>";
             echo "<p>Posiblemente, ya subiste este producto.";
@@ -172,10 +167,8 @@ switch($crp){
         }
         echo "Archivo subido con exito. Cerrando...";
 		echo '<script type="text/javascript">
-				$(document).ready(function(){
 				window.setTimeout(window.close, 3000);
-				window.opener.window.urlDelArchivo = $("#info").attr("value");
-				});</script>';
+				</script>';
         break;       
 }
 ?>

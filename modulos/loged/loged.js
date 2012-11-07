@@ -12,9 +12,7 @@ var exito = false;
 
 recargaAvatar = function(){
     if (ws.closed){
-        if(exito){
-            window.location = window.location;
-        }
+        window.location = window.location;
         window.clearInterval(iws);
     }
 }
@@ -44,11 +42,8 @@ $(document).ready(function(){
 	
 	//subir avatar;
 	$('#misDatos img').click(function(){
-        var params = "directories=no,height=150px,";
-        params += "width=500px,location=no,menubar=no,resizable=no,";
-        params += "titlebar=no,toolbar=no";
-        
-	    ws = window.open("subirArchivo.html", "subirAvatar",params);
+        var url = REMOTE_SERVER + 'modulos/loged/subirArchivo.html?idUsuario=' + idUsuario;
+	    ws = window.open(url, "subirAvatar");
         window.clearInterval(iws);
 	    iws = window.setInterval(recargaAvatar, 500);
 	});
