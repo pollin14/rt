@@ -7,5 +7,6 @@ nbproject/*.properties
 nbproject/*.xml
 otros
 *.*~
+/configuracion.php
 configuracion.php
 /tests/

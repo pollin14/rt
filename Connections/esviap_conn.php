@@ -1,4 +1,5 @@
 <?php
+include_once '../configuracion.php';
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
@@ -8,11 +9,11 @@ $ubicacion="local";
 //	$username_esviap_conn = "rt";}
 //	
 //else {	
-	$database_esviap_conn = "tutorias";
-	$username_esviap_conn = "rt";
+	$database_esviap_conn = BD;
+	$username_esviap_conn = USER;
 //}
-$hostname_esviap_conn = "localhost";
-$password_esviap_conn = "r2d2";
+$hostname_esviap_conn = HOST;
+$password_esviap_conn = PASSWORD;
 $esviap_conn = mysql_pconnect($hostname_esviap_conn, $username_esviap_conn, $password_esviap_conn) or trigger_error(
 mysql_error(),E_USER_ERROR); 
 $database_conn=$database_esviap_conn;
