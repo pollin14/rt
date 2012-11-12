@@ -1,5 +1,8 @@
 muestraMensaje = function(xml){
-    $('#mensaje').html( $(xml).find('mensaje').text() );
+	var m = '<p>Enviado el <b>' + $(xml).find('mensaje').attr('fecha') + '</b></p>';
+		m += '<hr/>';
+		m+= $(xml).find('mensaje').text();
+    $('#mensaje').html( m);
 }
 
 actualizaBandejaDeEntrada = function(xml){

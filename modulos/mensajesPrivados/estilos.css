@@ -8,10 +8,10 @@
 
 #bandejaDeEntrada{
     border: black solid 1px;
-    height: 500px;
+    height:500px;
     float:left;
     margin: 5px;
-    min-width: 400px;
+    width: 430px;
     overflow: auto;
 }
 
@@ -56,7 +56,7 @@
     margin:5px;
     float:left;
     border: black solid 1px;
-    width: 500px;
+    width: 470px;
     height: 480px;
 	overflow: auto;
 }

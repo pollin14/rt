@@ -44,9 +44,6 @@ body{
 	font-family:Verdana, Geneva, sans-serif;
 	color: #E6B54A;
 	background-color:#FCF9ED;
-	/*background: transparent url(../img/bg1.jpg) no-repeat center top;*/
-	background-image:url(../img/bg4.png);
-	background-attachment: fixed;
   }
 #up {
 	height:20px;

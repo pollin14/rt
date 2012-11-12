@@ -8,3 +8,4 @@ nbproject/*.xml
 otros
 *.*~
 configuracion.php
+/tests/

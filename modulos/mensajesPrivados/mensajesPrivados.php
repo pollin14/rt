@@ -45,15 +45,22 @@ switch($accion){
             $correoDeSinodal = $row['email'];
         }
         
-        //mail($correoDeSinodal,$asunto,$mensaje);
+        mail($correoDeSinodal,$asunto,$mensaje);
         
         break;
     case "lista":
         
         $para = $_SESSION['idUsuario'];
-        $query = sprintf('select mp.*, u.nick
-            from MensajesPrivados as mp, Usuarios as u
-            where mp.para = u.idUsuario and u.idUsuario = %d;',
+        $query = sprintf('
+select 
+    mp . *, u.nombre as para_nombre, u2.nombre as de_nombre
+from
+    ((MensajesPrivados as mp
+    left join Usuarios as u ON u.idUsuario = mp.para)
+    left join Usuarios as u2 ON u2.idUsuario = mp.de)
+where
+    mp.para = u.idUsuario
+        and u.idUsuario = %d;',
             $para);
         
         $result = $db -> query($query);
@@ -67,12 +74,7 @@ switch($accion){
             exit();
         }
         
-
-        
         while($row = $result->fetch_assoc()){
-            
-             $query = sprintf("select u.nick as deNick from Usuarios as u
-                where u.idUsuario = %d;", $row['de']);
 
             $result2 = $db -> query($query);
 
@@ -90,8 +92,9 @@ switch($accion){
             
             $xml .= "<mensaje";
             $xml .= ' idMensajePrivado="' .$row['idMensajePrivado'] .'"';
-            $xml .= ' de="'. $deNick['deNick'] . '"';
-            $xml .= ' para="' . $row['para'] . '"';
+			$xml .= ' fecha="' . $row['fecha'] . '"';
+            $xml .= ' de="'. $row['de_nombre'] . '"';
+            $xml .= ' para="' . $row['para_nombre'] . '"';
             $xml .= ' asunto="' . $row['asunto'] .'"';
             $xml .= ' leido="' . $row['leido'] . '"';
             $xml .= '>';
@@ -104,7 +107,7 @@ switch($accion){
     case ("extrae"):
         
         $idMensajePrivado = $_POST['idMensajePrivado'];
-        $query = sprintf('select mensaje 
+        $query = sprintf('select mensaje,fecha 
             from MensajesPrivados 
             where idMensajePrivado = %d',$idMensajePrivado);
         
@@ -121,7 +124,7 @@ switch($accion){
         
         if ($result->num_rows != 0){
             $row = $result->fetch_assoc();
-            $xml .= '<mensaje><![CDATA['.$row['mensaje'] .']]></mensaje>';
+            $xml .= '<mensaje fecha="' . $row['fecha'] . '"><![CDATA['.$row['mensaje'] .']]></mensaje>';
         }
         $xml .= '</mensajes>';
         
