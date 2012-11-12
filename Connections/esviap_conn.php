@@ -1,5 +1,5 @@
 <?php
-include_once '../configuracion.php';
+include '../../configuracion.php';
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
@@ -9,7 +9,7 @@ $ubicacion="local";
 //	$username_esviap_conn = "rt";}
 //	
 //else {	
-	$database_esviap_conn = BD;
+	$database_esviap_conn = DB;
 	$username_esviap_conn = USER;
 //}
 $hostname_esviap_conn = HOST;
