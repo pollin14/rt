@@ -22,7 +22,7 @@ $query = sprintf(
 
 $result = $db -> query($query);
 
-if(!$result) die ("Error: ".  $db->error);;
+if(!$result) die ("Error: ".  $db->error);
 
 while($row = $result->fetch_assoc()){
 	$html .= '<option value="' . $row['idTema'] .'"';

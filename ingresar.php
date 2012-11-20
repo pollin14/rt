@@ -14,7 +14,7 @@ $buscaUsuario = sprintf("select idUsuario,nombre
 	from Usuarios where nick='%s' and contraseña ='%s';",$nick,$contraseña);
 $result = $db->query($buscaUsuario);
 
-if(!$result) die($buscaUsuario . " - " . $db->error);
+if(!$result) die($buscaUsuario . " - " . $db->error . '+' .$db->errno);
 
 if($result -> num_rows == 0) die ( "Error1, no existe el usuario o la constraseña es incorrecta");
 

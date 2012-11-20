@@ -73,9 +73,8 @@ function dameNombreDelArchivo($path, $separador = "/") {
  */
 
 function logging($texto, $db) {
-
-	$txt = $db->real_escape_string($texto) .
-			$error = error_get_last();
+	$error = error_get_last();
+	$txt = $db->real_escape_string($texto) .			
 			"<p>tipo:" . $error['type'] . "</p>" .
 			"<p>msg:" . $error['message'] . "</p>" .
 			"<p>file:" . $error['file'] . "</p>" .
