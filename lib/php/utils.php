@@ -68,12 +68,14 @@ function dameNombreDelArchivo($path, $separador = "/"){
 }
 
 /*
- * Log errors in error.log file.
+ * Log errors into table log_erro
  */
-function logging($texto){
-	echo $texto;
-	$ddf = fopen('error.log','a');
-	fwrite($ddf,"[".date("r")."] Error:" . $texto. "\n");
-	fclose($ddf);
+function logging($texto,$db){
+	
+	$txt = $db->real_escape_string($texto);
+	
+	$insert = sprintf('insert into log (log) values ("%s");',$txt);
+	
+	$db->query($insert);
 }
 ?>
