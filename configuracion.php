@@ -8,7 +8,7 @@ define("DB","tutorias");
 
 //Encabezados del email.
 define("HEADERS_MAIL",
-		"MIME-Version: 1.0\r\nContent-type:text/html\r\nContent-type: text/html; charset=utf8\r\nFrom: Red de Tutorias (RT)\r\nReply-To: no-reply\r\n");
+		"MIME-Version: 1.0\r\nContent-type: text/html; charset=utf8\r\nFrom: rt@sep.gob.mx\r\nReply-To: no-reply\r\n");
 
 //Identificadores de estapas
 define('DEMOSTRACION',5);
