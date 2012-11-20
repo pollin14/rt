@@ -181,7 +181,11 @@ while( $row = $result2->fetch_assoc()){
 	
 	//Envio de emails (hay otro envio de email en solicitud de tutorias)
 	
-    mail($correoSinodal,$asunto,$mensaje,HEADERS_MAIL);
+    if(!mail($correoSinodal,$asunto,$mensaje,HEADERS_MAIL)){
+		logging("Error al enviar el email a: <b>" . $correoSinodal . 
+			"</b> con el asunto: <b>" . $asunto  .
+			"</b> y mensaje: <b>" . $mensaje . "</b>",$db);
+	}
 	
     $insert2 = sprintf('insert into 
         MensajesPrivados (de,para,asunto,mensaje,fecha) values(%d,%d,"%s",\'%s\',"%s");',
@@ -208,7 +212,11 @@ $mensaje .= " son</p> " .$ldo ."";
 $mensaje .= "<p>Contáctate con ellos y con el tutor para acordar la fecha y hora de la";
 $mensaje .= " Demostración.</p>";
 
-mail($correoDemostrador,$asunto,$mensaje,HEADERS_MAIL);
+if(!mail($correoDemostrador,$asunto,$mensaje,HEADERS_MAIL)){
+	logging("Error al enviar el email a: <b>" . $correoDemostrador . 
+			"</b> con el asunto: <b>" . $asunto  .
+			"</b> y mensaje: <b>" . $mensaje . "</b>",$db);
+}
 
 $insert3 = sprintf('
 	insert into MensajesPrivados (de,para,asunto,mensaje,fecha)

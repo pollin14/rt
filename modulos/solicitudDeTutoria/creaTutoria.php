@@ -34,7 +34,12 @@ $query = sprintf('insert into MensajesPrivados
 
 $mail = dameEmailDelUsuario($para,$db);
 
-mail($mail,$asunto,$mensaje,HEADERS_MAIL);
+if(! mail($mail,$asunto,$mensaje,HEADERS_MAIL)){
+	logging("Error al enviar el email a: <b>" . $mail . 
+			"</b> con el asunto: <b>" . $asunto  .
+			"</b> y mensaje: <b>" . $mensaje . "</b>",$db);
+}
+
 
 if(! $db -> query($query)) echo ("Error al enviar mensaje de confirmacion");
 
