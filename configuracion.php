@@ -16,19 +16,17 @@ define('DEMOSTRACION',5);
 //Ruta base. La idea es usarla para los productos y recursos.
 
 define('REMOTE_SERVER', 'http://smg/rt/');
-//switch ( $_SERVER['SERVER_ADDR']){
-//	case('168.255.153.109'):
-//		define('SERVER_PATH','http://168.255.101.69/rt/');
-//		break;
-//	case ('10.85.16.70'):
-//		define('SERVER_PATH', 'smg/rt/');
-//		break;
-//	case ('168.255.101.69'):
-//		define('SERVER_PATH','http://168.255.101.69/rt/');
-//		break;
-//	default:
-//		define('SERVER_PATH','smg/rt/');
-//}
+
+switch ( $_SERVER['SERVER_ADDR']){
+	case('168.255.153.109'):
+		define('SITE_ROOT','tutorias/');
+		break;
+	case ('168.255.101.69'):
+		define('SITE_ROOT','rt/');
+		break;
+	default:
+		define('SITE_ROOT','rt/');
+}
 
 date_default_timezone_set("America/Mexico_City");
 
