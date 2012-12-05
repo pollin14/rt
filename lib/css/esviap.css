@@ -109,3 +109,10 @@ body{
 #ingresar:hover{
 	background-color:white;
 }
+
+
+#estadisticas{
+	width:550px;
+	margin-left: auto;
+	margin-right: auto;
+}
