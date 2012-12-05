@@ -45,6 +45,11 @@ switch ($accion) {
 			$correoDeSinodal = $row['email'];
 		}
 
+		if( isset($_POST['mensaje2']) && 
+				$_POST['mensaje2'] != ""){
+			$mensaje = $_POST['mensaje2'];
+		}
+		
 		if (!mail($correoDeSinodal, $asunto, $mensaje, HEADERS_MAIL)) {
 			logging("Error al enviar el email a: <b>" . $correoDeSinodal .
 					"</b> con el asunto: <b>" . $asunto .

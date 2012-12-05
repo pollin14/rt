@@ -6,6 +6,7 @@ var numeroDePagina = 0;
 
 var asunto = "Solicitud de Tutoría";
 var mensaje ="";
+var mensaje2 = "";
 
 
 /* Datos usados para el mensaje */
@@ -31,6 +32,12 @@ $(document).ready(function(){
 		$('#lista4 select').unbind('change');
         
         $(this).prop('disabled',true);
+		
+		mensaje2 += "<h1>Solicitud de tutoria</h1>";
+		mensaje2 += "<p> Hola <b>" + nombreDelTutor + "</b></p>";
+		mensaje2 += "<p>¿Te gustaría ser tutor de " + nombreDelAlumno + " en el tema: ";
+		mensaje2 += "<b>" + nombreDelTema +"</b>?</p>";
+		mensaje2 += "<p>Entra a TuRed para aceptarla o rechazarla</p>";
         
 		mensaje += "<h1>Solicitud de tutoria</h1>";
 		mensaje += "<p> Hola <b>" + nombreDelTutor + "</b></p>";
@@ -42,14 +49,14 @@ $(document).ready(function(){
 		mensaje += idTema+"&idTutorado="+idUsuario+'">';
 		mensaje += "Aceptar Tutoria</a> </p>";
 		mensaje += "<p>En caso contrario da click en: ";
-		mensaje += '<a href=';
-		mensaje += '../../modulos/solicitudDeTutoria/rechasaTutoria.php?';
-		mensaje += 'de='+ idTutor;
+		mensaje += "<a href=";
+		mensaje += "../../modulos/solicitudDeTutoria/rechasaTutoria.php?";
+		mensaje += "de="+ idTutor;
 		//bug de internet explorer.
 		//mensaje += '&para=' + idUsuario;
-		mensaje += '&from=' + idUsuario;
-		mensaje += '&nombreDelTutor=' + encodeURIComponent(nombreDelTutor);
-		mensaje += '&nombreDelTema=' + encodeURIComponent(nombreDelTema);
+		mensaje += "&from=" + idUsuario;
+		mensaje += "&nombreDelTutor=" + encodeURIComponent(nombreDelTutor);
+		mensaje += "&nombreDelTema=" + encodeURIComponent(nombreDelTema);
 
 
 		mensaje += '>';
@@ -65,7 +72,8 @@ $(document).ready(function(){
                 de:idUsuario,
                 para: idTutor,
                 asunto: asunto,
-                mensaje: mensaje 
+                mensaje: mensaje,
+				mensaje2: mensaje2
             },
             success: function(){
                 $('#m').html("Solicitud enviada a <b>" + 
