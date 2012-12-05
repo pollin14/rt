@@ -78,3 +78,8 @@ li a, li a img{
 	text-decoration:none;
 	border:0px #ffffff dashed;
 }
+
+li a{
+	display:block;
+	width:100%;
+}
