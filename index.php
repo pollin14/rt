@@ -1,6 +1,5 @@
-<?php header('Content-Type: text/html; charset=UTF-8'); ?>
-
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 include 'configuracion.php';
 
 $error = "";
@@ -30,7 +29,7 @@ if (isset($_POST['nickname']) &&
 
 		if ($result->num_rows == 0) {
 			$error = 'El usuario o la constraseña son incorrecta.';
-		}else{
+		} else {
 			$row = $result->fetch_assoc();
 
 			$_SESSION['idUsuario'] = $row['idUsuario'];
