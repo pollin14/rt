@@ -30,13 +30,14 @@ if (isset($_POST['nickname']) &&
 
 		if ($result->num_rows == 0) {
 			$error = 'El usuario o la constraseña son incorrecta.';
+		}else{
+			$row = $result->fetch_assoc();
+
+			$_SESSION['idUsuario'] = $row['idUsuario'];
+			$_SESSION['nick'] = $nick;
+			$_SESSION['nombre'] = $row['nombre'];
+			header('location: modulos/loged/loged.php');
 		}
-
-		$row = $result->fetch_assoc();
-
-		$_SESSION['idUsuario'] = $row['idUsuario'];
-		$_SESSION['nick'] = $nick;
-		$_SESSION['nombre'] = $row['nombre'];
 	}
 }
 ?>
