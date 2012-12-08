@@ -1,5 +1,8 @@
 <?php
 session_start();
+include '../../configuracion.php';
+administraSesion();
+
 
 if (isset($_FILES['archivo'])):
 	header('Content-Type: text/html; charset=UTF-8');

@@ -1,4 +1,5 @@
 <?php
+
 header('Content-Type: text/html; charset=UTF-8');
 include 'configuracion.php';
 
@@ -9,11 +10,15 @@ session_start();
 if (isset($_SESSION['idUsuario'])) {
 	header('location: modulos/loged/loged.php');
 }
+
+if( isset($_GET['pa'])){
+	$pa = "?pa=" . $_GET['pa'];
+}else{
+	$pa = '';
+}
+
 if (isset($_POST['nickname']) &&
 		isset($_POST['password'])) {
-
-
-
 
 	$nick = $_POST['nickname'];
 	$contraseña = $_POST['password'];
@@ -35,7 +40,13 @@ if (isset($_POST['nickname']) &&
 			$_SESSION['idUsuario'] = $row['idUsuario'];
 			$_SESSION['nick'] = $nick;
 			$_SESSION['nombre'] = $row['nombre'];
-			header('location: modulos/loged/loged.php');
+			
+			if( isset($_GET['pa'])){
+				$dir = $_GET['pa'];
+			}else{
+				$dir = "/" . SITE_ROOT . '/modulos/loged/loged.php';
+			}
+			header('location: http://' . $_SERVER['SERVER_NAME'] .  $dir);
 		}
 	}
 }
@@ -61,7 +72,7 @@ if (isset($_POST['nickname']) &&
 					<p></p>
 					<p class="azul1_0">TURed es una Plataforma de apoyo a las tutorías a distancia, ofreciendo herramientas de comunicación a tutores e interesados en adquirir conocimientos por medio de tutorías</p>
 					<p></p>
-					<form id="ingreso" method="post" action="index.php" >
+					<form id="ingreso" method="post" action="index.php<?php echo $pa ?>" >
 						<table>
 							<tr>
 								<th colspan="2">Ingreso a la plataforma</th>

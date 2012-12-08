@@ -4,11 +4,12 @@
  * esta ejecutando y regresa una url a travez de javascript para ser
  * pasado a la ventana que abrio esta ventana de carga de archivos.
  */
+
+session_start();
 include "../../configuracion.php";
+administraSession();
 
 if (isset($_POST['idTutoria'])) {
-
-	session_start();
 	header('Content-Type: text/html; charset=UTF-8');
 
 	include "../../lib/php/utils.php";
