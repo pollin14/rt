@@ -42,7 +42,7 @@ $(document).ready(function(){
 	
 	//subir avatar;
 	$('#misDatos img').click(function(){
-        var url = REMOTE_SERVER + 'modulos/loged/subirArchivo.html?idUsuario=' + idUsuario;
+        var url = REMOTE_SERVER + 'modulos/loged/subirArchivo.php';
 	    ws = window.open(url, "subirAvatar");
         window.clearInterval(iws);
 	    iws = window.setInterval(recargaAvatar, 500);

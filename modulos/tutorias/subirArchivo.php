@@ -167,7 +167,7 @@ if (isset($_POST['idTutoria'])) {
 		<body>
 			<div class="error"><?php echo $error ?></div>
 			<div class="exito"><?php echo $exito ?></div> 
-			<p>Cerrando en <span id="timer">5</span>
+			<p>Cerrando en ... <span id="timer">5</span></p>
 		</body>
 	</html>
 
