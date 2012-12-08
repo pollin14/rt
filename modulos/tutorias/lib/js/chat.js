@@ -219,7 +219,7 @@ inicializaChat = function(){
 
     $('#enviarArchivo').click(function(){
 
-		var url = SERVER_PATH + "subirArchivo.html?idUsuario="+idUsuario;
+		var url = SERVER_PATH + "subirArchivo.php?idUsuario="+idUsuario;
 		url += "&crp=chat" +"&idTutoria=" + idTutoria;
 		url += "&idEtapa=" + idEtapa + "&tipoDeUsuario=" + tipoDeUsuario
 		url += "&idUsuario=" + idUsuario;
@@ -257,7 +257,7 @@ inicializaRecursos = function (){
 //    params += "width=500px,location=no,menubar=yes,resizable=no,";
 //    params += "titlebar=yes,toolbar=yes";
     
-    var url = SERVER_PATH + "subirArchivo.html";
+    var url = SERVER_PATH + "subirArchivo.php";
 		url += "?idUsuario="+idUsuario+"&crp=recursos&idTutoria=" +idTutoria;
 
     //Si el segundo parametro lleva espacios en blanco no funcionara en
@@ -405,7 +405,7 @@ inicializaProductos = function(){
     
 	var idBoton = $(this).attr('value');
     
-    var url = SERVER_PATH +"subirArchivo.html?idTutoria=" + idTutoria+"&crp=productos" ;
+    var url = SERVER_PATH +"subirArchivo.php?idTutoria=" + idTutoria+"&crp=productos" ;
 		url += "&idBoton="+idBoton;
 
     //Si el segundo parametro lleva espacios en blanco no funcionara en

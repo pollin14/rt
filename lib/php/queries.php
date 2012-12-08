@@ -44,6 +44,12 @@ function dameIdTemaIdAlumnoDeTutoria($idTutoria, $db){
 	return $result->fetch_row();
 }
 
+function dameIdTemaDeLaTutoria($idTutoria ,$db){
+	
+	$tmp = dameIdTemaIdAlumnoDeTutoria($idTutoria, $db);
+	return $tmp[0];
+}
+
 function dameNombreDelProducto($idProducto,$db){
 	$result = $db -> query ("
 		select nombre from nombreDeProducto 
