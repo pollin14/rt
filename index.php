@@ -11,6 +11,8 @@ if (isset($_SESSION['idUsuario'])) {
 	header('location: modulos/loged/loged.php');
 }
 
+
+//redireccion a la pagina que se solicito.
 if( isset($_GET['pa'])){
 	$pa = "?pa=" . $_GET['pa'];
 }else{
