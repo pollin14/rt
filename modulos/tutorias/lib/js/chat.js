@@ -86,7 +86,7 @@ actualizaConversacion = function(xml){
 		mNuevos += '<div class="sbl"><div class="sbr"><div class="stl"><div class="str">'
 		mNuevos += '<span class="mensaje">' + $(this).text() + "</span>";
 		mNuevos += '</div></div></div></div><div class="sb">';
-		mNuevos += '<img class="character" src="../../avatares/'+$(this).attr('idUsuario')+'.jpg"/>';
+		mNuevos += '<img class="character" src="' + AVATARES_PATH + $(this).attr('idUsuario')+'.jpg"/>';
 		mNuevos += '<b class="nick">';
 		mNuevos += $(this).attr("nick") + "</b>";
 		conversacion.html(mAnteriores + mNuevos);

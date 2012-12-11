@@ -51,6 +51,7 @@ $tipo_y_nombre = ucfirst($_GET['tipoDeUsuario']) . ": " .$_SESSION['nombre'] . "
     <script type="text/javascript" src="../../lib/js/modernizr.js"></script>
     <script type="text/javascript" src="lib/js/chat.js"></script>
 <?php echo '<script type="text/javascript">var SERVER_PATH = "' . REMOTE_SERVER .'modulos/tutorias/";</script>' ?>
+<?php echo '<script type="text/javascript">var AVATARES_PATH = "' . REMOTE_SERVER .'avatares/";</script>' ?>
   </head>
   <body>
 	 <?php include "../../lib/php/encabezado.php" ?>
