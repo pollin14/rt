@@ -46,7 +46,7 @@ if (isset($_POST['nickname']) &&
 			if( isset($_GET['pa'])){
 				$dir = $_GET['pa'];
 			}else{
-				$dir = "/" . SITE_ROOT . '/modulos/loged/loged.php';
+				$dir = "/" . SITE_ROOT . 'modulos/loged/loged.php';
 			}
 			header('location: http://' . $_SERVER['SERVER_NAME'] .  $dir);
 		}
