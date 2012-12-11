@@ -7,7 +7,7 @@
 
 session_start();
 include "../../configuracion.php";
-administraSession();
+administraSesion();
 
 if (isset($_POST['idTutoria'])) {
 	header('Content-Type: text/html; charset=UTF-8');
