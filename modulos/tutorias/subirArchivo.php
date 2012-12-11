@@ -66,7 +66,7 @@ if (isset($_POST['idTutoria'])) {
 				$mensaje = "Por favor revisa el siguiente archivo: ";
 				$mensaje .= '<a href=\"' . $url . '\" title=\"' . $nombreReal . '\">' . $nombreReal . '</a>';
 				saveMensaje($idTutoria, $idUsuario, $idEtapa, $tipoDeUsuario, $mensaje, $db);
-				$exito .= '<p>Archivo subido con exito. Cerrando...</p> <div class="loading"></div>';
+				$exito .= '<p>Archivo subido con exito.</div>';
 				;
 			} else {
 				$error .= "<p>Ups! Ocurrió un problema y no se pudo subir el archivo.</p>";
@@ -92,8 +92,7 @@ if (isset($_POST['idTutoria'])) {
 					}
 
 					if (move_uploaded_file($nombreTemporal, $directorio . $nombreReal)) {
-						$exito .= "<p>Archivo subido con exito. Cerrando...</p>";
-						;
+						$exito .= "<p>Archivo subido con exito.</p>";
 					} else {
 						$error .= "<p>Ups! Ocurrió un problema y no se pudo subir el recurso.</p>";
 						$error .= "<p>Puede que se demasiado grande. Verifica";
@@ -110,7 +109,7 @@ if (isset($_POST['idTutoria'])) {
 					$error .= "<p>Ups! Ocurrió un problema y no se pudo subir el recurso.</p>";
 					$error .= "<p>Puede que tu dirección web este mal.</p>";
 				} else {
-					$exito .= "Archivo subido con exito. Cerrando...";
+					$exito .= "Archivo subido con exito. ";
 					;
 				}
 			}
@@ -127,9 +126,9 @@ if (isset($_POST['idTutoria'])) {
 
 
 			if (!$db->query($query)) {
-				$exito .= "<p>Ups! Ocurrió un problema.</p>";
-				$exito .= "<p>Posiblemente, ya subiste este producto.";
-				$exito .= " Para actualizarlo, borralo y despues subelo.</p>";
+				$error .= "<p>Ups! Ocurrió un problema.</p>";
+				$error .= "<p>Posiblemente, ya subiste este producto.";
+				$error .= " Para actualizarlo, borralo y despues subelo.</p>";
 			} else {
 
 				if (!file_exists($directorio)) {
@@ -137,7 +136,7 @@ if (isset($_POST['idTutoria'])) {
 				}
 
 				if (move_uploaded_file($nombreTemporal, $directorio . $nombreDelProducto . $extension)) {
-					$exito .= "<p>Archivo subido con exito. Cerrando...</p>";
+					$exito .= "<p>Archivo subido con exito.</p>";
 				} else {
 					$error.= "<p>Ups! Ocurrió un problema.</p>";
 					$error.= "<p>Posiblemente, ya subiste este producto.";
