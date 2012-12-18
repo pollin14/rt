@@ -77,15 +77,23 @@ body{
 }
 
 #ingreso table td{
-	text-align:left;
+	padding:5px;
+	text-align:right;
 }
 
 #ingreso table th{
 	padding:15px;
 }
 
-#nickname input, #password input{
-	width:95%;
+#ingreso input{
+	width:200px;
+}
+
+#ingreso input.submit{
+	width:auto;
+	border:solid black thin;
+	background-color: white;
+	padding:5px;
 }
 
 #ingresar{

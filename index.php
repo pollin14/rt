@@ -54,8 +54,8 @@ if (isset($_POST['nickname']) &&
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Espacio Virtual de Aprendizaje</title>
@@ -93,7 +93,7 @@ if (isset($_POST['nickname']) &&
 								<td><input type="password" name="password" /></td>
 							</tr>
 							<tr>
-								<td colspan="2"><input type="submit" name="ingresar" value="Ingresar" id="ingresar" /></td>
+								<td colspan="2"><input type="submit" class="submit" value="Ingresar" /></td>
 							</tr>
 							<tr>
 								<td colspan="2"><a href="modulos/registro/index.php" title="Alta en ESVIAP">No estoy registrado</a></td>
